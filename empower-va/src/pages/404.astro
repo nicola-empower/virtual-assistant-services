@@ -1,0 +1,32 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Home, Search } from 'lucide-react';
+---
+
+<MainLayout title="Page Not Found | Empower VA">
+  <main class="min-h-screen bg-slate-50 flex items-center justify-center px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      
+      <div class="relative w-32 h-32 mx-auto mb-8">
+        <div class="absolute inset-0 bg-purple-100 rounded-full animate-ping opacity-75"></div>
+        <div class="relative bg-white p-6 rounded-full shadow-lg flex items-center justify-center w-full h-full">
+          <Search class="w-12 h-12 text-purple-600" />
+        </div>
+      </div>
+
+      <h1 class="text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">404</h1>
+      <h2 class="text-3xl font-bold text-slate-800 mb-6">Lost in the Chaos?</h2>
+      
+      <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+        It looks like the page you're looking for has been archived, moved, or never existed. 
+        Don't worry, we can help you get back on track.
+      </p>
+
+      <a href="/" class="inline-flex items-center gap-2 px-8 py-4 bg-teal-700 text-white font-bold rounded-lg hover:bg-teal-800 transition-all shadow-lg hover:shadow-xl">
+        <Home class="w-5 h-5" />
+        Return Home
+      </a>
+
+    </div>
+  </main>
+</MainLayout>

@@ -1,0 +1,49 @@
+---
+import { Menu } from 'lucide-react';
+---
+
+<nav class="fixed w-full z-50 top-0 start-0 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6 py-4">
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/logo.png" class="h-10" alt="Empower VA Logo" />
+    </a>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <Menu class="w-5 h-5" />
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+        <li>
+          <a href="/" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Home</a>
+        </li>
+        <li>
+          <a href="/about" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">About</a>
+        </li>
+        <li>
+          <a href="/services" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Services</a>
+        </li>
+        <li>
+          <a href="#process" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Process</a>
+        </li>
+        <li>
+          <a href="#pricing" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Pricing</a>
+        </li>
+        <li>
+          <a href="/contact" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 md:p-0">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Basic mobile menu toggle
+  const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+  const menu = document.getElementById('navbar-default');
+
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

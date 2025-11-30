@@ -1,0 +1,130 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import HeroBackground from '../components/HeroBackground.astro';
+import { 
+  Mail, CalendarDays, Plane, Database, Folder, FileText, 
+  Sheet, Presentation, Captions, Users, ClipboardList, 
+  Contact, Receipt, FileCheck2, FileCog, Rocket, DollarSign, TrendingUp, ArrowRight 
+} from 'lucide-react';
+
+const adminServices = [
+  { icon: Mail, text: "Email Management & Organisation" },
+  { icon: CalendarDays, text: "Calendar & Appointment Management" },
+  { icon: Plane, text: "Travel Planning & Booking" },
+  { icon: Database, text: "Data Entry & Database Management" },
+  { icon: Folder, text: "File Organisation (Digital & Cloud-Based)" },
+  { icon: FileText, text: "Document Formatting & Proofreading" },
+  { icon: Sheet, text: "Spreadsheet Creation & Management" },
+  { icon: Presentation, text: "Presentation Preparation" },
+  { icon: Captions, text: "Transcription Services" },
+  { icon: Users, text: "Meeting Scheduling & Coordination" },
+  { icon: ClipboardList, text: "Meeting Minutes & Action Item Tracking" },
+  { icon: Contact, text: "CRM System Management" },
+  { icon: Receipt, text: "Preparing Invoices" },
+  { icon: FileCheck2, text: "Online Forms Creation" },
+  { icon: FileCog, text: "Process Documentation and SOP Creation" },
+];
+
+const benefits = [
+  {
+    icon: Rocket,
+    title: "Increase Productivity",
+    description: "Free yourself from time-consuming admin to concentrate on revenue-generating activities and strategic planning."
+  },
+  {
+    icon: DollarSign,
+    title: "Reduce Overheads",
+    description: "Get expert support without the costs associated with hiring a full-time employee, such as office space and benefits."
+  },
+  {
+    icon: TrendingUp,
+    title: "Improve Scalability",
+    description: "Easily scale your support up or down based on your current workload and business needs, ensuring flexibility."
+  }
+];
+---
+
+<MainLayout title="Services | Empower VA">
+  <main class="relative min-h-screen">
+    <HeroBackground />
+    
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 z-10">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-xs font-bold text-teal-800 uppercase tracking-wide mb-6">
+          <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+          Foundational Support
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          The Support Your Business <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1A565E] to-[#9F89B6]">Needs to Thrive</span>
+        </h1>
+        <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          Are you overwhelmed by daily administrative tasks? My Virtual Assistant service provides the reliable, efficient, and proactive support you need to regain control of your schedule.
+        </p>
+      </div>
+    </section>
+
+    <!-- ADMIN SERVICES GRID -->
+    <section class="py-20 bg-white/50 backdrop-blur-sm border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Administrative Support</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            I handle a comprehensive range of administrative tasks to keep your operations running smoothly and efficiently.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {adminServices.map(service => (
+            <div class="flex items-start p-6 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-100 transition-all group">
+              <div class="p-2 bg-teal-50 rounded-lg mr-4 group-hover:scale-110 transition-transform">
+                <service.icon class="w-5 h-5 text-teal-600" />
+              </div>
+              <span class="text-slate-700 font-medium pt-1">{service.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Focus On What You Do Best</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Partnering with a Virtual Assistant is more than just outsourcing tasks; it's a strategic investment in your business's growth.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {benefits.map(benefit => (
+            <div class="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center hover:border-teal-200 transition-colors">
+              <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <benefit.icon class="w-7 h-7 text-teal-600" />
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
+              <p class="text-slate-600 leading-relaxed">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-24 bg-[#1A565E] relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Reclaim Your Time?</h2>
+        <p class="text-teal-100 text-lg mb-10 max-w-2xl mx-auto">
+          Let's discuss your administrative challenges and create a support plan that gives you back your time and peace of mind.
+        </p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-teal-900 font-bold rounded-lg hover:bg-teal-50 transition-all shadow-xl text-lg">
+          Get Started Today <ArrowRight class="w-5 h-5" />
+        </a>
+      </div>
+    </section>
+
+  </main>
+</MainLayout>

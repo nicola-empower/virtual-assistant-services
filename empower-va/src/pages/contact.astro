@@ -1,0 +1,24 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ContactForm from '../components/ContactForm.jsx';
+import HeroBackground from '../components/HeroBackground.astro';
+---
+
+<MainLayout title="Contact | Empower VA">
+  <main class="relative min-h-screen pt-32 pb-20">
+    <HeroBackground />
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          Let's Optimise Your Operations
+        </h1>
+        <p class="text-xl text-slate-600">
+          Ready to reclaim your time? Fill out the form below and I'll get back to you within 24 hours.
+        </p>
+      </div>
+
+      <ContactForm client:load />
+    </div>
+  </main>
+</MainLayout>
