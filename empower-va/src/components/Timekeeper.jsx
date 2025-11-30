@@ -138,7 +138,7 @@ export default function Timekeeper() {
                         />
                         {isClient && entries.length > 0 && clientName ? (
                             <PDFDownloadLink
-                                document={<TimesheetDocument data={{ clientName, entries, totalHours: calculateTotal() }} />}
+                                document={<TimesheetDocument data={{ clientName, entries, totalHours: calculateTotal() }} logoUrl={window.location.origin + '/logo.png'} />}
                                 fileName={`Timesheet_${clientName}.pdf`}
                                 className="flex items-center justify-center gap-2 bg-teal-700 text-white py-3 rounded-lg font-bold hover:bg-teal-800 w-full shadow-sm"
                             >

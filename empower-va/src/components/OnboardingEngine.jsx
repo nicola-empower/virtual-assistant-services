@@ -114,7 +114,7 @@ export default function OnboardingEngine() {
 
                     {isClient && step === 3 ? (
                         <PDFDownloadLink
-                            document={<DossierDocument data={formData} />}
+                            document={<DossierDocument data={formData} logoUrl={window.location.origin + '/logo.png'} />}
                             fileName={`Dossier_${formData.clientName || 'Client'}.pdf`}
                             className="flex items-center justify-center gap-2 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 w-full shadow-lg transition-all"
                         >

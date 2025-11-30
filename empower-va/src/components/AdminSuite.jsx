@@ -83,15 +83,17 @@ export default function AdminSuite() {
     const renderDownloadButton = () => {
         if (!isClient || !formData.clientName) return <button disabled className="bg-slate-200 text-slate-400 px-6 py-3 rounded-lg font-bold w-full">Fill details to Download</button>;
 
+        const logoUrl = window.location.origin + '/logo.png';
         let doc, filename;
+
         if (activeTab === 'proposal') {
-            doc = <ProposalDocument data={formData} />;
+            doc = <ProposalDocument data={formData} logoUrl={logoUrl} />;
             filename = `Proposal_${formData.clientName}.pdf`;
         } else if (activeTab === 'contract') {
-            doc = <ContractDocument data={formData} />;
+            doc = <ContractDocument data={formData} logoUrl={logoUrl} />;
             filename = `Contract_${formData.clientName}.pdf`;
         } else {
-            doc = <InvoiceDocument data={formData} />;
+            doc = <InvoiceDocument data={formData} logoUrl={logoUrl} />;
             filename = `Invoice_${formData.invoiceNumber}.pdf`;
         }
 

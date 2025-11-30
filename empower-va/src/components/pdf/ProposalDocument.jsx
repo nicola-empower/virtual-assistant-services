@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     footer: { position: 'absolute', bottom: 30, left: 40, right: 40, fontSize: 10, textAlign: 'center', color: '#999', borderTop: '1px solid #eee', paddingTop: 10 }
 });
 
-export const ProposalDocument = ({ data }) => (
+export const ProposalDocument = ({ data, logoUrl }) => (
     <Document>
         <Page size="A4" style={styles.page}>
 
@@ -26,7 +26,7 @@ export const ProposalDocument = ({ data }) => (
                     <Text style={styles.title}>Project Proposal</Text>
                     <Text style={styles.subtitle}>Prepared by Empower VA Services</Text>
                 </View>
-                <Image style={styles.logo} src="/logo.png" />
+                {logoUrl && <Image style={styles.logo} src={logoUrl} />}
             </View>
 
             {/* Client & Project Info */}

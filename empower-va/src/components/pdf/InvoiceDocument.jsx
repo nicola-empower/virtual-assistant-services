@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     footer: { position: 'absolute', bottom: 30, left: 40, right: 40, fontSize: 10, textAlign: 'center', color: '#999', borderTop: '1px solid #eee', paddingTop: 10 }
 });
 
-export const InvoiceDocument = ({ data }) => (
+export const InvoiceDocument = ({ data, logoUrl }) => (
     <Document>
         <Page size="A4" style={styles.page}>
 
             {/* Header */}
             <View style={styles.header}>
-                <Image style={styles.logo} src="/logo.png" />
+                {logoUrl && <Image style={styles.logo} src={logoUrl} />}
                 <View>
                     <Text style={styles.title}>INVOICE</Text>
                     <View style={styles.invoiceDetails}>

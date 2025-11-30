@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     footer: { position: 'absolute', bottom: 30, left: 40, right: 40, fontSize: 10, textAlign: 'center', color: '#999', borderTop: '1px solid #eee', paddingTop: 10 }
 });
 
-export const TimesheetDocument = ({ data }) => (
+export const TimesheetDocument = ({ data, logoUrl }) => (
     <Document>
         <Page size="A4" style={styles.page}>
 
@@ -38,7 +38,7 @@ export const TimesheetDocument = ({ data }) => (
                     <Text style={styles.title}>Timesheet</Text>
                     <Text style={styles.subtitle}>Empower VA Services</Text>
                 </View>
-                <Image style={styles.logo} src="/logo.png" />
+                {logoUrl && <Image style={styles.logo} src={logoUrl} />}
             </View>
 
             {/* Info */}
