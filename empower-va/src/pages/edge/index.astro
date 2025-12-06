@@ -1,0 +1,64 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { ArrowRight } from "lucide-react";
+
+const posts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+        b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<MainLayout title="The Edge | Empower VA Logic">
+    <section class="py-24 bg-slate-50 min-h-screen">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6"
+                >
+                    The Edge
+                </h1>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                    Thoughts on efficiency, automation, and the art of doing
+                    less to achieve more.
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                {
+                    posts.map((post) => (
+                        <a
+                            href={`/edge/${post.slug}`}
+                            class="block bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group"
+                        >
+                            <h2 class="text-2xl font-bold text-slate-900 mb-2 group-hover:text-teal-700 transition-colors">
+                                {post.data.title}
+                            </h2>
+                            <div class="text-sm text-slate-500 mb-4">
+                                {post.data.pubDate.toLocaleDateString("en-GB", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </div>
+                            <p class="text-slate-600 mb-6 line-clamp-2">
+                                {post.data.description}
+                            </p>
+                            <div class="font-bold text-teal-600 flex items-center gap-2">
+                                Read Article{" "}
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                        </a>
+                    ))
+                }
+                {
+                    posts.length === 0 && (
+                        <p class="text-center text-slate-500">
+                            No posts found.
+                        </p>
+                    )
+                }
+            </div>
+        </div>
+    </section>
+</MainLayout>

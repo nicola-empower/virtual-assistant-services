@@ -23,7 +23,7 @@ export default function HeroProcessor() {
   }, [processed]);
 
   return (
-    <div className="relative w-full h-[400px] bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+    <div className="relative w-full min-h-[400px] md:h-[400px] h-auto bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
 
       {/* LEFT: THE CHAOS (Input) */}
       <div className="w-full md:w-1/2 p-8 border-r border-slate-200 relative">

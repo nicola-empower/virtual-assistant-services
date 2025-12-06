@@ -1,7 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft, Download, CheckCircle, User, Palette, Key } from 'lucide-react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { PDFDownloadLink, usePDF } from '@react-pdf/renderer';
 import { DossierDocument } from './pdf/DossierDocument';
+
+const DossierDownloader = ({ data }) => {
+    const [instance, updateInstance] = usePDF({
+        document: <DossierDocument data={data} logoUrl={window.location.origin + '/logo.png'} />
+    });
+
+    if (instance.loading) {
+        return (
+            <button disabled className="flex items-center justify-center gap-2 bg-slate-900/50 text-white py-4 rounded-xl font-bold w-full shadow-lg cursor-wait">
+                Generating...
+            </button>
+        );
+    }
+
+    if (instance.error) {
+        return (
+            <div className="text-red-500 text-sm text-center font-bold p-2">
+                Formatting Error: {instance.error}
+            </div>
+        );
+    }
+
+    return (
+        <a
+            href={instance.url}
+            download={`Dossier_${data.clientName || 'Client'}.pdf`}
+            className="flex items-center justify-center gap-2 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 w-full shadow-lg transition-all"
+        >
+            <Download className="w-4 h-4" /> Download Dossier
+        </a>
+    );
+};
 
 export default function OnboardingEngine() {
     const [step, setStep] = useState(1);
@@ -113,13 +145,7 @@ export default function OnboardingEngine() {
                     <p className="text-sm text-slate-500 mb-6">Generate a confidential PDF profile for your records.</p>
 
                     {isClient && step === 3 ? (
-                        <PDFDownloadLink
-                            document={<DossierDocument data={formData} logoUrl={window.location.origin + '/logo.png'} />}
-                            fileName={`Dossier_${formData.clientName || 'Client'}.pdf`}
-                            className="flex items-center justify-center gap-2 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 w-full shadow-lg transition-all"
-                        >
-                            {({ loading }) => (loading ? 'Generating...' : <><Download className="w-4 h-4" /> Download Dossier</>)}
-                        </PDFDownloadLink>
+                        <DossierDownloader data={formData} />
                     ) : (
                         <button disabled className="w-full bg-slate-200 text-slate-400 py-4 rounded-xl font-bold cursor-not-allowed">
                             Complete All Steps
