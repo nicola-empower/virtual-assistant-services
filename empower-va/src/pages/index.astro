@@ -3,8 +3,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import HeroProcessor from "../components/HeroProcessor.jsx";
 import HeroBackground from "../components/HeroBackground.astro";
 import OverwhelmCalculator from "../components/OverwhelmCalculator.jsx";
-import Process from "../components/Process.astro";
-import Contact from "../components/Contact.astro";
 import SuccessStory from "../components/SuccessStory.astro";
 import Testimonials from "../components/Testimonials.astro";
 import GoogleWorkspaceReset from "../components/GoogleWorkspaceReset.astro";
@@ -127,7 +125,7 @@ const pricing = [
           >
             Don't just delegate. <br />
             <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-[#1A565E] to-[#9F89B6] dark:from-teal-300 dark:to-purple-300"
+              class="text-transparent bg-clip-text bg-linear-to-r from-[#1A565E] to-[#9F89B6] dark:from-teal-300 dark:to-purple-300"
             >
               Optimise.
             </span>
@@ -149,7 +147,7 @@ const pricing = [
               class="px-8 py-4 bg-[#1A565E] text-white font-bold rounded-lg hover:bg-[#134046] transition-all shadow-xl shadow-teal-900/10 flex items-center gap-2 group"
             >
               View Retainers <ArrowUpRight
-                class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
               />
             </a>
             <a
@@ -164,10 +162,10 @@ const pricing = [
             class="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400 pt-4"
           >
             <span class="flex items-center gap-2"
-              ><Check class="w-4 h-4 text-teal-600" /> No Agency Fees</span
+              ><Check className="w-4 h-4 text-teal-600" /> No Agency Fees</span
             >
             <span class="flex items-center gap-2"
-              ><Check class="w-4 h-4 text-teal-600" /> Tech-Stack Agnostic</span
+              ><Check className="w-4 h-4 text-teal-600" /> Tech-Stack Agnostic</span
             >
           </div>
         </div>
@@ -211,7 +209,7 @@ const pricing = [
             services.map((service) => (
               <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
                 <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon class="w-6 h-6 text-purple-700 dark:text-purple-300" />
+                  <service.icon className="w-6 h-6 text-purple-700 dark:text-purple-300" />
                 </div>
                 <h3 class="text-xl font-bold text-slate-900 mb-3">
                   {service.title}
@@ -332,7 +330,7 @@ const pricing = [
           <div class="order-2 lg:order-1">
             <div class="relative">
               <div
-                class="absolute inset-0 bg-gradient-to-tr from-purple-600 to-pink-600 rounded-2xl rotate-3 opacity-10"
+                class="absolute inset-0 bg-linear-to-tr from-purple-600 to-pink-600 rounded-2xl rotate-3 opacity-10"
               >
               </div>
               <div
@@ -392,8 +390,8 @@ const pricing = [
                   <Check className="w-3 h-3 text-green-600" />
                 </div>
                 <span class="text-slate-700"
-                  ><strong>Tech-Savvy:</strong> Fluent in Asana, Notion, Zapier,
-                  Monday, Trello, Google Workspace and the tools you use.</span
+                  ><strong>Tech-Savvy:</strong> Fluent in Asana, Notion, Monday,
+                  Trello, Google Workspace and the tools you use.</span
                 >
               </li>
               <li class="flex items-start gap-3">
