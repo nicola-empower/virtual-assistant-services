@@ -23,15 +23,15 @@ export default function HeroProcessor() {
   }, [processed]);
 
   return (
-    <div className="relative w-full min-h-[400px] md:h-[400px] h-auto bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
+    <div className="relative w-full min-h-[400px] md:h-[400px] h-auto bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row">
 
       {/* LEFT: THE CHAOS (Input) */}
-      <div className="w-full md:w-1/2 p-8 border-r border-slate-200 relative">
+      <div className="w-full md:w-1/2 p-8 border-r border-slate-200 dark:border-slate-800 relative">
         <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">
           Input: The Chaos
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 min-h-[260px]">
           <AnimatePresence>
             {tasks.map((task) => (
               !processed.includes(task) && (
@@ -41,12 +41,12 @@ export default function HeroProcessor() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 0.9, x: 50 }}
                   transition={{ duration: 0.4 }}
-                  className="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl shadow-sm"
+                  className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm"
                 >
                   <div className={`p-2 rounded-lg ${task.bg}`}>
                     <task.icon className={`w-5 h-5 ${task.color}`} />
                   </div>
-                  <span className="font-medium text-slate-600">{task.text}</span>
+                  <span className="font-medium text-slate-600 dark:text-slate-300">{task.text}</span>
                 </motion.div>
               )
             ))}
@@ -56,9 +56,9 @@ export default function HeroProcessor() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex flex-col items-center justify-center h-40 text-slate-300"
+              className="flex flex-col items-center justify-center h-full absolute inset-0 top-20 text-slate-300 dark:text-slate-600"
             >
-              <div className="w-12 h-12 rounded-full border-2 border-dashed border-slate-300 animate-spin-slow mb-2"></div>
+              <div className="w-12 h-12 rounded-full border-2 border-dashed border-slate-300 dark:border-slate-600 animate-spin-slow mb-2"></div>
               <span>Waiting for input...</span>
             </motion.div>
           )}
@@ -67,7 +67,7 @@ export default function HeroProcessor() {
 
       {/* MIDDLE: THE ENGINE (You) */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex">
-        <div className="bg-white p-2 rounded-full shadow-lg border border-teal-100">
+        <div className="bg-white dark:bg-slate-800 p-2 rounded-full shadow-lg border border-teal-100 dark:border-teal-900">
           <div className="bg-gradient-to-br from-[#1A565E] to-[#6FA388] p-3 rounded-full text-white">
             <ArrowRight className="w-6 h-6 animate-pulse" />
           </div>
@@ -75,28 +75,28 @@ export default function HeroProcessor() {
       </div>
 
       {/* RIGHT: THE ORDER (Output) */}
-      <div className="w-full md:w-1/2 p-8 bg-white">
-        <div className="text-xs font-bold text-teal-600 uppercase tracking-widest mb-6 flex justify-between">
+      <div className="w-full md:w-1/2 p-8 bg-white dark:bg-slate-950">
+        <div className="text-xs font-bold text-teal-600 dark:text-teal-400 uppercase tracking-widest mb-6 flex justify-between">
           <span>Output: The System</span>
           <span>{Math.round((processed.length / tasks.length) * 100)}% Optimised</span>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 min-h-[260px]">
           {processed.map((task) => (
             <motion.div
               key={task.id}
               layoutId={task.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-between p-4 bg-teal-50/50 border border-teal-100 rounded-xl"
+              className="flex items-center justify-between p-4 bg-teal-50/50 dark:bg-teal-900/10 border border-teal-100 dark:border-teal-900 rounded-xl"
             >
               <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-teal-600" />
-                <span className="font-medium text-slate-800 line-through decoration-slate-300">
+                <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                <span className="font-medium text-slate-800 dark:text-slate-200 line-through decoration-slate-300 dark:decoration-slate-600">
                   {task.text}
                 </span>
               </div>
-              <span className="text-xs font-mono text-teal-700 bg-white px-2 py-1 rounded border border-teal-200">
+              <span className="text-xs font-mono text-teal-700 dark:text-teal-300 bg-white dark:bg-slate-800 px-2 py-1 rounded border border-teal-200 dark:border-teal-800">
                 RESOLVED
               </span>
             </motion.div>
