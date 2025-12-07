@@ -1,0 +1,64 @@
+---
+import { Quote } from "lucide-react";
+
+const testimonials = [
+    {
+        quote: "Nicola has been our administrator for five months. She is an incredibly capable and skilled professional who has talent far beyond the scope of a typical administrator. She single-handedly set up crucial business systems, drafted our GDPR policy, and brought a much-needed level of organisation to our client management.",
+        author: "Paul N",
+        role: "Business Owner",
+    },
+    {
+        quote: "Nicola has a keen eye for detail. I fully believe she can do her job with her eyes closed. The processes she implemented are far more efficient than what we had previously. The time I’m saving every day is incredible.",
+        author: "Margaret H",
+        role: "Client",
+    },
+];
+---
+
+<section
+    class="py-24 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2
+                class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            >
+                What Our Clients Say
+            </h2>
+            <p
+                class="text-slate-600 dark:text-slate-300 text-lg max-w-2xl mx-auto"
+            >
+                Don't just take our word for it. Here is the impact we've made
+                on businesses like yours.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            {
+                testimonials.map((testimonial) => (
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 relative">
+                        <Quote class="absolute top-8 right-8 w-10 h-10 text-teal-100 dark:text-slate-700" />
+                        <div class="relative z-10">
+                            <p class="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mb-6 italic">
+                                "{testimonial.quote}"
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center font-bold text-teal-700 dark:text-teal-400">
+                                    {testimonial.author.charAt(0)}
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-900 dark:text-white">
+                                        {testimonial.author}
+                                    </div>
+                                    <div class="text-sm text-slate-500 dark:text-slate-400">
+                                        {testimonial.role}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
