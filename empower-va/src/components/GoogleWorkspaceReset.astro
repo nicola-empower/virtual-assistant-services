@@ -1,5 +1,5 @@
 ---
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, AlertCircle } from "lucide-react";
 ---
 
 <section
@@ -45,7 +45,7 @@ import { Check, ArrowRight } from "lucide-react";
                             >
                         </div>
                         <p class="text-slate-700 dark:text-slate-300 text-lg">
-                            Are you still using a free <span
+                            Are you strictly using a free <span
                                 class="font-mono text-slate-500"
                                 >@gmail.com</span
                             > address?
@@ -61,7 +61,22 @@ import { Check, ArrowRight } from "lucide-react";
                             >
                         </div>
                         <p class="text-slate-700 dark:text-slate-300 text-lg">
-                            Do you worry your emails are going to spam?
+                            Or do you have a business email, but the system
+                            feels clunky and disconnected?
+                        </p>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/20 flex items-center justify-center shrink-0 mt-0.5"
+                        >
+                            <span
+                                class="text-red-600 dark:text-red-400 font-bold"
+                                >?</span
+                            >
+                        </div>
+                        <p class="text-slate-700 dark:text-slate-300 text-lg">
+                            Do you worry your emails are landing in Spam
+                            folders?
                         </p>
                     </li>
                     <li class="flex items-start gap-4">
@@ -99,7 +114,7 @@ import { Check, ArrowRight } from "lucide-react";
                             <p
                                 class="text-slate-500 dark:text-slate-400 text-sm"
                             >
-                                One-off Project
+                                One-off Setup Project
                             </p>
                         </div>
                         <div
@@ -114,19 +129,20 @@ import { Check, ArrowRight } from "lucide-react";
                             class="flex items-center gap-3 text-slate-700 dark:text-slate-300"
                         >
                             <Check className="w-5 h-5 text-green-500" />
-                            <span>Full Google Workspace Setup</span>
+                            <span>Full Google Workspace Configuration</span>
                         </li>
                         <li
                             class="flex items-center gap-3 text-slate-700 dark:text-slate-300"
                         >
                             <Check className="w-5 h-5 text-green-500" />
-                            <span>Professional Domain Connection</span>
+                            {/* Changed to be clear about who owns it */}
+                            <span>Connection to your existing Domain</span>
                         </li>
                         <li
                             class="flex items-center gap-3 text-slate-700 dark:text-slate-300"
                         >
                             <Check className="w-5 h-5 text-green-500" />
-                            <span>Security & Deliverability Configuration</span>
+                            <span>Security & Deliverability (SPF/DKIM)</span>
                         </li>
                         <li
                             class="flex items-center gap-3 text-slate-700 dark:text-slate-300"
@@ -147,12 +163,23 @@ import { Check, ArrowRight } from "lucide-react";
 
                     <a
                         href="/contact"
-                        class="flex items-center justify-center w-full py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors group"
+                        class="flex items-center justify-center w-full py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors group mb-4"
                     >
                         Get Your Reset <ArrowRight
                             className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                         />
                     </a>
+
+                    {/* The Disclaimer you needed */}
+                    <div
+                        class="flex gap-2 text-xs text-slate-400 dark:text-slate-500 leading-tight"
+                    >
+                        <AlertCircle className="w-4 h-4 shrink-0" />
+                        <p>
+                            Does not include Google subscription or domain
+                            purchase fees.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

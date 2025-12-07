@@ -31,7 +31,7 @@ export default function HeroProcessor() {
           Input: The Chaos
         </div>
 
-        <div className="space-y-4 min-h-[260px]">
+        <div className="space-y-4 h-[300px] relative">
           <AnimatePresence>
             {tasks.map((task) => (
               !processed.includes(task) && (
@@ -81,7 +81,7 @@ export default function HeroProcessor() {
           <span>{Math.round((processed.length / tasks.length) * 100)}% Optimised</span>
         </div>
 
-        <div className="space-y-4 min-h-[260px]">
+        <div className="space-y-4 h-[300px] relative">
           {processed.map((task) => (
             <motion.div
               key={task.id}
