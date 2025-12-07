@@ -4,10 +4,10 @@ import HeroProcessor from "../components/HeroProcessor.jsx";
 import HeroBackground from "../components/HeroBackground.astro";
 import OverwhelmCalculator from "../components/OverwhelmCalculator.jsx";
 import Process from "../components/Process.astro";
-import Pricing from "../components/Pricing.astro";
 import Contact from "../components/Contact.astro";
 import SuccessStory from "../components/SuccessStory.astro";
 import Testimonials from "../components/Testimonials.astro";
+import GoogleWorkspaceReset from "../components/GoogleWorkspaceReset.astro";
 import Footer from "../components/Footer.astro";
 import {
   ArrowUpRight,
@@ -66,37 +66,42 @@ const pricing = [
   {
     name: "The Starter",
     hours: "10 Hours",
-    tagline: "The Chaos Tamer",
-    price: "£450",
+    description:
+      "Best for: Solopreneurs who need their inbox tamed and systems watched.",
+    price: "£300",
     features: [
-      "Email & Calendar Management",
-      "Basic Research",
+      "Inbox & Calendar Triage",
+      "System 'Health Checks'",
+      "Basic Admin Tasks",
       "Monthly Report",
     ],
   },
   {
     name: "The Growth",
-    hours: "20 Hours",
-    tagline: "The Right Hand",
-    price: "£850",
+    hours: "16 Hours",
+    description:
+      "Best for: Business owners with active clients who need consistent tech & admin support.",
+    price: "£480",
     features: [
-      "All Starter Features",
-      "Project Support",
-      "SOP Creation",
-      "Weekly Check-ins",
+      "Everything in Starter",
+      "Website Updates",
+      "Client Onboarding",
+      "Tech Support & Fixes",
+      "Priority Queue",
     ],
     popular: true,
   },
   {
     name: "The Partner",
-    hours: "40 Hours",
-    tagline: "The OBM",
-    price: "£1,600",
+    hours: "24 Hours",
+    description:
+      "Best for: Busy owners who want to hand off operations entirely.",
+    price: "£720",
     features: [
-      "Full Business Operations",
-      "Team Management",
-      "System Architecture",
-      "Daily Syncs",
+      "Everything in Growth",
+      "Full Inbox Management",
+      "Process Documentation",
+      "Weekly Strategy Call",
     ],
   },
 ];
@@ -375,7 +380,7 @@ const pricing = [
             <ul class="space-y-4 pt-4">
               <li class="flex items-start gap-3">
                 <div class="mt-1 p-1 bg-green-100 rounded-full">
-                  <Check class="w-3 h-3 text-green-600" />
+                  <Check className="w-3 h-3 text-green-600" />
                 </div>
                 <span class="text-slate-700"
                   ><strong>System-First Mindset:</strong> We don't just patch holes;
@@ -384,16 +389,16 @@ const pricing = [
               </li>
               <li class="flex items-start gap-3">
                 <div class="mt-1 p-1 bg-green-100 rounded-full">
-                  <Check class="w-3 h-3 text-green-600" />
+                  <Check className="w-3 h-3 text-green-600" />
                 </div>
                 <span class="text-slate-700"
                   ><strong>Tech-Savvy:</strong> Fluent in Asana, Notion, Zapier,
-                  and the tools you use.</span
+                  Monday, Trello, Google Workspace and the tools you use.</span
                 >
               </li>
               <li class="flex items-start gap-3">
                 <div class="mt-1 p-1 bg-green-100 rounded-full">
-                  <Check class="w-3 h-3 text-green-600" />
+                  <Check className="w-3 h-3 text-green-600" />
                 </div>
                 <span class="text-slate-700"
                   ><strong>Proactive:</strong> We anticipate bottlenecks before they
@@ -401,6 +406,32 @@ const pricing = [
                 >
               </li>
             </ul>
+
+            <div class="pt-6 mt-6 border-t border-slate-200">
+              <p class="text-sm text-slate-500 mb-2">
+                Need something more specialised?
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="https://empowerautomation.co.uk/"
+                  target="_blank"
+                  class="text-teal-600 hover:text-teal-700 font-medium text-sm flex items-center gap-1 group"
+                >
+                  Looking for dedicated automation projects? <ArrowRight
+                    className="w-3 h-3 group-hover:translate-x-1 transition-transform"
+                  />
+                </a>
+                <a
+                  href="https://empowerdigitalsolutions.co.uk/"
+                  target="_blank"
+                  class="text-purple-600 hover:text-purple-700 font-medium text-sm flex items-center gap-1 group"
+                >
+                  Looking for full website builds? <ArrowRight
+                    className="w-3 h-3 group-hover:translate-x-1 transition-transform"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -450,24 +481,28 @@ const pricing = [
                   </div>
                 )}
 
-                <div class="mb-8">
-                  <h3 class="text-lg font-bold text-slate-900">{plan.name}</h3>
-                  <div class="text-sm text-slate-500 mb-4">{plan.tagline}</div>
-                  <div class="flex items-baseline gap-1">
-                    <span class="text-4xl font-extrabold text-slate-900">
-                      {plan.price}
+                <div class="text-center mb-8">
+                  <h3 class="text-xl font-bold text-slate-900 mb-2">
+                    {plan.name}
+                  </h3>
+                  <div class="text-3xl font-bold text-slate-900 mb-2">
+                    {plan.price}{" "}
+                    <span class="text-sm font-normal text-slate-500">
+                      / month
                     </span>
-                    <span class="text-slate-500">/month</span>
                   </div>
-                  <div class="text-sm font-medium text-purple-600 mt-2 bg-purple-50 inline-block px-2 py-1 rounded">
-                    {plan.hours} included
+                  <div class="text-sm font-bold text-teal-600 bg-teal-50 inline-block px-3 py-1 rounded-full mb-4">
+                    {plan.hours}
                   </div>
+                  <p class="text-sm text-slate-500 italic">
+                    {plan.description}
+                  </p>
                 </div>
 
                 <ul class="space-y-4 mb-8 flex-1">
                   {plan.features.map((feature) => (
                     <li class="flex items-center gap-3 text-sm text-slate-600">
-                      <Check class="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-green-500 shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -489,6 +524,9 @@ const pricing = [
         </div>
       </div>
     </section>
+
+    <!-- GOOGLE WORKSPACE RESET SECTION -->
+    <GoogleWorkspaceReset />
 
     <!-- CONTACT CTA -->
     <section id="contact" class="py-24 bg-white">
