@@ -32,7 +32,7 @@ export default function ContactForm() {
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
                     placeholder="Jane Doe"
                 />
                 <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-sm mt-1" />
@@ -45,7 +45,7 @@ export default function ContactForm() {
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
                     placeholder="jane@company.com"
                 />
                 <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-sm mt-1" />
@@ -58,7 +58,7 @@ export default function ContactForm() {
                     name="message"
                     required
                     rows="5"
-                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none"
                     placeholder="Tell me about your business needs..."
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-sm mt-1" />
