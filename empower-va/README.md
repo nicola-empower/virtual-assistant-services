@@ -24,8 +24,13 @@ A fully functional internal tool for managing VA operations, accessible via `/to
 *   **Overwhelm Calculator:** An interactive tool to help potential clients calculate the financial cost of doing busy work themselves.
 *   **SaaS Aesthetic:** Clean, structured design using Inter font and a refined color palette (Teal, Sage, & Slate).
 
-#### 3. Performance & Tech
-*   **High Performance:** Built on **Astro** for zero-JS default loading and lightning-fast SEO.
+#### 3. The Edge (Blog)
+*   **Content Hub:** A dedicated blog section at `/edge` sharing insights on efficiency and automation.
+*   **Markdown Powered:** Efficient content management using Markdown files.
+
+#### 4. Performance & SEO
+*   **Static Generation:** All pages are statically prerendered (`prerender = true`) for lightning-fast loading.
+*   **SEO Optimized:** Full metadata control, generated sitemap, and configured `robots.txt` for maximum Google visibility.
 *   **Interactive Islands:** Uses **React** only where needed (Command Center, Calculator, Hero).
 *   **Responsive:** Mobile-first design that looks premium on all devices.
 

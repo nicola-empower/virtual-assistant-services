@@ -1,65 +1,109 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import { Shield, Database, Wifi, Settings, Lock, Clock, Scale, Cookie, ExternalLink, Mail } from 'lucide-react';
+export const prerender = true;
+import MainLayout from "../layouts/MainLayout.astro";
+import {
+  Shield,
+  Database,
+  Wifi,
+  Settings,
+  Lock,
+  Clock,
+  Scale,
+  Cookie,
+  ExternalLink,
+  Mail,
+} from "lucide-react";
 ---
 
 <MainLayout title="Privacy Policy | Empower VA Services">
   <main class="bg-slate-50 min-h-screen py-20">
     <!-- Header -->
     <div class="max-w-4xl mx-auto px-6 text-center mb-12">
-      <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
+      <h1 class="text-4xl font-extrabold text-slate-900 mb-4">
+        Privacy Policy
+      </h1>
       <p class="text-xl text-slate-600">Our Commitment to Your Data Security</p>
     </div>
 
     <div class="max-w-3xl mx-auto px-6 space-y-8">
-      
       <!-- Who We Are -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Shield class="w-6 h-6" /> Who We Are
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          Empower Virtual Assistant Services is a virtual assistant consultancy service, operated by Nicola Berry, a sole trader, based in Scotland.
+          Empower Virtual Assistant Services is a virtual assistant consultancy
+          service, operated by Nicola Berry, a sole trader, based in Scotland.
         </p>
       </div>
 
       <!-- Data We Collect -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Database class="w-6 h-6" /> The Data We Collect About You
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          We may collect and process various types of personal data from you, including Identity, Contact, Financial, Transaction, Technical, Profile, and Usage Data, as well as any service-specific data you share with us.
+          We may collect and process various types of personal data from you,
+          including Identity, Contact, Financial, Transaction, Technical,
+          Profile, and Usage Data, as well as any service-specific data you
+          share with us.
         </p>
       </div>
 
       <!-- How We Collect -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Wifi class="w-6 h-6" /> How We Collect Your Data
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          We collect data through <strong>Direct Interactions</strong> (when you fill in forms, purchase services, or correspond with us) and <strong>Automated Technologies</strong> (like cookies on our website). We may also receive data from third parties such as analytics and payment providers.
+          We collect data through <strong>Direct Interactions</strong> (when you fill
+          in forms, purchase services, or correspond with us) and <strong
+            >Automated Technologies</strong
+          > (like cookies on our website). We may also receive data from third parties
+          such as analytics and payment providers.
         </p>
       </div>
 
       <!-- How We Use -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Settings class="w-6 h-6" /> How We Use Your Data
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          We only use your data to provide our services, manage our relationship with you, process payments, and comply with legal obligations. We will not use your data for marketing purposes unless you explicitly opt-in.
+          We only use your data to provide our services, manage our relationship
+          with you, process payments, and comply with legal obligations. We will
+          not use your data for marketing purposes unless you explicitly opt-in.
         </p>
       </div>
 
       <!-- Data Security -->
       <div class="bg-teal-50 p-8 rounded-2xl border border-teal-200 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-900 mb-4 flex items-center gap-3">
+        <h3
+          class="text-xl font-bold text-teal-900 mb-4 flex items-center gap-3"
+        >
           <Lock class="w-6 h-6" /> Data Security
         </h3>
         <p class="text-teal-800 mb-4 leading-relaxed">
-          We take the security of your data very seriously. We have implemented robust measures to protect your personal data from accidental loss, unauthorised access, alteration, or disclosure. These measures include:
+          We take the security of your data very seriously. We have implemented
+          robust measures to protect your personal data from accidental loss,
+          unauthorised access, alteration, or disclosure. These measures
+          include:
         </p>
         <ul class="list-disc list-inside text-teal-700 space-y-2 ml-4">
           <li>Secure Wi-Fi Networks & Data Encryption</li>
@@ -73,56 +117,91 @@ import { Shield, Database, Wifi, Settings, Lock, Clock, Scale, Cookie, ExternalL
       </div>
 
       <!-- Data Retention -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Clock class="w-6 h-6" /> Data Retention
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including legal or accounting requirements. If your data is not actively used for services, we will not store it for longer than one year.
+          We will only retain your personal data for as long as necessary to
+          fulfil the purposes we collected it for, including legal or accounting
+          requirements. If your data is not actively used for services, we will
+          not store it for longer than one year.
         </p>
       </div>
 
       <!-- Your Legal Rights -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Scale class="w-6 h-6" /> Your Legal Rights
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          Under UK GDPR, you have rights in relation to your personal data, including the right to request access, correction, erasure, and more. To exercise any of these rights, please contact us.
+          Under UK GDPR, you have rights in relation to your personal data,
+          including the right to request access, correction, erasure, and more.
+          To exercise any of these rights, please contact us.
         </p>
       </div>
 
       <!-- Cookie Policy -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <Cookie class="w-6 h-6" /> Cookie Policy
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          Our website uses cookies to enhance your browsing experience. These are small text files placed on your device that help us analyse website traffic (e.g., through Google Analytics) and ensure basic site functionality. By continuing to use our website, you consent to our use of these essential and analytical cookies.
+          Our website uses cookies to enhance your browsing experience. These
+          are small text files placed on your device that help us analyse
+          website traffic (e.g., through Google Analytics) and ensure basic site
+          functionality. By continuing to use our website, you consent to our
+          use of these essential and analytical cookies.
         </p>
       </div>
 
       <!-- Third-Party Links -->
-      <div class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm">
-        <h3 class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+      <div
+        class="bg-white p-8 rounded-2xl border-l-4 border-teal-500 shadow-sm"
+      >
+        <h3
+          class="text-xl font-bold text-teal-800 mb-4 flex items-center gap-3"
+        >
           <ExternalLink class="w-6 h-6" /> Third-Party Links
         </h3>
         <p class="text-slate-700 leading-relaxed">
-          Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites. This privacy statement does not govern such sites.
+          Our website may contain links to other websites of interest. However,
+          once you have used these links to leave our site, you should note that
+          we do not have any control over that other website. Therefore, we
+          cannot be responsible for the protection and privacy of any
+          information which you provide whilst visiting such sites. This privacy
+          statement does not govern such sites.
         </p>
       </div>
 
       <!-- Contact Section -->
-      <div class="bg-purple-50 p-8 rounded-2xl border border-purple-100 text-center shadow-sm mt-12">
+      <div
+        class="bg-purple-50 p-8 rounded-2xl border border-purple-100 text-center shadow-sm mt-12"
+      >
         <h3 class="text-2xl font-bold text-slate-900 mb-4">Contact Details</h3>
         <p class="text-slate-700 mb-6">
-          If you have any questions about this Privacy Policy or our data practices, please contact us:
+          If you have any questions about this Privacy Policy or our data
+          practices, please contact us:
         </p>
-        <a href="mailto:nicola@empowervaservices.co.uk" class="inline-flex items-center gap-2 text-purple-700 font-bold hover:text-purple-900 transition-colors text-lg">
+        <a
+          href="mailto:nicola@empowervaservices.co.uk"
+          class="inline-flex items-center gap-2 text-purple-700 font-bold hover:text-purple-900 transition-colors text-lg"
+        >
           <Mail class="w-5 h-5" /> nicola@empowervaservices.co.uk
         </a>
       </div>
-
     </div>
   </main>
 </MainLayout>
