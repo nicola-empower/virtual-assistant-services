@@ -1,0 +1,167 @@
+---
+export const prerender = true;
+import MainLayout from "../../layouts/MainLayout.astro";
+import { ArrowRight } from "lucide-react";
+import { Image } from "astro:assets";
+import cghBanner1 from "../../assets/cghbanner1.png";
+import cgh1 from "../../assets/cgh1.jpg";
+import cgh2 from "../../assets/cgh2.jpg";
+import cgh3 from "../../assets/cgh3.jpg";
+import cgh4 from "../../assets/cgh4.jpg";
+---
+
+<MainLayout
+    title="Cgh Joinery Case Study | Branding & Marketing | Empower VA Services"
+    description="See how Empower Virtual Assistant Services designed professional branding and marketing collateral for Cgh Joinery, helping them attract new customers and elevate their brand presence."
+    image="/cghbanner1.png"
+>
+    <main class="relative min-h-screen pt-32">
+        <!-- HERO BANNER SECTION -->
+        <section class="relative h-96 flex items-center justify-center">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={cghBanner1}
+                    alt="Cgh Joinery Banner"
+                    class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-slate-900/60"></div>
+            </div>
+
+            <!-- Content -->
+            <div
+                class="relative z-10 container mx-auto px-6 text-center text-white"
+            >
+                <h1
+                    class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg"
+                >
+                    Take Your Business to <br class="hidden md:block" /> New Heights!
+                </h1>
+                <p
+                    class="text-lg md:text-xl font-medium text-slate-100 drop-shadow-md"
+                >
+                    A Branding & Marketing Case Study for Cgh Joinery
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJECT OVERVIEW SECTION -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-center text-[#1a237e] mb-8"
+                >
+                    The Project
+                </h2>
+                <div class="text-lg text-slate-700 leading-relaxed space-y-6">
+                    <p>
+                        To truly elevate a business, a strong foundation of
+                        professional branding and marketing is essential. I
+                        partnered with <span class="font-bold text-[#1a237e]"
+                            >Cgh Joinery</span
+                        > to design a comprehensive suite of marketing collateral,
+                        including these impactful flyers and engaging social media
+                        assets.
+                    </p>
+                    <p>
+                        The goal was simple: establish a clean, consistent, and
+                        memorable brand identity that resonates with their ideal
+                        customers and sets them apart in a competitive market.
+                        This cohesive approach ensures every touchpoint, from
+                        initial contact to final delivery, reinforces Cgh
+                        Joinery's professionalism and quality. By transforming
+                        their marketing presence, we helped them attract new
+                        customers and build deeper trust.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESIGNS SHOWCASE GALLERY -->
+        <section class="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-center text-[#1a237e] mb-4"
+                >
+                    The Designs
+                </h2>
+                <p
+                    class="max-w-3xl mx-auto text-center text-lg text-slate-600 mb-12"
+                >
+                    A selection of the marketing assets created for Cgh Joinery,
+                    designed to be clean, professional, and consistent across
+                    all platforms.
+                </p>
+
+                <!-- Responsive Grid for Images -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                    >
+                        <Image
+                            src={cgh1}
+                            alt="Cgh Joinery Marketing Asset 1"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                    >
+                        <Image
+                            src={cgh2}
+                            alt="Cgh Joinery Marketing Asset 2"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                    >
+                        <Image
+                            src={cgh3}
+                            alt="Cgh Joinery Marketing Asset 3"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                    >
+                        <Image
+                            src={cgh4}
+                            alt="Cgh Joinery Marketing Asset 4"
+                            class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION SECTION -->
+        <section class="py-16 md:py-24 bg-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#1a237e] mb-6">
+                    Ready to Transform Your Marketing?
+                </h2>
+                <p
+                    class="text-lg text-slate-700 leading-relaxed mb-10 max-w-2xl mx-auto"
+                >
+                    Imagine achieving this level of professional polish and
+                    outreach for your own brand. Let's work together to create
+                    marketing materials that build trust and attract new
+                    customers.
+                </p>
+
+                <a
+                    href="/contact"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-[#2962ff] text-white font-bold rounded-xl hover:bg-[#1a237e] transition-colors shadow-lg shadow-blue-200 text-lg group"
+                >
+                    Get in Touch Today <ArrowRight
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    />
+                </a>
+            </div>
+        </section>
+    </main>
+</MainLayout>

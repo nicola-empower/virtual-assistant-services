@@ -1,0 +1,298 @@
+---
+export const prerender = true;
+import MainLayout from "../../layouts/MainLayout.astro";
+import {
+    ArrowRight,
+    Target,
+    Users,
+    LineChart,
+    BarChart3,
+    Search,
+    Database,
+    Briefcase,
+    TrendingUp,
+    Clock,
+    PieChart,
+} from "lucide-react";
+---
+
+<MainLayout
+    title="Lead Generation Case Study | Business Development | Empower VA Services"
+    description="How Empower VA Services implemented a structured lead generation system for a business consultant, resulting in 40+ qualified leads per month and 8+ hours saved weekly."
+>
+    <main class="relative min-h-screen pt-32">
+        <!-- HERO SECTION -->
+        <section class="bg-white py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-bold text-indigo-800 uppercase tracking-wide mb-6"
+                >
+                    <BarChart3 className="w-4 h-4" />
+                    Business Development
+                </div>
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6"
+                >
+                    A Strategic Process for <br class="hidden md:block" /> Predictable
+                    Growth
+                </h1>
+                <p class="text-xl text-slate-700 font-medium max-w-2xl mx-auto">
+                    Discover how we transformed an inconsistent "feast or
+                    famine" cycle into a steady stream of qualified prospects.
+                </p>
+            </div>
+        </section>
+
+        <!-- THE CHALLENGE SECTION -->
+        <section class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12"
+                >
+                    Breaking the "Feast or Famine" Cycle
+                </h2>
+
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12"
+                >
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div
+                            class="bg-red-50 p-4 rounded-xl text-red-600 shrink-0"
+                        >
+                            <TrendingUp className="w-8 h-8 rotate-180" />
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">
+                                Ad-Hoc & Unreliable
+                            </h3>
+                            <p class="text-slate-700 leading-relaxed mb-6">
+                                A successful business consultant struggled with
+                                inconsistent business development. Their process
+                                for finding new leads was reactive and ad-hoc.
+                            </p>
+                            <p class="text-slate-700 leading-relaxed">
+                                This resulted in an unpredictable <strong
+                                    >"feast or famine" cycle</strong
+                                > of new work, causing significant daily stress. They
+                                needed a structured system to ensure a steady flow
+                                of qualified prospects without the manual heavy lifting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEY METRICS SECTION -->
+        <section class="py-12 bg-indigo-900 text-white">
+            <div class="container mx-auto px-6">
+                <div
+                    class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-center divide-y md:divide-y-0 md:divide-x divide-indigo-800"
+                >
+                    <div class="p-6">
+                        <div
+                            class="text-4xl md:text-5xl font-black text-indigo-300 mb-2"
+                        >
+                            40+
+                        </div>
+                        <div class="text-indigo-100 font-medium tracking-wide">
+                            Qualified Leads Per Month
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div
+                            class="text-4xl md:text-5xl font-black text-indigo-300 mb-2"
+                        >
+                            8hrs+
+                        </div>
+                        <div class="text-indigo-100 font-medium tracking-wide">
+                            Saved Weekly
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE SOLUTION -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-slate-900 mb-6"
+                    >
+                        The Solution: Systematic Prospecting
+                    </h2>
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        To transform the client's inconsistent approach into a
+                        repeatable system, Empower VA implemented an efficient
+                        workflow that automated prospecting and simplified lead
+                        management.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            01
+                        </div>
+                        <div
+                            class="bg-indigo-50 w-12 h-12 rounded-lg flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <Target className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Define Ideal Customer
+                        </h3>
+                        <p class="text-slate-600">
+                            We identified the perfect client profile to ensure
+                            all future prospecting was highly targeted and
+                            relevant to the business goals.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            02
+                        </div>
+                        <div
+                            class="bg-indigo-50 w-12 h-12 rounded-lg flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <Users className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Systematic Prospecting
+                        </h3>
+                        <p class="text-slate-600">
+                            We built a targeted list of potential leads using
+                            professional networking tools and verified their
+                            contact data to ensure accuracy.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            03
+                        </div>
+                        <div
+                            class="bg-indigo-50 w-12 h-12 rounded-lg flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <LineChart className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Tracking & Management
+                        </h3>
+                        <p class="text-slate-600">
+                            We set up a simple CRM/spreadsheet system to track
+                            every lead, ensuring consistent follow-up and
+                            providing a clear view of the sales pipeline.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-16"
+                >
+                    From Stress to Streamlined Asset
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm"
+                    >
+                        <div
+                            class="bg-green-50 w-10 h-10 rounded-full flex items-center justify-center text-green-600 mb-4"
+                        >
+                            <TrendingUp className="w-5 h-5" />
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">
+                            Predictable Lead Flow
+                        </h4>
+                        <p class="text-slate-600">
+                            The new system delivered a consistent flow of
+                            qualified leads each month, effectively ending the
+                            unpredictable cycle.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm"
+                    >
+                        <div
+                            class="bg-blue-50 w-10 h-10 rounded-full flex items-center justify-center text-blue-600 mb-4"
+                        >
+                            <Clock className="w-5 h-5" />
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">
+                            Significant Time Savings
+                        </h4>
+                        <p class="text-slate-600">
+                            By automating and streamlining the process, the
+                            client saved over 8 hours of valuable time per week.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm"
+                    >
+                        <div
+                            class="bg-purple-50 w-10 h-10 rounded-full flex items-center justify-center text-purple-600 mb-4"
+                        >
+                            <PieChart className="w-5 h-5" />
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mb-2">
+                            Enhanced Organisation
+                        </h4>
+                        <p class="text-slate-600">
+                            A clear and organised sales pipeline allowed for
+                            effective planning and improved conversion rates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION SECTION -->
+        <section class="py-20 md:py-28 bg-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                    Ready for Predictable Growth?
+                </h2>
+                <p
+                    class="text-lg text-slate-700 leading-relaxed mb-10 max-w-2xl mx-auto"
+                >
+                    Stop the "feast or famine" cycle. Let us build a reliable
+                    engine for your business development.
+                </p>
+
+                <a
+                    href="/contact"
+                    class="inline-flex items-center gap-2 px-10 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200 text-lg group"
+                >
+                    Start Generating Leads <ArrowRight
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    />
+                </a>
+            </div>
+        </section>
+    </main>
+</MainLayout>

@@ -1,0 +1,286 @@
+---
+export const prerender = true;
+import MainLayout from "../../layouts/MainLayout.astro";
+import {
+    ArrowRight,
+    FileText,
+    Settings,
+    FolderCheck,
+    Zap,
+    CheckCircle2,
+    FileCheck2,
+    ShieldCheck,
+    Clock,
+} from "lucide-react";
+---
+
+<MainLayout
+    title="Document Automation Case Study | Google Apps Script | Empower VA Services"
+    description="How Empower VA Services automated invoice and proposal creation using custom Google Apps Scripts, saving time and ensuring 100% accuracy."
+>
+    <main class="relative min-h-screen pt-32">
+        <!-- HERO SECTION -->
+        <section class="bg-white py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-blue-800 uppercase tracking-wide mb-6"
+                >
+                    <Zap className="w-4 h-4" />
+                    Process Automation
+                </div>
+                <h1
+                    class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6"
+                >
+                    Automated Google Doc <br class="hidden md:block" /> to PDF Conversion
+                </h1>
+                <p class="text-xl text-slate-700 font-medium max-w-2xl mx-auto">
+                    Discover how we engineered a custom script to turn a manual,
+                    error-prone filing task into an instant, hands-free
+                    operation.
+                </p>
+            </div>
+        </section>
+
+        <!-- THE CHALLENGE SECTION -->
+        <section class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2
+                    class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12"
+                >
+                    The Overhead of "Just Saving a File"
+                </h2>
+
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12"
+                >
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div
+                            class="bg-red-50 p-4 rounded-xl text-red-600 shrink-0"
+                        >
+                            <FileText className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">
+                                The Manual Bottleneck
+                            </h3>
+                            <p class="text-slate-700 leading-relaxed mb-6">
+                                A client was frequently generating official
+                                documents (invoices, proposals, reports) in
+                                Google Docs. Converting these to professional,
+                                non-editable PDFs was an entirely manual
+                                workflow: open file -> export as PDF -> download
+                                -> rename -> move to folder.
+                            </p>
+                            <p class="text-slate-700 leading-relaxed">
+                                This workflow was <strong
+                                    >slow, repetitive, and prone to human error</strong
+                                >, frequently leading to version control issues
+                                and delays in getting critical documents to
+                                customers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE SOLUTION -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-slate-900 mb-6"
+                    >
+                        The Solution: Intelligent Automation
+                    </h2>
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        We moved beyond manual saving to engineer a robust,
+                        strategic system tailored to the client's needs using
+                        Google Apps Script.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            01
+                        </div>
+                        <div
+                            class="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <Settings className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Custom Script Development
+                        </h3>
+                        <p class="text-slate-600">
+                            We wrote a custom Google Apps Script designed to
+                            "watch" for specific trigger events within the
+                            client's Google Drive environment.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            02
+                        </div>
+                        <div
+                            class="bg-purple-50 w-12 h-12 rounded-lg flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <Zap className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Automated Trigger
+                        </h3>
+                        <p class="text-slate-600">
+                            The script runs automatically whenever a Google Doc
+                            is moved into a designated "Create PDF" folder,
+                            instantly generating a professional PDF copy.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition-shadow relative overflow-hidden group"
+                    >
+                        <div
+                            class="absolute top-0 right-0 p-4 opacity-10 font-black text-6xl text-slate-300 select-none"
+                        >
+                            03
+                        </div>
+                        <div
+                            class="bg-green-50 w-12 h-12 rounded-lg flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform"
+                        >
+                            <FolderCheck className="w-6 h-6" />
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">
+                            Organised Output
+                        </h3>
+                        <p class="text-slate-600">
+                            The new PDF is automatically named according to a
+                            strict convention and saved into a "Final PDFs"
+                            archive, ensuring perfect organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section class="py-16 md:py-24 bg-slate-900 text-white">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                    More Than Just Saved Clicks
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 bg-blue-500/20 p-3 rounded-lg h-fit"
+                        >
+                            <CheckCircle2 className="w-6 h-6 text-blue-400" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">
+                                Faster Payments & Sign-offs
+                            </h4>
+                            <p class="text-slate-400">
+                                Invoices and proposals reach recipients sooner,
+                                improving cash flow and helping secure new
+                                business faster.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 bg-purple-500/20 p-3 rounded-lg h-fit"
+                        >
+                            <FileCheck2 className="w-6 h-6 text-purple-400" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">
+                                Polished Professionalism
+                            </h4>
+                            <p class="text-slate-400">
+                                Every document is brand-consistent and perfectly
+                                formatted, ensuring a professional image without
+                                manual effort.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 bg-green-500/20 p-3 rounded-lg h-fit"
+                        >
+                            <ShieldCheck className="w-6 h-6 text-green-400" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">
+                                Peace of Mind
+                            </h4>
+                            <p class="text-slate-400">
+                                The risk of sending a "draft" or editable
+                                version is eliminated. Only the correct, final
+                                PDF reaches the customer.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 bg-orange-500/20 p-3 rounded-lg h-fit"
+                        >
+                            <Clock className="w-6 h-6 text-orange-400" />
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">
+                                Reclaimed Time
+                            </h4>
+                            <p class="text-slate-400">
+                                By removing the admin burden of filing, the
+                                client regained hours to focus on billable work
+                                and growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION SECTION -->
+        <section class="py-20 md:py-28 bg-white text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                    Ready to Automate Your Admin?
+                </h2>
+                <p
+                    class="text-lg text-slate-700 leading-relaxed mb-10 max-w-2xl mx-auto"
+                >
+                    If you're tired of repetitive manual tasks slowing you down,
+                    let's build a system that works for you.
+                </p>
+
+                <a
+                    href="/contact"
+                    class="inline-flex items-center gap-2 px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 text-lg group"
+                >
+                    Start Automating <ArrowRight
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    />
+                </a>
+            </div>
+        </section>
+    </main>
+</MainLayout>

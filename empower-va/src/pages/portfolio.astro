@@ -1,0 +1,300 @@
+---
+export const prerender = true;
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroBackground from "../components/HeroBackground.astro";
+import { 
+  Building2, 
+  Mail, 
+  Plane, 
+  Database, 
+  ArrowRight, 
+  CheckCircle2, 
+  TrendingUp, 
+  Clock,
+  ShieldAlert,
+  ShieldCheck,
+  Palette,
+  ClipboardList,
+  FileText,
+  BarChart3,
+  Bot
+} from "lucide-react";
+
+const caseStudies = [
+  {
+    title: "The Executive Inbox Reset",
+    client: "Tech CEO, London",
+    category: "Executive Assistance",
+    icon: Mail,
+    color: "teal",
+    challenge: "Client was spending 3 hours daily on email, missing critical investor communications amidst 5,000+ unread messages.",
+    solution: "Implemented 'Inbox Zero' methodology. Created a triage system with automated filtering for newsletters and receipts. Established a 'Daily Briefing' folder for priority items requiring immediate decision.",
+    results: [
+      "Inbox reduced to 0 every evening",
+      "Recovered 12+ hours of focus time per week",
+      "Zero missed investor deadlines in 12 months"
+    ],
+    link: "/portfolio/inbox-zero"
+  },
+  {
+    title: "Global Seminar Logistics",
+    client: "Consultancy Firm, Edinburgh",
+    category: "Operations & Logistics",
+    icon: Plane,
+    color: "purple",
+    challenge: "Coordinating a 5-city European seminar series for 3 senior partners. Previous trips resulted in booking errors, missed transfers, and fragmented expense reporting.",
+    solution: "Designed a master 'Trip Architecture' document. Centralised all bookings into a live itinerary app. Created a proactive contingency plan for strikes and delays.",
+    results: [
+      "Seamless execution of 15 flights and 12 hotel stays",
+      "Reduced travel spend by 18% through early booking",
+      "Partners reported 'lowest stress trip in years'"
+    ],
+    link: "/portfolio/global-logistics-planner"
+  },
+  {
+    title: "CRM Migration & Cleanup",
+    client: "Marketing Agency, Manchester",
+    category: "Systems & Data",
+    icon: Database,
+    color: "pink",
+    challenge: "Client data was scattered across 3 different spreadhseets and a legacy CRM. Duplicate entries and missing contact info were costing sales opportunities.",
+    solution: "Audited 2,000+ data points. De-duplicated and standardised all entries. Migrated clean data to Hubspot and set up automated data-entry validation rules.",
+    results: [
+      "99% Data Accuracy achieved",
+      "Sales team efficiency increased by 25%",
+      "Automated weekly reporting installed"
+    ]
+  },
+  {
+    title: "Startup Operational Launch",
+    client: "FinTech Startup, Remote",
+    category: "Business Setup",
+    icon: Building2,
+    color: "blue",
+    challenge: "Founders were overwhelmed by admin compliance, insurance, and onboarding new staff while trying to build their product.",
+    solution: "Built a 'Company OS' in Notion. Templated employment contracts, set up payroll systems, and created a self-serve employee handbook.",
+    results: [
+      "Onboarding time reduced from 5 days to 4 hours",
+      "Full compliance with local employment laws",
+      "Founders successfully raised Seed Round"
+    ]
+  },
+  {
+    title: "Cgh Joinery Branding",
+    client: "Local Business, Falkirk",
+    category: "Branding & Marketing",
+    icon: Palette,
+    color: "blue",
+    challenge: "A local joinery business needed to professionalise their brand to compete with larger firms and attract high-value clients.",
+    solution: "Designed a complete suite of marketing collateral including flyers and social media assets. Established a consistent, premium brand identity.",
+    results: [
+        "Professional brand identity established",
+        "Increased engagement on social media",
+        "Consistent marketing across all channels"
+    ],
+    link: "/portfolio/cgh-joinery"
+  },
+  {
+    title: "Business System Build",
+    client: "Arborist Company, UK",
+    category: "Operations & Systems",
+    icon: ClipboardList,
+    color: "green",
+    challenge: "A thriving arborist company struggled with operational chaos, lacking formal processes for client communication and safety protocols.",
+    solution: "Mapped the entire client lifecycle and created a full suite of branded documentation including Method Statements and GDPR policies.",
+    results: [
+        "Full operational system build",
+        "Standardised client journey",
+        "Professionalised brand touchpoints"
+    ],
+    link: "/portfolio/business-system-build-trades"
+  },
+  {
+    title: "Document Automation",
+    client: "Small Business, UK",
+    category: "Process Automation",
+    icon: FileText,
+    color: "blue",
+    challenge: "Client was manually converting Google Docs to PDFs one-by-one, leading to version control errors and administrative bottlenecks.",
+    solution: "Developed a custom Google Apps Script to automatically convert, rename, and file PDFs instantly upon trigger.",
+    results: [
+        "100% accuracy in file conversions",
+        "Eliminated manual data entry",
+        "Zero delays in sending contracts"
+    ],
+    link: "/portfolio/document-automation"
+  },
+  {
+    title: "Lead Generation System",
+    client: "Business Consultant, UK",
+    category: "Business Development",
+    icon: BarChart3,
+    color: "indigo",
+    challenge: "Client struggled with a 'feast or famine' work cycle due to ad-hoc and inconsistent prospecting efforts.",
+    solution: "Implemented a systematic lead generation workflow, defining ideal customer profiles and automating outreach tracking.",
+    results: [
+        "40+ Qualified Leads generated per month",
+        "8+ Hours saved weekly on manual prospecting",
+        "Predictable sales pipeline established"
+    ],
+    link: "/portfolio/lead-generation"
+  },
+  {
+    title: "Intelligent Lead Gen",
+    client: "Web Agency, UK",
+    category: "Automated Auditing",
+    icon: Bot,
+    color: "cyan",
+    challenge: "Agency wasted hours manually searching for leads without knowing if they actually needed services.",
+    solution: "Engineered a Ruby on Rails scraper to identify businesses with specific technical issues (No website, Invalid SSL, Slow Load).",
+    results: [
+        "Generated High-Intent Leads",
+        "Targeted Pitching using Data",
+        "Zero Admin Time required"
+    ],
+    link: "/portfolio/intelligent-lead-generation"
+  }
+];
+---
+
+<MainLayout title="Portfolio | Empower VA Success Stories">
+  <main class="relative min-h-screen">
+    <HeroBackground />
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-48 pb-20 z-10">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-xs font-bold text-teal-800 uppercase tracking-wide mb-6"
+        >
+          <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+          Proven Results
+        </div>
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
+        >
+          Operational <br />
+          <span
+            class="text-teal-700 dark:text-teal-400"
+            >Success Stories</span
+          >
+        </h1>
+        <p
+          class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed"
+        >
+          Admin work is often invisible; until it goes wrong. Here is how I turn chaos into 
+          calm, measurable efficiency for my clients.
+        </p>
+      </div>
+    </section>
+
+    <!-- CASE STUDY GRID -->
+    <section class="py-20 bg-white border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="space-y-24">
+          
+          {caseStudies.map((study, index) => (
+            <div class={`flex flex-col md:flex-row gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+              
+              <!-- Content Side -->
+              <div class="flex-1 space-y-6">
+                <div class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wider">
+                  <study.icon className={`w-5 h-5 text-${study.color}-600`} />
+                  {study.category}
+                </div>
+                
+                <h2 class="text-3xl font-bold text-slate-900">{study.title}</h2>
+                <div class="text-slate-700 font-medium border-l-2 border-slate-200 pl-4 py-1">
+                  Client: {study.client}
+                </div>
+                
+                <div class="grid gap-6 py-4">
+                  <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <div class="flex items-center gap-2 text-red-800 font-bold mb-2">
+                       <ShieldAlert className="w-5 h-5" /> The Challenge
+                    </div>
+                    <p class="text-slate-700">{study.challenge}</p>
+                  </div>
+                  
+                  <div class="bg-teal-50 p-6 rounded-xl border border-teal-100">
+                     <div class="flex items-center gap-2 text-teal-800 font-bold mb-2">
+                       <ShieldCheck className="w-5 h-5" /> The Solution
+                    </div>
+                    <p class="text-slate-700">{study.solution}</p>
+                  </div>
+                </div>
+
+                <div>
+                   <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-green-600" /> Key Results
+                   </h4>
+                   <ul class="space-y-3">
+                    {study.results.map(result => (
+                      <li class="flex items-start gap-3 text-slate-600">
+                        <CheckCircle2 className="w-5 h-5 text-teal-500 shrink-0" />
+                        {result}
+                      </li>
+                    ))}
+                   </ul>
+                   
+                   {study.link && (
+                     <div class="mt-6 pt-6 border-t border-slate-100">
+                        <a href={study.link} class="inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-900 transition-colors">
+                            Read Full Story <ArrowRight className="w-4 h-4" />
+                        </a>
+                     </div>
+                   )}
+                </div>
+
+              </div>
+
+              <!-- Visual Side (Abstract Representation) -->
+              <div class="flex-1 w-full">
+                <div class={`relative aspect-square md:aspect-4/3 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 p-8 flex items-center justify-center group`}>
+                   
+                   <!-- Background Decoration -->
+                   <div class={`absolute mb-[-50%] mr-[-50%] w-[150%] h-[150%] bg-linear-to-br from-${study.color}-100/50 to-transparent rounded-full blur-3xl opacity-50`}></div>
+                   
+                   <div class="relative z-10 text-center">
+                      <div class={`w-24 h-24 mx-auto bg-white rounded-2xl shadow-xl flex items-center justify-center mb-6 text-${study.color}-600`}>
+                        <study.icon className="w-10 h-10" />
+                      </div>
+                      <div class="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-lg shadow-sm border border-slate-200 inline-block">
+                        <span class="font-mono text-xs text-slate-500 block mb-1">PROJECT STATUS</span>
+                        <span class="font-bold text-green-600 flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" /> OPTIMISED
+                        </span>
+                      </div>
+                   </div>
+
+                </div>
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+      <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          See the Difference Structure Makes?
+        </h2>
+        <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+          Your business could be the next success story. Let's turn your administrative bottlenecks into a competitive advantage.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-all shadow-xl text-lg"
+        >
+          Start Your Project <ArrowRight className="w-5 h-5" />
+        </a>
+      </div>
+    </section>
+
+  </main>
+</MainLayout>

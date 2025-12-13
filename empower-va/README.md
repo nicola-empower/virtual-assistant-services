@@ -28,7 +28,15 @@ A fully functional internal tool for managing VA operations, accessible via `/to
 *   **Content Hub:** A dedicated blog section at `/edge` sharing insights on efficiency and automation.
 *   **Markdown Powered:** Efficient content management using Markdown files.
 
-#### 4. Performance & SEO
+#### 4. Interactive Portfolio Case Studies
+A suite of detailed case studies demonstrating technical problem solving:
+*   **🌍 Global Logistics Planner:** A fully interactive SPA for managing complex travel itineraries, built directly into the portfolio.
+*   **📧 Inbox Zero:** Documenting a custom automation solution for email management.
+*   **🤖 Intelligent Lead Gen:** Showcasing a Ruby on Rails scraping engine.
+*   **📄 Document Automation:** Demonstrating Google Apps Script workflow improvements.
+*   **🔨 Trade Systems:** Operational architecture for trade businesses.
+
+#### 5. Performance & SEO
 *   **Static Generation:** All pages are statically prerendered (`prerender = true`) for lightning-fast loading.
 *   **SEO Optimized:** Full metadata control, generated sitemap, and configured `robots.txt` for maximum Google visibility.
 *   **Interactive Islands:** Uses **React** only where needed (Command Center, Calculator, Hero).
