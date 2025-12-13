@@ -5,6 +5,8 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
+import { ClientRouter } from "astro:transitions";
+
 interface Props {
 	title: string;
 	description?: string;
@@ -54,6 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 		{/* Sitemap */}
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<ClientRouter />
 	</head>
 	<body
 		class="font-sans text-slate-900 bg-slate-50 dark:bg-slate-900 dark:text-white antialiased selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100"

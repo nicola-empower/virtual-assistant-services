@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAAssist - Portfolio Demo</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        /* Using Inter font as a clean default */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* This gradient is key to the "glass" effect */
+            background: linear-gradient(135deg, #f5f7fa 0%, #d8e2ec 100%);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- Glassmorphism Styles --- */
+        .glass-sidebar {
+            background: rgba(255, 255, 255, 0.3); /* Frosted glass effect */
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .glass-card, .glass-modal-content {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* The slide-in profile panel */
+        .glass-drawer {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(100%); /* Start off-screen */
+        }
+        .glass-drawer.open {
+            transform: translateX(0);
+        }
+
+        /* Generic Modal Styles */
+        .modal {
+            display: none; /* Use 'flex' to show */
+            animation: fadeIn 0.2s ease-out;
+        }
+        .modal-content-inner {
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* --- Custom App Colors (Greens & Lilacs) --- */
+        .text-brand-lilac { color: #8B5CF6; } /* violet-500 */
+        .bg-brand-lilac { background-color: #8B5CF6; }
+        .bg-brand-lilac-light { background-color: #EDE9FE; } /* violet-100 */
+        .text-brand-lilac-dark { color: #6D28D9; } /* violet-700 */
+        .border-brand-lilac { border-color: #8B5CF6; }
+        .hover\:bg-brand-lilac-hover:hover { background-color: #7C3AED; }
+
+        .text-brand-green { color: #10B981; } /* emerald-500 */
+        .bg-brand-green { background-color: #10B981; }
+        .bg-brand-green-light { background-color: #D1FAE5; } /* emerald-100 */
+        .text-brand-green-dark { color: #047857; } /* emerald-700 */
+
+        .bg-brand-red { background-color: #EF4444; } /* red-500 */
+        .hover\:bg-brand-red-hover:hover { background-color: #DC2626; } /* red-600 */
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Page Transitions --- */
+        .page-content {
+            display: none; /* Hidden by default */
+            animation: pageFadeIn 0.4s ease-in-out;
+        }
+        .page-content.active {
+            display: block; /* Shown when active */
+        }
+
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Sidebar Navigation --- */
+        .sidebar-link {
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .sidebar-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .sidebar-link.active {
+            background: rgba(255, 255, 255, 0.7);
+            color: #6D28D9; /* text-brand-lilac-dark */
+        }
+        /* Active indicator bar */
+        .sidebar-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 4px;
+            background-color: #8B5CF6; /* brand-lilac */
+            border-radius: 0 4px 4px 0;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Wrapper for Sidebar and Main Content -->
+    <div class="flex h-screen w-full">
+
+        <!-- ======================= -->
+        <!-- == 1. LEFT SIDEBAR == -->
+        <!-- ======================= -->
+        <nav class="glass-sidebar w-20 flex flex-col items-center flex-shrink-0 h-full py-6 space-y-6">
+            <!-- Logo -->
+            <a href="#" class="w-12 h-12 bg-brand-lilac rounded-xl flex items-center justify-center shadow-lg">
+                <i data-lucide="sparkles" class="text-white"></i>
+            </a>
+
+            <!-- Main Navigation -->
+            <div class="flex flex-col space-y-4 items-center w-full">
+                <button class="sidebar-link active w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="dashboard" title="Dashboard">
+                    <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                </button>
+                <button class="sidebar-link w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="clients" title="Clients">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </button>
+                <button class="sidebar-link w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="tasks" title="Tasks">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
+                </button>
+                <button class="sidebar-link w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="timetracker" title="Time Tracker">
+                    <i data-lucide="clock" class="w-6 h-6"></i>
+                </button>
+                <button class="sidebar-link w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="content" title="Content Planner">
+                    <i data-lucide="calendar-days" class="w-6 h-6"></i>
+                </button>
+                <button class="sidebar-link w-16 h-16 flex items-center justify-center rounded-xl text-gray-600" data-page="documents" title="Documents">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Profile / User (Demo) -->
+            <div class="mt-auto">
+                <img 
+                    src="https://placehold.co/100x100/E9D5FF/6D28D9?text=VA" 
+                    alt="Demo User" 
+                    class="w-12 h-12 rounded-full border-2 border-white shadow-md"
+                >
+            </div>
+        </nav>
+
+        <!-- ======================= -->
+        <!-- == 2. MAIN CONTENT AREA == -->
+        <!-- ======================= -->
+        <main class="flex-1 h-screen overflow-y-auto p-8 md:p-12">
+            
+            <!-- Dev Note for your portfolio -->
+            <div class="glass-card mb-8 p-4 border-l-4 border-brand-lilac">
+                <h4 class="font-bold text-brand-lilac-dark">Portfolio Dev Note:</h4>
+                <p class="text-gray-700">This is an interactive demo of the "VAAssist" platform. It showcases the UI and system concepts. Features like the Time Tracker, Add Task, and Document Generator are interactive. Click around to explore!</p>
+            </div>
+
+            <!-- ======================= -->
+            <!-- == DASHBOARD (Main Hub) PAGE == -->
+            <!-- ======================= -->
+            <div id="dashboard-page" class="page-content active">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-extrabold text-gray-800">Main Hub</h1>
+                    <p class="text-lg text-gray-600">Welcome back, let's get productive.</p>
+                </header>
+                
+                <!-- Grid of cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Today's Schedule -->
+                    <div class="glass-card rounded-2xl p-6 md:col-span-2">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Today's Schedule</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="text-sm font-semibold text-gray-600 w-20">09:00 AM</span>
+                                <div class="h-10 w-1 bg-brand-green rounded-full"></div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-700">Client Onboarding Call</h4>
+                                    <p class="text-sm text-gray-500">Acme Corporation (John Doe)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-sm font-semibold text-gray-600 w-20">11:00 AM</span>
+                                <div class="h-10 w-1 bg-brand-lilac rounded-full"></div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-700">Draft Social Media Posts</h4>
+                                    <p class="text-sm text-gray-500">For Beta LLC (Jane Smith)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 opacity-50">
+                                <span class="text-sm font-semibold text-gray-600 w-20">02:00 PM</span>
+                                <div class="h-10 w-1 bg-gray-300 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-700">Quarterly Report Prep</h4>
+                                    <p class="text-sm text-gray-500">Internal Task</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Quick Actions</h3>
+                        <div class="flex flex-col space-y-3">
+                            <!-- NEW: This button now triggers JS -->
+                            <button id="quick-start-timer-btn" class="bg-brand-lilac text-white font-medium py-3 px-4 rounded-xl shadow-lg hover:bg-brand-lilac-hover transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="play" class="w-5 h-5"></i>
+                                <span>Start Time Tracker</span>
+                            </button>
+                            <!-- NEW: This button now triggers JS -->
+                            <button id="quick-add-task-btn" class="bg-white text-gray-700 border border-gray-200 font-medium py-3 px-4 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                                <span>Add New Task</span>
+                            </button>
+                            <button class="bg-white text-gray-700 border border-gray-200 font-medium py-3 px-4 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 sidebar-link" data-page="clients">
+                                <i data-lucide="user-plus" class="w-5 h-5"></i>
+                                <span>Add New Client</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Clients Card -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Recent Clients</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50" data-client="jane">
+                                <span class="w-10 h-10 rounded-full bg-brand-green-light text-brand-green-dark font-semibold flex items-center justify-center">JS</span>
+                                <span class="font-medium text-gray-700">Jane Smith (Beta LLC)</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50" data-client="john">
+                                <span class="w-10 h-10 rounded-full bg-brand-lilac-light text-brand-lilac-dark font-semibold flex items-center justify-center">JD</span>
+                                <span class="font-medium text-gray-700">John Doe (Acme Corp)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Card -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Upcoming To-dos</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300 text-brand-lilac focus:ring-brand-lilac">
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Website Content Update</h4>
+                                    <span class="text-sm text-brand-green-dark bg-brand-green-light py-0.5 px-2 rounded-full">Beta LLC</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300 text-brand-lilac focus:ring-brand-lilac">
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Prepare Quarterly Report</h4>
+                                    <span class="text-sm text-brand-lilac-dark bg-brand-lilac-light py-0.5 px-2 rounded-full">Acme Corp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- == CLIENTS PAGE == -->
+            <!-- ======================= -->
+            <div id="clients-page" class="page-content">
+                <header class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="text-4xl font-extrabold text-gray-800">Clients</h1>
+                        <p class="text-lg text-gray-600">Manage all your client information.</p>
+                    </div>
+                    <button class="bg-brand-lilac text-white font-medium py-3 px-5 rounded-xl shadow-lg hover:bg-brand-lilac-hover transition-all flex items-center gap-2">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        <span>Add Client</span>
+                    </button>
+                </header>
+
+                <!-- Client Card Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Client 1: Jane Smith (Trigger for modal) -->
+                    <div class="glass-card rounded-2xl p-6 cursor-pointer" data-client="jane">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-full bg-brand-green-light text-brand-green-dark font-bold flex items-center justify-center text-lg">JS</span>
+                            <span class="text-xs font-medium bg-brand-green-light text-brand-green-dark py-1 px-3 rounded-full">Active</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Jane Smith</h3>
+                        <p class="text-brand-lilac-dark font-medium mb-4">Beta LLC</p>
+                        <p class="text-sm text-gray-600 mb-1"><i data-lucide="mail" class="w-4 h-4 inline-block mr-2 -mt-1"></i>jane.smith@beta.llc</p>
+                        <p class="text-sm text-gray-600"><i data-lucide="phone" class="w-4 h-4 inline-block mr-2 -mt-1"></i>+44-20-7946-0958</p>
+                    </div>
+                    
+                    <!-- Client 2: John Doe (Trigger for modal) -->
+                    <div class="glass-card rounded-2xl p-6 cursor-pointer" data-client="john">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-full bg-brand-lilac-light text-brand-lilac-dark font-bold flex items-center justify-center text-lg">JD</span>
+                            <span class="text-xs font-medium bg-brand-green-light text-brand-green-dark py-1 px-3 rounded-full">Active</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">John Doe</h3>
+                        <p class="text-brand-lilac-dark font-medium mb-4">Acme Corporation</p>
+                        <p class="text-sm text-gray-600 mb-1"><i data-lucide="mail" class="w-4 h-4 inline-block mr-2 -mt-1"></i>john.doe@acme.com</p>
+                        <p class="text-sm text-gray-600"><i data-lucide="phone" class="w-4 h-4 inline-block mr-2 -mt-1"></i>+1-555-123-4567</p>
+                    </div>
+
+                    <!-- Client 3: Nicola Berry (No trigger) -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-12 h-12 rounded-full bg-pink-100 text-pink-700 font-bold flex items-center justify-center text-lg">NB</span>
+                            <span class="text-xs font-medium bg-gray-200 text-gray-600 py-1 px-3 rounded-full">Onboarding</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Nicola Berry</h3>
+                        <p class="text-brand-lilac-dark font-medium mb-4">Empower Digital Solutions</p>
+                        <p class="text-sm text-gray-600 mb-1"><i data-lucide="mail" class="w-4 h-4 inline-block mr-2 -mt-1"></i>nicola@empowerdigitalsolutions.co.uk</p>
+                        <p class="text-sm text-gray-600"><i data-lucide="phone" class="w-4 h-4 inline-block mr-2 -mt-1"></i>07557988549</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- == TASKS PAGE (Now Interactive) == -->
+            <!-- ======================= -->
+            <div id="tasks-page" class="page-content">
+                <header class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="text-4xl font-extrabold text-gray-800">Tasks</h1>
+                        <p class="text-lg text-gray-600">Drag and drop to manage your workflow.</p>
+                    </div>
+                    <!-- NEW: This button now opens the 'Add Task' modal -->
+                    <button id="add-task-btn-trigger" class="bg-brand-lilac text-white font-medium py-3 px-5 rounded-xl shadow-lg hover:bg-brand-lilac-hover transition-all flex items-center gap-2">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        <span>Add Task</span>
+                    </button>
+                </header>
+                <!-- Simple Kanban Board Mockup -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- To Do -->
+                    <div class="bg-gray-100/50 rounded-2xl p-4">
+                        <h3 class="font-bold text-gray-700 mb-4 ml-2">To Do</h3>
+                        <!-- NEW: This div will be populated by JS -->
+                        <div id="todo-column-content" class="space-y-3">
+                            <div class="glass-card rounded-xl p-4 shadow-sm">
+                                <h4 class="font-medium text-gray-800">Draft blog post "5 Automations to Boost Productivity"</h4>
+                                <span class="text-xs text-brand-lilac-dark bg-brand-lilac-light py-0.5 px-2 rounded-full">Content</span>
+                            </div>
+                            <div class="glass-card rounded-xl p-4 shadow-sm">
+                                <h4 class="font-medium text-gray-800">Send updated contract</h4>
+                                <span class="text-xs text-brand-green-dark bg-brand-green-light py-0.5 px-2 rounded-full">Beta LLC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- In Progress -->
+                    <div class="bg-gray-100/50 rounded-2xl p-4">
+                        <h3 class="font-bold text-gray-700 mb-4 ml-2">In Progress</h3>
+                        <div class="space-y-3">
+                            <div class="glass-card rounded-xl p-4 shadow-sm">
+                                <h4 class="font-medium text-gray-800">Website Content Update</h4>
+                                <span class="text-xs text-brand-green-dark bg-brand-green-light py-0.5 px-2 rounded-full">Beta LLC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Done -->
+                    <div class="bg-gray-100/50 rounded-2xl p-4">
+                        <h3 class="font-bold text-gray-700 mb-4 ml-2">Done</h3>
+                         <div class="space-y-3 opacity-60">
+                            <div class="glass-card rounded-xl p-4 shadow-sm">
+                                <h4 class="font-medium text-gray-800 line-through">Quarterly Report</h4>
+                                <span class="text-xs text-brand-lilac-dark bg-brand-lilac-light py-0.5 px-2 rounded-full">Acme Corp</span>
+                            </div>
+                             <div class="glass-card rounded-xl p-4 shadow-sm">
+                                <h4 class="font-medium text-gray-800 line-through">Onboard Nicola Berry</h4>
+                                <span class="text-xs text-gray-600 bg-gray-200 py-0.5 px-2 rounded-full">Onboarding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- == TIME TRACKER (Now Interactive) == -->
+            <!-- ======================= -->
+            <div id="timetracker-page" class="page-content">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-extrabold text-gray-800">Time Tracker</h1>
+                    <p class="text-lg text-gray-600">Track your billable hours with one click.</p>
+                </header>
+                <div class="glass-card rounded-2xl p-8 max-w-lg mx-auto text-center">
+                    <h3 id="timer-project-name" class="text-xl font-bold text-gray-800 mb-2">Project: Website Update</h3>
+                    <p id="timer-client-name" class="text-brand-green-dark mb-6">Client: Beta LLC</p>
+                    <!-- NEW: This div is now controlled by JS -->
+                    <div id="timer-display" class="text-6xl font-extrabold text-gray-800 mb-8">00:00:00</div>
+                    <!-- NEW: This button is now interactive -->
+                    <div class="flex space-x-4">
+                        <button id="timer-toggle-btn" class="w-full bg-brand-green text-white font-medium py-4 px-6 rounded-xl shadow-lg hover:bg-emerald-600 transition-all text-lg flex items-center justify-center gap-3">
+                            <span id="timer-play-icon"><i data-lucide="play-circle" class="w-6 h-6"></i></span>
+                            <span id="timer-pause-icon" class="hidden"><i data-lucide="pause-circle" class="w-6 h-6"></i></span>
+                            <span id="timer-toggle-text">Start Timer</span>
+                        </button>
+                        <button id="timer-reset-btn" class="flex-shrink-0 bg-gray-200 text-gray-700 font-medium p-4 rounded-xl shadow-sm hover:bg-gray-300 transition-all">
+                            <i data-lucide="rotate-ccw" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ======================= -->
+            <!-- == CONTENT (Mockup) == -->
+            <!-- ======================= -->
+            <div id="content-page" class="page-content">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-extrabold text-gray-800">Content Planner</h1>
+                    <p class="text-lg text-gray-600">Plan and schedule your social media content.</p>
+                </header>
+                <div class="glass-card rounded-2xl p-6">
+                    <p class="text-gray-700">This page would feature a full calendar grid for planning social media posts. For this demo, we're focusing only on the Client Management flow.</p>
+                </div>
+            </div>
+
+            <!-- ======================= -->
+            <!-- == DOCUMENTS (Now Interactive) == -->
+            <!-- ======================= -->
+            <div id="documents-page" class="page-content">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-extrabold text-gray-800">Document Automation</h1>
+                    <p class="text-lg text-gray-600">Manage your quotes, contracts, and templates.</p>
+                </header>
+                <div class="glass-card rounded-2xl p-6">
+                    <!-- NEW: Replaced placeholder text with a button -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Document Generator</h3>
+                    <p class="text-gray-700 mb-6">This simulator demonstrates how client data can be automatically merged with templates to create new documents, showcasing the "Empower Automation" service.</p>
+                    <button id="doc-gen-trigger-btn" class="bg-brand-lilac text-white font-medium py-3 px-5 rounded-xl shadow-lg hover:bg-brand-lilac-hover transition-all flex items-center gap-2">
+                        <i data-lucide="file-plus-2" class="w-5 h-5"></i>
+                        <span>Generate New Document</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <!-- =================================== -->
+    <!-- == MODALS (Pop-ups) START HERE == -->
+    <!-- =================================== -->
+
+    <!-- ======================= -->
+    <!-- == SLIDE-IN CLIENT PROFILE (Modal) == -->
+    <!-- ======================= -->
+    <div id="client-profile-drawer" class="glass-drawer fixed top-0 right-0 z-50 w-full max-w-2xl h-full shadow-2xl">
+        <div class="flex h-full">
+            <!-- Internal Sidebar -->
+            <div class="w-48 bg-white/30 p-6 flex-shrink-0">
+                <div class="flex items-center gap-3 mb-8">
+                    <span id="client-drawer-initials" class="w-10 h-10 rounded-full bg-brand-green-light text-brand-green-dark font-bold flex items-center justify-center text-lg"></span>
+                    <h2 id="client-drawer-name" class="text-xl font-bold text-gray-800"></h2>
+                </div>
+                <nav class="flex flex-col space-y-2">
+                    <a href="#" class="font-medium text-brand-lilac-dark bg-brand-lilac-light py-2 px-3 rounded-lg flex items-center gap-2">
+                        <i data-lucide="user" class="w-5 h-5"></i> Profile
+                    </a>
+                    <a href="#" class="font-medium text-gray-600 hover:bg-white/50 py-2 px-3 rounded-lg flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5"></i> Documents
+                    </a>
+                    <a href="#" class="font-medium text-gray-600 hover:bg-white/50 py-2 px-3 rounded-lg flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-5 h-5"></i> Events
+                    </a>
+                    <a href="#" class="font-medium text-gray-600 hover:bg-white/50 py-2 px-3 rounded-lg flex items-center gap-2">
+                        <i data-lucide="check-square" class="w-5 h-5"></i> To-dos
+                    </a>
+                    <a href="#" class="font-medium text-gray-600 hover:bg-white/50 py-2 px-3 rounded-lg flex items-center gap-2">
+                        <i data-lucide="clock" class="w-5 h-5"></i> Timekeeper
+                    </a>
+                </nav>
+            </div>
+            
+            <!-- Drawer Content -->
+            <div class="flex-1 p-8 overflow-y-auto">
+                <header class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800">Client Profile</h3>
+                    <button id="close-drawer-btn" class="text-gray-500 hover:text-gray-800 hover:bg-white/50 rounded-full p-2">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </header>
+                
+                <div class="space-y-6">
+                    <div>
+                        <label class="text-sm font-medium text-gray-500">Email Addresses</label>
+                        <p id="client-drawer-email" class="text-lg font-medium text-gray-800"></p>
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-500">Phone Numbers</label>
+                        <p id="client-drawer-phone" class="text-lg font-medium text-gray-800"></p>
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-500">Company Name</label>
+                        <p id="client-drawer-company" class="text-lg font-medium text-gray-800"></p>
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-500">Industry</label>
+                        <p id="client-drawer-industry" class="text-lg font-medium text-gray-800"></p>
+                    </div>
+                     <div>
+                        <label class="text-sm font-medium text-gray-500">Client Since</label>
+                        <p id="client-drawer-since" class="text-lg font-medium text-gray-800"></p>
+                    </div>
+                    <div>
+                        <label class="text-sm font-medium text-gray-500">Notes</label>
+                        <p id="client-drawer-notes" class="text-lg font-medium text-gray-800 bg-white/50 p-4 rounded-lg border border-gray-200"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Backdrop for the drawer -->
+    <div id="drawer-overlay" class="fixed inset-0 bg-black/20 z-40 hidden"></div>
+
+    <!-- ======================= -->
+    <!-- == NEW: ADD TASK MODAL == -->
+    <!-- ======================= -->
+    <div id="add-task-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="modal-content-inner glass-modal-content p-8 rounded-2xl shadow-xl w-full max-w-lg z-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Add New Task</h2>
+                <button class="modal-close text-gray-500 hover:text-gray-800">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <form id="add-task-form" class="space-y-4">
+                <div>
+                    <label for="new-task-title" class="block text-sm font-medium text-gray-700 mb-1">Task Title</label>
+                    <input type="text" id="new-task-title" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-brand-lilac focus:border-brand-lilac" placeholder="e.g., Draft blog post">
+                </div>
+                <div>
+                    <label for="new-task-client" class="block text-sm font-medium text-gray-700 mb-1">Assign to Client</label>
+                    <select id="new-task-client" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-brand-lilac focus:border-brand-lilac">
+                        <option value="jane">Jane Smith (Beta LLC)</option>
+                        <option value="john">John Doe (Acme Corp)</option>
+                        <option value="internal">Internal Task</option>
+                    </select>
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" class="modal-close bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button id="save-task-btn" type="submit" class="bg-brand-lilac text-white font-medium py-2 px-5 rounded-lg shadow-sm hover:bg-brand-lilac-hover transition-colors">
+                        Save Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ======================= -->
+    <!-- == NEW: DOC GEN MODAL == -->
+    <!-- ======================= -->
+    <div id="doc-gen-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="modal-content-inner glass-modal-content p-8 rounded-2xl shadow-xl w-full max-w-lg z-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Generate Document</h2>
+                <button class="modal-close text-gray-500 hover:text-gray-800">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <form id="doc-gen-form" class="space-y-4">
+                <div>
+                    <label for="doc-template-select" class="block text-sm font-medium text-gray-700 mb-1">Select Template</label>
+                    <select id="doc-template-select" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-brand-lilac focus:border-brand-lilac">
+                        <option value="Service Agreement">Service Agreement</option>
+                        <option value="Project Quote">Project Quote</option>
+                        <option value="NDA">Non-Disclosure Agreement</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="doc-client-select" class="block text-sm font-medium text-gray-700 mb-1">Select Client</label>
+                    <select id="doc-client-select" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-brand-lilac focus:border-brand-lilac">
+                        <option value="jane">Jane Smith (Beta LLC)</option>
+                        <option value="john">John Doe (Acme Corp)</option>
+                    </select>
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button type="button" class="modal-close bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button id="generate-doc-btn" type="submit" class="bg-brand-lilac text-white font-medium py-2 px-5 rounded-lg shadow-sm hover:bg-brand-lilac-hover transition-colors">
+                        Generate
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ======================= -->
+    <!-- == NEW: DOC PREVIEW MODAL == -->
+    <!-- ======================= -->
+    <div id="doc-preview-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="modal-content-inner glass-modal-content p-8 rounded-2xl shadow-xl w-full max-w-3xl z-10 max-h-[80vh] flex flex-col">
+            <div class="flex justify-between items-center mb-4 flex-shrink-0">
+                <h2 id="doc-preview-title" class="text-2xl font-bold text-gray-800">Document Preview</h2>
+                <button class="modal-close text-gray-500 hover:text-gray-800">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="bg-white/70 p-6 rounded-lg border border-gray-200 overflow-y-auto">
+                <!-- Content is injected by JS -->
+                <div id="doc-preview-content" class="prose max-w-none"></div>
+            </div>
+            <div class="flex justify-end space-x-3 pt-6 flex-shrink-0">
+                <button type="button" class="modal-close bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition-colors">
+                    Close
+                </button>
+                <button type="button" class="modal-close bg-brand-green text-white font-medium py-2 px-5 rounded-lg shadow-sm hover:bg-emerald-600 transition-colors">
+                    Download PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // --- Demo data for clients ---
+            const clientData = {
+                jane: {
+                    name: "Jane Smith",
+                    initials: "JS",
+                    initialsBg: "bg-brand-green-light",
+                    initialsText: "text-brand-green-dark",
+                    email: "jane.smith@beta.llc",
+                    phone: "+44-20-7946-0958",
+                    company: "Beta LLC",
+                    industry: "Finance",
+                    since: "Sep 1, 2023",
+                    notes: "Needs weekly social media posts and monthly analytics reports."
+                },
+                john: {
+                    name: "John Doe",
+                    initials: "JD",
+                    initialsBg: "bg-brand-lilac-light",
+                    initialsText: "text-brand-lilac-dark",
+                    email: "john.doe@acme.com",
+                    phone: "+1-555-123-4567",
+                    company: "Acme Corporation",
+                    industry: "Technology",
+                    since: "May 15, 2024",
+                    notes: "Mainly requires document automation for new client contracts."
+                }
+            };
+            // Data for client dropdowns
+            const clientOptions = {
+                jane: "Jane Smith (Beta LLC)",
+                john: "John Doe (Acme Corp)",
+                internal: "Internal Task"
+            };
+            const clientTags = {
+                jane: { text: "Beta LLC", bg: "bg-brand-green-light", text: "text-brand-green-dark" },
+                john: { text: "Acme Corp", bg: "bg-brand-lilac-light", text: "text-brand-lilac-dark" },
+                internal: { text: "Internal", bg: "bg-gray-200", text: "text-gray-600" }
+            }
+
+            // --- Page Navigation Logic ---
+            const allPages = document.querySelectorAll('.page-content');
+            const allSidebarLinks = document.querySelectorAll('.sidebar-link');
+
+            function showPage(pageId) {
+                // Hide all pages
+                allPages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Show the target page
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Update active state on nav links
+                allSidebarLinks.forEach(link => {
+                    if (link.dataset.page === pageId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                // Scroll to top
+                document.querySelector('main').scrollTo(0, 0);
+            }
+
+            // Add click listeners to all page nav links
+            allSidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Stop the link from navigating
+                    const pageId = e.currentTarget.dataset.page;
+                    if (pageId) {
+                        showPage(pageId);
+                    }
+                });
+            });
+
+
+            // --- Modal Logic (All Modals) ---
+            const addTaskModal = document.getElementById('add-task-modal');
+            const docGenModal = document.getElementById('doc-gen-modal');
+            const docPreviewModal = document.getElementById('doc-preview-modal');
+            const allModals = [addTaskModal, docGenModal, docPreviewModal];
+
+            // Generic close functionality
+            allModals.forEach(modal => {
+                const closeButtons = modal.querySelectorAll('.modal-close');
+                closeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        modal.style.display = 'none';
+                    });
+                });
+                const overlay = modal.querySelector('.modal-overlay');
+                if (overlay) {
+                    overlay.addEventListener('click', () => {
+                        modal.style.display = 'none';
+                    });
+                }
+            });
+
+
+            // --- Client Profile Drawer Logic ---
+            const drawer = document.getElementById('client-profile-drawer');
+            const drawerOverlay = document.getElementById('drawer-overlay');
+            const closeDrawerBtn = document.getElementById('close-drawer-btn');
+            const clientTriggers = document.querySelectorAll('[data-client]');
+
+            function openDrawer(clientId) {
+                const data = clientData[clientId];
+                if (!data) return;
+
+                // Populate data
+                document.getElementById('client-drawer-name').textContent = data.name;
+                document.getElementById('client-drawer-email').textContent = data.email;
+                document.getElementById('client-drawer-phone').textContent = data.phone;
+                document.getElementById('client-drawer-company').textContent = data.company;
+                document.getElementById('client-drawer-industry').textContent = data.industry;
+                document.getElementById('client-drawer-since').textContent = data.since;
+                document.getElementById('client-drawer-notes').textContent = data.notes;
+                
+                const initialsEl = document.getElementById('client-drawer-initials');
+                initialsEl.textContent = data.initials;
+                initialsEl.className = "w-10 h-10 rounded-full font-bold flex items-center justify-center text-lg";
+                initialsEl.classList.add(data.initialsBg, data.initialsText);
+
+                drawerOverlay.classList.remove('hidden');
+                drawer.classList.add('open');
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove('open');
+                drawerOverlay.classList.add('hidden');
+            }
+
+            clientTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openDrawer(trigger.dataset.client);
+                });
+            });
+            closeDrawerBtn.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
+
+
+            // --- NEW: Time Tracker Logic ---
+            let timerInterval = null;
+            let timerSeconds = 0;
+            const timerDisplay = document.getElementById('timer-display');
+            const timerToggleBtn = document.getElementById('timer-toggle-btn');
+            const timerResetBtn = document.getElementById('timer-reset-btn');
+            const quickStartTimerBtn = document.getElementById('quick-start-timer-btn');
+            const timerPlayIcon = document.getElementById('timer-play-icon');
+            const timerPauseIcon = document.getElementById('timer-pause-icon');
+            const timerToggleText = document.getElementById('timer-toggle-text');
+
+            function formatTime(seconds) {
+                const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+                const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+                const s = (seconds % 60).toString().padStart(2, '0');
+                return `${h}:${m}:${s}`;
+            }
+
+            function updateTimer() {
+                timerSeconds++;
+                timerDisplay.textContent = formatTime(timerSeconds);
+            }
+
+            function toggleTimer() {
+                if (timerInterval) { // Timer is running, so stop it
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    timerPlayIcon.classList.remove('hidden');
+                    timerPauseIcon.classList.add('hidden');
+                    timerToggleText.textContent = 'Start Timer';
+                    timerToggleBtn.classList.replace('bg-brand-red', 'bg-brand-green');
+                    timerToggleBtn.classList.replace('hover:bg-brand-red-hover', 'hover:bg-emerald-600');
+                } else { // Timer is stopped, so start it
+                    timerInterval = setInterval(updateTimer, 1000);
+                    timerPlayIcon.classList.add('hidden');
+                    timerPauseIcon.classList.remove('hidden');
+                    timerToggleText.textContent = 'Stop Timer';
+                    timerToggleBtn.classList.replace('bg-brand-green', 'bg-brand-red');
+                    timerToggleBtn.classList.replace('hover:bg-emerald-600', 'hover:bg-brand-red-hover');
+                }
+            }
+
+            function resetTimer() {
+                if (timerInterval) {
+                    toggleTimer(); // Stop the timer if it's running
+                }
+                timerSeconds = 0;
+                timerDisplay.textContent = formatTime(timerSeconds);
+            }
+
+            timerToggleBtn.addEventListener('click', toggleTimer);
+            timerResetBtn.addEventListener('click', resetTimer);
+            quickStartTimerBtn.addEventListener('click', () => {
+                showPage('timetracker');
+                if (!timerInterval) { // Only start it if it's not already running
+                    toggleTimer();
+                }
+            });
+
+
+            // --- NEW: Add Task Logic ---
+            const addTaskBtnTrigger = document.getElementById('add-task-btn-trigger');
+            const quickAddTaskBtn = document.getElementById('quick-add-task-btn');
+            const addTaskForm = document.getElementById('add-task-form');
+            const saveTaskBtn = document.getElementById('save-task-btn');
+            const todoColumnContent = document.getElementById('todo-column-content');
+            const newTaskTitleInput = document.getElementById('new-task-title');
+            const newTaskClientSelect = document.getElementById('new-task-client');
+
+            const openAddTaskModal = () => {
+                addTaskModal.style.display = 'flex';
+                newTaskTitleInput.focus();
+            };
+
+            addTaskBtnTrigger.addEventListener('click', openAddTaskModal);
+            quickAddTaskBtn.addEventListener('click', () => {
+                showPage('tasks');
+                openAddTaskModal();
+            });
+
+            addTaskForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const title = newTaskTitleInput.value.trim();
+                const clientKey = newTaskClientSelect.value;
+                const clientTag = clientTags[clientKey];
+
+                if (!title) return; // Don't add empty tasks
+
+                // Create the new task card HTML
+                const newCardHTML = `
+                    <div class="glass-card rounded-xl p-4 shadow-sm" style="animation: slideUp 0.3s ease-out;">
+                        <h4 class="font-medium text-gray-800">${title}</h4>
+                        <span class="text-xs font-medium ${clientTag.bg} ${clientTag.text} py-0.5 px-2 rounded-full">
+                            ${clientTag.text}
+                        </span>
+                    </div>
+                `;
+
+                todoColumnContent.insertAdjacentHTML('beforeend', newCardHTML);
+                
+                // Close modal and reset form
+                addTaskModal.style.display = 'none';
+                newTaskTitleInput.value = '';
+                newTaskClientSelect.value = 'jane';
+            });
+
+
+            // --- NEW: Document Generator Logic ---
+            const docGenBtnTrigger = document.getElementById('doc-gen-trigger-btn');
+            const docGenForm = document.getElementById('doc-gen-form');
+            const docTemplateSelect = document.getElementById('doc-template-select');
+            const docClientSelect = document.getElementById('doc-client-select');
+            const docPreviewTitle = document.getElementById('doc-preview-title');
+            const docPreviewContent = document.getElementById('doc-preview-content');
+
+            docGenBtnTrigger.addEventListener('click', () => {
+                docGenModal.style.display = 'flex';
+            });
+
+            docGenForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const template = docTemplateSelect.value;
+                const clientKey = docClientSelect.value;
+                const client = clientData[clientKey];
+
+                let content = '';
+
+                // Generate demo content based on template
+                if (template === 'Service Agreement') {
+                    content = `
+                        <p class="mb-4">This Service Agreement ("Agreement") is entered into as of ${new Date().toLocaleDateString('en-GB')} ("Effective Date"), by and between:</p>
+                        <p><strong>Provider:</strong> Empower Virtual Assistant Services ("Provider")</p>
+                        <p class="mb-4"><strong>Client:</strong> ${client.name} of ${client.company} ("Client")</p>
+                        <h4 class="font-bold mt-6 mb-2">1. Services</h4>
+                        <p>Provider agrees to perform virtual assistant services for Client as outlined in Scope of Work (Addendum A).</p>
+                        <h4 class="font-bold mt-6 mb-2">2. Term</h4>
+                        <p>This Agreement shall commence on the Effective Date and continue on a month-to-month basis until terminated by either party with 30 days written notice.</p>
+                        <h4 class="font-bold mt-6 mb-2">3. Compensation</h4>
+                        <p>Client agrees to pay Provider at a rate of £40 per hour for services rendered. Invoices will be sent on the last business day of each month and are payable upon receipt.</p>
+                        <p class="mt-8">--- (Demo Content Ends Here) ---</p>
+                    `;
+                } else if (template === 'Project Quote') {
+                    content = `
+                        <p class="mb-4"><strong>Date:</strong> ${new Date().toLocaleDateString('en-GB')}</p>
+                        <p class="mb-4"><strong>Prepared For:</strong><br>${client.name}<br>${client.company}<br>${client.email}</p>
+                        <h4 class="font-bold mt-6 mb-2">Project: Bespoke Automation Build</h4>
+                        <p>Custom Google Apps Script automation to connect intake form to project management board and auto-generate client folders.</p>
+                        <h4 class="font-bold mt-6 mb-2">Price</h4>
+                        <p><strong>Total Project Fee:</strong> £1,200.00</p>
+                        <p class="mt-8">--- (Demo Content Ends Here) ---</p>
+                    `;
+                } else { // NDA
+                    content = `
+                        <p class="mb-4">This Non-Disclosure Agreement ("Agreement") is made between <strong>Empower Virtual Assistant Services</strong> ("Disclosing Party") and <strong>${client.name}</strong> of <strong>${client.company}</strong> ("Receiving Party").</p>
+                        <p>The Receiving Party hereby agrees that they shall not, directly or indirectly, use, disseminate, disclose, or in any way reveal all or any part of the Confidential Information to any third party.</p>
+                        <p class="mt-8">--- (Demo Content Ends Here) ---</p>
+                    `;
+                }
+                
+                docPreviewTitle.textContent = `${template} - ${client.company}`;
+                docPreviewContent.innerHTML = content;
+
+                docGenModal.style.display = 'none';
+                docPreviewModal.style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>
+

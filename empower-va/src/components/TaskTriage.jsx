@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     DndContext,
     closestCorners,
@@ -17,7 +17,8 @@ import {
     useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Plus, Trash2, GripVertical } from 'lucide-react';
+import { Plus, Trash2, GripVertical, Loader2, CloudOff } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 // --- Sortable Item Component ---
 function SortableItem({ id, task, onDelete }) {
@@ -61,14 +62,11 @@ function SortableItem({ id, task, onDelete }) {
 
 // --- Main Component ---
 export default function TaskTriage() {
-    const [tasks, setTasks] = useState([
-        { id: '1', text: "Client Monthly Report", quadrant: "do_first" },
-        { id: '2', text: "Research CRM tools", quadrant: "schedule" },
-        { id: '3', text: "Book flights for CEO", quadrant: "delegate" },
-        { id: '4', text: "Scroll LinkedIn", quadrant: "delete" },
-    ]);
+    const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
     const [activeId, setActiveId] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
 
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -84,16 +82,78 @@ export default function TaskTriage() {
         { id: 'delete', title: 'Don\'t Do', subtitle: 'Not Urgent, Not Important', color: 'bg-slate-50 border-slate-200 text-slate-800' }
     ];
 
-    const addTask = (e) => {
+    // Fetch Tasks
+    useEffect(() => {
+        fetchTasks();
+    }, []);
+
+    async function fetchTasks() {
+        try {
+            const { data, error } = await supabase
+                .from('tasks')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) throw error;
+            setTasks(data || []);
+        } catch (err) {
+            console.error('Error fetching tasks:', err);
+            // Fallback for demo if DB not ready
+            setError('Could not sync with database. Changes may not be saved.');
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    const addTask = async (e) => {
         e.preventDefault();
         if (!newTask.trim()) return;
-        const id = Date.now().toString();
-        setTasks([...tasks, { id, text: newTask, quadrant: "do_first" }]);
+
+        const tempId = Date.now().toString();
+        const taskText = newTask;
+
+        // Optimistic Update
+        const optimisticTask = { id: tempId, text: taskText, quadrant: "do_first" };
+        setTasks(prev => [...prev, optimisticTask]);
         setNewTask("");
+
+        try {
+            const { data, error } = await supabase
+                .from('tasks')
+                .insert([{ text: taskText, quadrant: 'do_first' }])
+                .select();
+
+            if (error) throw error;
+
+            // Replace temp ID with real ID
+            if (data) {
+                setTasks(prev => prev.map(t => t.id === tempId ? data[0] : t));
+            }
+        } catch (err) {
+            console.error('Error adding task:', err);
+            setError('Failed to save task.');
+            // Revert optimistic
+            setTasks(prev => prev.filter(t => t.id !== tempId));
+        }
     };
 
-    const deleteTask = (id) => {
+    const deleteTask = async (id) => {
+        // Optimistic
+        const previousTasks = [...tasks];
         setTasks(tasks.filter(t => t.id !== id));
+
+        try {
+            const { error } = await supabase
+                .from('tasks')
+                .delete()
+                .eq('id', id);
+
+            if (error) throw error;
+        } catch (err) {
+            console.error('Error deleting task:', err);
+            setTasks(previousTasks);
+            setError('Failed to delete task.');
+        }
     };
 
     const findContainer = (id) => {
@@ -149,18 +209,33 @@ export default function TaskTriage() {
         });
     };
 
-    const handleDragEnd = (event) => {
+    const handleDragEnd = async (event) => {
         const { active, over } = event;
         const activeContainer = findContainer(active.id);
         const overContainer = findContainer(over ? over.id : null);
 
         if (activeContainer && overContainer && activeContainer !== overContainer) {
+            // Optimistic Update (already happened in DragOver mostly, but confirm here)
             setTasks((prev) => {
                 return prev.map(t => {
                     if (t.id === active.id) return { ...t, quadrant: overContainer };
                     return t;
                 });
             });
+
+            // DB Update
+            try {
+                const { error } = await supabase
+                    .from('tasks')
+                    .update({ quadrant: overContainer })
+                    .eq('id', active.id);
+
+                if (error) throw error;
+            } catch (err) {
+                console.error('Error moving task:', err);
+                setError('Failed to save move.');
+                fetchTasks(); // Revert to server state
+            }
         }
 
         setActiveId(null);
@@ -176,8 +251,16 @@ export default function TaskTriage() {
         }),
     };
 
+    if (loading) return <div className="flex justify-center p-10"><Loader2 className="animate-spin text-teal-600" /></div>;
+
     return (
         <div className="space-y-8">
+            {error && (
+                <div className="bg-red-50 text-red-600 p-3 rounded-lg flex items-center gap-2 text-sm">
+                    <CloudOff className="w-4 h-4" /> {error}
+                </div>
+            )}
+
             {/* Input Area */}
             <form onSubmit={addTask} className="flex gap-4">
                 <input
