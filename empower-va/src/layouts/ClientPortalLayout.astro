@@ -1,0 +1,55 @@
+---
+export const prerender = false;
+import ClientSidebar from "../components/ClientSidebar.jsx";
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Empower VA Client Portal" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <ViewTransitions />
+    </head>
+    <body
+        class="bg-slate-50 min-h-screen font-sans selection:bg-brand-lilac selection:text-white overflow-x-hidden"
+    >
+        <!-- Fixed Sidebar -->
+        <ClientSidebar client:load currentPath={currentPath} />
+
+        <!-- Main Content Area -->
+        <main
+            class="md:pl-24 min-h-screen relative z-10 p-6 md:p-10 transition-all duration-300"
+        >
+            <!-- Background Gradients (Atmosphere) -->
+            <div
+                class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none"
+            >
+                <div
+                    class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-lilac/5 rounded-full blur-[120px] -mr-40 -mt-40"
+                >
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-green/5 rounded-full blur-[100px] -ml-20 -mb-20"
+                >
+                </div>
+            </div>
+
+            <slot />
+        </main>
+    </body>
+</html>

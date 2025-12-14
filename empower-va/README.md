@@ -9,12 +9,36 @@ This project redefines the Virtual Assistant portfolio. Instead of a simple broc
 
 It showcases "Empower" as an **"Operational Architecture"** service, moving away from typical "admin support" branding. The site features a "Modern SaaS" aesthetic, emphasizing structure, systems, and efficiency.
 
+## ☁️ Deployment & Architecture
+
+This project is configured as a **Hybrid Astro App** for deployment on **Vercel**.
+
+*   **Static Pages (Default):** Homepage, Service Pages, and Portfolio are pre-rendered as static HTML for maximum performance and SEO.
+*   **Dynamic Pages (`prerender = false`):** The **Client Portal** (`/client-login`, `/portal/*`) runs Server-Side (SSR) to handle authentication and secure data fetching.
+
+### Prerequisites for Live Deployment
+1.  **Vercel Project:** Connect your GitHub repo to Vercel.
+2.  **Environment Variables:** Add the following to your Vercel Project Settings:
+    *   `PUBLIC_SUPABASE_URL`
+    *   `PUBLIC_SUPABASE_ANON_KEY`
+3.  **Supabase Auth:** Ensure your Site URL (e.g., `https://your-domain.com`) is added to "Redirect URLs" in Supabase Auth settings.
+
+### Local Development
+```bash
+npm run dev
+```
+
+### Build for Production
+```bash
+npm run build
+```
+
 ### 🌟 Key Features
 
 #### 1. The Command Center (Admin Suite)
 A fully functional internal tool for managing VA operations, accessible via `/tools/admin-suite`.
 *   **👥 Client CRM:** A HubSpot-style Client Manager to track hourly rates, active status, scope of work, and contact details. Powered by **Supabase**.
-*   **🧠 Task Triage:** An interactive **Eisenhower Matrix** board to prioritize tasks (Do First, Schedule, Delegate, Don't Do), with drag-and-drop persistence.
+*   **🧠 Task Triage:** An interactive **Eisenhower Matrix** board to prioritise tasks (Do First, Schedule, Delegate, Don't Do), with drag-and-drop persistence.
 *   **⏱️ The Timekeeper:** A built-in stopwatch and manual time logger that generates professional **PDF Timesheets** instantly.
 *   **📋 Smart Onboarding:** A 3-step client intake wizard that captures brand identity and logistics, saving directly to the CRM and generating a **Client Dossier PDF**.
 *   **🔐 Client Vault:** Securely store and manage client passwords and digital assets.
@@ -106,3 +130,9 @@ All commands are run from the root of the project:
 ## 🇬🇧 Localization
 
 The site is localized for the UK market, using **British English** spelling (e.g., "Optimise", "Organise") and **GBP (£)** currency formatting.
+
+
+Nicola Berry | Empower Digital Solutions 
+https://empowerdigitalsolutions.co.uk
+
+view live site: https://empowervaservices.co.uk
