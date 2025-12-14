@@ -1,7 +1,7 @@
 # Empower Virtual Assistant Services
 
 > **Operational Architecture for the Modern VA.**
-> A full-stack "Virtual Assistant Operating System" built with Astro, React, and Tailwind CSS.
+> A full-stack "Virtual Assistant Operating System" built with Astro, React, Supabase, and Tailwind CSS.
 
 ## 🚀 Project Overview
 
@@ -13,9 +13,11 @@ It showcases "Empower" as an **"Operational Architecture"** service, moving away
 
 #### 1. The Command Center (Admin Suite)
 A fully functional internal tool for managing VA operations, accessible via `/tools/admin-suite`.
-*   **🧠 Task Triage:** An interactive **Eisenhower Matrix** board with drag-and-drop functionality to prioritize tasks (Do First, Schedule, Delegate, Don't Do).
+*   **👥 Client CRM:** A HubSpot-style Client Manager to track hourly rates, active status, scope of work, and contact details. Powered by **Supabase**.
+*   **🧠 Task Triage:** An interactive **Eisenhower Matrix** board to prioritize tasks (Do First, Schedule, Delegate, Don't Do), with drag-and-drop persistence.
 *   **⏱️ The Timekeeper:** A built-in stopwatch and manual time logger that generates professional **PDF Timesheets** instantly.
-*   **📋 Onboarding Engine:** A 3-step client intake wizard that captures brand identity and logistics, generating a confidential **Client Dossier PDF**.
+*   **📋 Smart Onboarding:** A 3-step client intake wizard that captures brand identity and logistics, saving directly to the CRM and generating a **Client Dossier PDF**.
+*   **🔐 Client Vault:** Securely store and manage client passwords and digital assets.
 *   **📄 Document Generators:** Instant creation of Proposals, Contracts, and Invoices as PDF downloads.
 *   **🔒 Security Gate:** A client-side PIN protection layer (`AdminGate`) to prevent unauthorized access to internal tools.
 
@@ -30,23 +32,24 @@ A fully functional internal tool for managing VA operations, accessible via `/to
 
 #### 4. Interactive Portfolio Case Studies
 A suite of detailed case studies demonstrating technical problem solving:
-*   **🌍 Global Logistics Planner:** A fully interactive SPA for managing complex travel itineraries, built directly into the portfolio.
+*   **🌍 Global Logistics Planner:** A fully interactive SPA for managing complex travel itineraries.
 *   **📧 Inbox Zero:** Documenting a custom automation solution for email management.
 *   **🤖 Intelligent Lead Gen:** Showcasing a Ruby on Rails scraping engine.
 *   **📄 Document Automation:** Demonstrating Google Apps Script workflow improvements.
 *   **🔨 Trade Systems:** Operational architecture for trade businesses.
 
-#### 5. Performance & SEO
-*   **Static Generation:** All pages are statically prerendered (`prerender = true`) for lightning-fast loading.
-*   **SEO Optimized:** Full metadata control, generated sitemap, and configured `robots.txt` for maximum Google visibility.
-*   **Interactive Islands:** Uses **React** only where needed (Command Center, Calculator, Hero).
+#### 5. Performance & Technical
+*   **Static + Dynamic:** Hybrid architecture using Astro for static pages and React/Supabase for dynamic app features.
+*   **Database:** **Supabase (PostgreSQL)** for persisting clients, tasks, time entries, and schedule data.
+*   **SEO Optimized:** Full metadata control, automatic sitemap generation, and configured `robots.txt`.
 *   **Responsive:** Mobile-first design that looks premium on all devices.
 
 ## 🛠️ Tech Stack
 
-*   **Framework:** [Astro](https://astro.build/) (Static Site Generation)
+*   **Framework:** [Astro](https://astro.build/) (Hybrid Rendering)
+*   **Frontend:** [React](https://reactjs.org/)
+*   **Database:** [Supabase](https://supabase.com/) (PostgreSQL + RLS)
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-*   **UI Library:** [React](https://reactjs.org/)
 *   **Animations:** [Framer Motion](https://www.framer.com/motion/)
 *   **PDF Generation:** [@react-pdf/renderer](https://react-pdf.org/)
 *   **Icons:** [Lucide React](https://lucide.dev/)
@@ -55,11 +58,14 @@ A suite of detailed case studies demonstrating technical problem solving:
 
 ```text
 /
-├── public/                # Static assets
+├── public/                # Static assets (images, logos)
 ├── src/
 │   ├── components/
 │   │   ├── AdminSuite.jsx       # 🎛️ Main Command Center Interface
-│   │   ├── AdminGate.jsx        # 🔒 Security Wrapper
+│   │   ├── crm/                 # 👥 Client Relationship Management
+│   │   │   ├── ClientManager.jsx
+│   │   │   ├── ClientDetail.jsx
+│   │   │   └── AddClientModal.jsx
 │   │   ├── TaskTriage.jsx       # 🧠 Eisenhower Matrix Component
 │   │   ├── Timekeeper.jsx       # ⏱️ Stopwatch & Logger
 │   │   ├── OnboardingEngine.jsx # 📋 Client Intake Wizard
@@ -68,8 +74,12 @@ A suite of detailed case studies demonstrating technical problem solving:
 │   │   └── ...
 │   ├── layouts/
 │   │   └── MainLayout.astro     # Base layout
+│   ├── lib/
+│   │   ├── supabase.js          # 🔌 Database Connection
+│   │   └── schema.sql           # 🗄️ Database Schema
 │   └── pages/
 │       ├── index.astro          # Homepage
+│       ├── edge/                # Blog
 │       └── tools/
 │           └── admin-suite.astro # Command Center Page
 └── package.json
@@ -89,6 +99,7 @@ All commands are run from the root of the project:
 ## 🎨 Design System
 
 *   **Primary:** Teal (`#1A565E`) & Sage (`#6FA388`) - Representing calm, order, and growth.
+*   **Action:** Purple (`#8B5CF6`) - For primary calls-to-action and key UI elements.
 *   **Neutral:** Slate (`#F8FAFC` to `#0F172A`) - For clean, professional structure.
 *   **Typography:** **Inter** - A modern, highly readable sans-serif font.
 

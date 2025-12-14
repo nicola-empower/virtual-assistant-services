@@ -46,13 +46,13 @@ function SortableItem({ id, task, onDelete }) {
             className="bg-white p-3 rounded-lg shadow-sm border border-slate-100 flex items-center justify-between group hover:shadow-md transition-all cursor-grab active:cursor-grabbing"
         >
             <div className="flex items-center gap-3">
-                <GripVertical className="w-4 h-4 text-slate-300" />
+                <GripVertical className="w-4 h-4 text-slate-400" />
                 <span className="text-slate-700 font-medium">{task.text}</span>
             </div>
             <button
                 onPointerDown={(e) => e.stopPropagation()} // Prevent drag start on delete click
                 onClick={() => onDelete(task.id)}
-                className="text-slate-300 hover:text-red-500 transition-colors"
+                className="text-slate-400 hover:text-red-500 transition-colors"
             >
                 <Trash2 className="w-4 h-4" />
             </button>

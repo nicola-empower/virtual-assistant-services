@@ -83,8 +83,8 @@ export const InvoiceDocument = ({ data, logoUrl }) => (
                 <Text style={styles.bankTitle}>Payment Details</Text>
                 <Text style={styles.bankText}>Bank: Starling Bank</Text>
                 <Text style={styles.bankText}>Account Name: Nicola Berry</Text>
-                <Text style={styles.bankText}>Sort Code: XX-XX-XX</Text>
-                <Text style={styles.bankText}>Account No: XXXXXXXX</Text>
+                <Text style={styles.bankText}>Sort Code: 608371</Text>
+                <Text style={styles.bankText}>Account No: 37753996</Text>
             </View>
 
             {/* Footer */}

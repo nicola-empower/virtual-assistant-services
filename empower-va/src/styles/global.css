@@ -30,3 +30,44 @@ h6 {
 	font-family: 'Inter', system-ui, sans-serif;
 	letter-spacing: -0.025em;
 }
+
+/* Glassmorphism Utilities */
+@layer components {
+	.glass-sidebar {
+		@apply backdrop-blur-[20px] bg-white/30 border-r border-white/40;
+	}
+
+	.glass-card {
+		@apply backdrop-blur-[10px] bg-white/40 border border-white/20 transition-all duration-300;
+	}
+
+	.glass-card:hover {
+		@apply translate-y-[-5px] shadow-[0_10px_20px_rgba(0,0,0,0.05)] bg-white/60;
+	}
+
+	.glass-modal-content {
+		@apply backdrop-blur-[10px] bg-white/40 border border-white/20;
+	}
+}
+
+/* Brand Colors */
+:root {
+	--brand-lilac: #8B5CF6;
+	--brand-lilac-light: #EDE9FE;
+	--brand-lilac-dark: #6D28D9;
+	
+	--brand-green: #10B981;
+	--brand-green-light: #D1FAE5;
+	--brand-green-dark: #047857;
+}
+
+.text-brand-lilac { color: var(--brand-lilac); }
+.bg-brand-lilac { background-color: var(--brand-lilac); }
+.bg-brand-lilac-light { background-color: var(--brand-lilac-light); }
+.text-brand-lilac-dark { color: var(--brand-lilac-dark); }
+.hover\:bg-brand-lilac-hover:hover { background-color: #7C3AED; }
+
+.text-brand-green { color: var(--brand-green); }
+.bg-brand-green { background-color: var(--brand-green); }
+.bg-brand-green-light { background-color: var(--brand-green-light); }
+.text-brand-green-dark { color: var(--brand-green-dark); }
