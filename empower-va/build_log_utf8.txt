@@ -1,0 +1,155 @@
+﻿
+> empower-va@0.0.3 build
+> astro build
+
+[2m12:29:20[22m [34m[content][39m Syncing content
+[2m12:29:20[22m [34m[content][39m Synced content
+[2m12:29:20[22m [34m[types][39m Generated [2m1.13s[22m
+[2m12:29:20[22m [34m[build][39m output: [34m"static"[39m
+[2m12:29:20[22m [34m[build][39m mode: [34m"static"[39m
+[2m12:29:20[22m [34m[build][39m directory: [34mC:\Users\nicol\OneDrive\Desktop\the websites\virtual assistant services\empower-va\dist\[39m
+[2m12:29:20[22m [34m[build][39m Collecting build info...
+[2m12:29:20[22m [34m[build][39m [32mÔ£ô Completed in 1.28s.[39m
+[2m12:29:20[22m [34m[build][39m Building static entrypoints...
+[33m[1m12:29:24[22m [WARN] [vite][39m 
+/grid.svg referenced in /grid.svg didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m12:29:25[22m [34m[vite][39m [32mÔ£ô built in 5.31s[39m
+[2m12:29:25[22m [34m[build][39m [32mÔ£ô Completed in 5.41s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m12:29:25[22m [34m[vite][39m transforming...
+[2m12:29:36[22m [34m[vite][39m [32mÔ£ô[39m 2468 modules transformed.
+[2m12:29:36[22m [34m[vite][39m rendering chunks...
+[2m12:29:38[22m [34m[vite][39m computing gzip size...
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/x.Ci6_K2xs.js                                                  [39m[1m[2m    0.34 kB[22m[1m[22m[2m Ôöé gzip:   0.26 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/arrow-right.BC30bGbL.js                                        [39m[1m[2m    0.35 kB[22m[1m[22m[2m Ôöé gzip:   0.27 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/circle-check.Cge-rSV1.js                                       [39m[1m[2m    0.36 kB[22m[1m[22m[2m Ôöé gzip:   0.28 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/circle-alert.kFVLxma3.js                                       [39m[1m[2m    0.43 kB[22m[1m[22m[2m Ôöé gzip:   0.30 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/file-text.B0N4wvsd.js                                          [39m[1m[2m    0.57 kB[22m[1m[22m[2m Ôöé gzip:   0.36 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/_commonjsHelpers.D6-XlEtG.js                                   [39m[1m[2m    0.73 kB[22m[1m[22m[2m Ôöé gzip:   0.39 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/mail.CVKmxSrH.js                                               [39m[1m[2m    0.78 kB[22m[1m[22m[2m Ôöé gzip:   0.39 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/client-login.astro_astro_type_script_index_0_lang.m9tqV6KR.js  [39m[1m[2m    0.82 kB[22m[1m[22m[2m Ôöé gzip:   0.46 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/createLucideIcon.DNYZ4Shx.js                                   [39m[1m[2m    2.57 kB[22m[1m[22m[2m Ôöé gzip:   1.13 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/ContractGenerator.B25PAiEy.js                                  [39m[1m[2m    3.43 kB[22m[1m[22m[2m Ôöé gzip:   1.50 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.BiXryvC3.js                                              [39m[1m[2m    3.89 kB[22m[1m[22m[2m Ôöé gzip:   1.52 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/OverwhelmCalculator.DefA90Zt.js                                [39m[1m[2m    4.55 kB[22m[1m[22m[2m Ôöé gzip:   1.88 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/ClientSidebar.NfkwHgGy.js                                      [39m[1m[2m    6.00 kB[22m[1m[22m[2m Ôöé gzip:   2.43 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.xAY1PbN_.js                                              [39m[1m[2m    7.92 kB[22m[1m[22m[2m Ôöé gzip:   3.10 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/HeroProcessor.CAdG49r7.js                                      [39m[1m[2m    8.64 kB[22m[1m[22m[2m Ôöé gzip:   3.47 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/tslib.es6.DLa7mYsq.js                                          [39m[1m[2m   11.21 kB[22m[1m[22m[2m Ôöé gzip:   4.05 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js  [39m[1m[2m   15.33 kB[22m[1m[22m[2m Ôöé gzip:   5.27 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/ContactForm.B8lWHEbr.js                                        [39m[1m[2m   20.87 kB[22m[1m[22m[2m Ôöé gzip:   8.17 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/proxy.BymffehM.js                                              [39m[1m[2m  112.16 kB[22m[1m[22m[2m Ôöé gzip:  36.89 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/AdminSuite.D_HYyvBT.js                                         [39m[1m[2m  143.98 kB[22m[1m[22m[2m Ôöé gzip:  37.59 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/supabase.DdYAh7EM.js                                           [39m[1m[2m  178.55 kB[22m[1m[22m[2m Ôöé gzip:  46.23 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.DM04bkqW.js                                             [39m[1m[2m  182.78 kB[22m[1m[22m[2m Ôöé gzip:  57.63 kB[22m
+[2m12:29:38[22m [34m[vite][39m [2mdist/[22m[36m_astro/ContractDocument.DrCOb1YP.js                                   [39m[1m[33m1,494.75 kB[39m[22m[2m Ôöé gzip: 500.27 kB[22m
+[33m[1m12:29:38[22m [WARN] [vite][39m [33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[2m12:29:38[22m [34m[vite][39m [32mÔ£ô built in 12.78s[39m
+
+[42m[30m generating static routes [39m[49m
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/404.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/404.html[22m [2m(+21ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/about.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/about/index.html[22m [2m(+9ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/client-login.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/client-login/index.html[22m [2m(+4ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/contact.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/contact/index.html[22m [2m(+7ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/edge/index.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/edge/index.html[22m [2m(+16ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/edge/[...slug].astro
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/effective-delegation/index.html[22m [2m(+14ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/document-automation/index.html[22m [2m(+9ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/employee-vs-va/index.html[22m [2m(+14ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/google-drive/index.html[22m [2m(+11ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/secret-weapon/index.html[22m [2m(+10ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/hidden-cost-of-admin/index.html[22m [2m(+9ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/tools-and-tech/index.html[22m [2m(+10ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/what-to-outsource/index.html[22m [2m(+9ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/wishaw/index.html[22m [2m(+9ms)[22m 
+[2m12:29:38[22m   [34mÔö£ÔöÇ[39m [2m/edge/welcome-to-the-edge/index.html[22m [2m(+3ms)[22m 
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/edge/wishaw-lanarkshire/index.html[22m [2m(+3ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/portal/assets.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/portal/assets/index.html[22m [2m(+6ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/portal/vault.astro
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/portal/vault/index.html[22m [2m(+3ms)[22m 
+[2m12:29:38[22m [32mÔûÂ[39m src/pages/portal/index.astro
+node.exe : client 
+is not defined
+At line:1 char:1
++ & "C:\Program File
+s\nodejs/node.exe" "
+C:\Users\nicol\AppDa
+ta\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo  
+            : NotS  
+  pecified: (clie   
+ nt is not defin    
+ed:String) [],     
+RemoteException
+    + FullyQualifie 
+   dErrorId : Nati  
+  veCommandError
+ 
+  [1mStack 
+trace:[22m
+[2m    at file:///C
+:/Users/nicol/OneDri
+ve/Desktop/the%20web
+sites/virtual%20assi
+stant%20services/emp
+ower-va/dist/pages/p
+ortal.astro.mjs?time
+=1765801778935:14:10
+2
+    at callComponent
+AsTemplateResultOrRe
+sponse (file:///C:/U
+sers/nicol/OneDrive/
+Desktop/the%20websit
+es/virtual%20assista
+nt%20services/empowe
+r-va/node_modules/as
+tro/dist/runtime/ser
+ver/render/astro/ren
+der.js:91:31)
+    at renderPage (f
+ile:///C:/Users/nico
+l/OneDrive/Desktop/t
+he%20websites/virtua
+l%20assistant%20serv
+ices/empower-va/node
+_modules/astro/dist/
+runtime/server/rende
+r/page.js:49:18)
+    at async 
+NOOP_MIDDLEWARE_FN (
+file:///C:/Users/nic
+ol/OneDrive/Desktop/
+the%20websites/virtu
+al%20assistant%20ser
+vices/empower-va/nod
+e_modules/astro/dist
+/core/middleware/noo
+p-middleware.js:3:20
+)
+    at async RenderC
+ontext.render (file:
+///C:/Users/nicol/On
+eDrive/Desktop/the%2
+0websites/virtual%20
+assistant%20services
+/empower-va/node_mod
+ules/astro/dist/core
+/render-context.js:2
+48:22)[22m
+[2m12:29:38[22m   [34mÔööÔöÇ[39m [2m/portal/index.html[22m

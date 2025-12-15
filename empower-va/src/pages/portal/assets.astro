@@ -1,120 +1,27 @@
 ---
-export const prerender = false;
+export const prerender = true;
 import ClientPortalLayout from "../../layouts/ClientPortalLayout.astro";
-import { supabase } from "../../lib/supabase";
-import { FolderOpen, FileText, Image, Download, File } from "lucide-react";
-
-// Server-Side Auth
-const { cookies, redirect } = Astro;
-const accessToken = cookies.get("sb-access-token");
-const refreshToken = cookies.get("sb-refresh-token");
-
-if (!accessToken || !refreshToken) {
-    return redirect("/client-login");
-}
-
-let session;
-try {
-    const { data, error } = await supabase.auth.setSession({
-        access_token: accessToken.value,
-        refresh_token: refreshToken.value,
-    });
-    if (error) throw error;
-    session = data.session;
-} catch (error) {
-    return redirect("/client-login");
-}
-
-const user = session?.user;
-
-// Get Client Profile
-const { data: client } = await supabase
-    .from("clients")
-    .select("id, name")
-    .eq("linked_user_id", user?.id)
-    .single();
-
-let assets = [];
-if (client) {
-    const { data } = await supabase
-        .from("assets")
-        .select("*")
-        .eq("client_id", client.id)
-        .order("created_at", { ascending: false });
-    assets = data || [];
-}
-
-const getIcon = (type: any) => {
-    if (type?.includes("image")) return Image;
-    if (type?.includes("pdf") || type?.includes("document")) return FileText;
-    return File;
-};
+import { Wrench } from "lucide-react";
 ---
 
-<ClientPortalLayout title="My Assets | File Library">
-    <div class="mb-8">
-        <h1
-            class="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3"
-        >
-            <FolderOpen className="w-8 h-8 text-blue-600" />
-            Asset Library
+<ClientPortalLayout title="Maintenance | Assets">
+    <div
+        class="flex flex-col items-center justify-center min-h-[50vh] text-center"
+    >
+        <div class="bg-amber-100 p-6 rounded-full mb-6">
+            <Wrench className="w-12 h-12 text-amber-600" />
+        </div>
+        <h1 class="text-3xl font-bold text-slate-900 mb-4">
+            Assets Under Maintenance
         </h1>
-        <p class="text-slate-500 mt-2">
-            Your contracts, deliverables, and shared resources.
+        <p class="text-slate-600 max-w-md mx-auto mb-8">
+            We are enhancing our file storage system. Please check back soon.
         </p>
+        <a
+            href="/"
+            class="px-6 py-3 bg-slate-900 text-white rounded-lg font-bold hover:bg-slate-800 transition-colors"
+        >
+            Return to Home
+        </a>
     </div>
-
-    {
-        !client ? (
-            <div class="p-4 bg-red-50 text-red-600 rounded-lg">
-                Profile not linked. Contact Admin.
-            </div>
-        ) : (
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {assets.length === 0 ? (
-                    <div class="col-span-full py-12 text-center bg-white/50 rounded-2xl border border-dashed border-slate-300">
-                        <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <FolderOpen className="w-8 h-8 text-slate-300" />
-                        </div>
-                        <h3 class="text-slate-900 font-bold mb-1">
-                            No Assets Yet
-                        </h3>
-                        <p class="text-slate-500 text-sm">
-                            Your files will appear here once shared.
-                        </p>
-                    </div>
-                ) : (
-                    assets.map((asset: any) => {
-                        const FileIcon = getIcon(asset.type);
-                        return (
-                            <div class="glass-card p-5 rounded-xl border border-white/60 relative group hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between h-full">
-                                <div>
-                                    <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-100 transition-colors">
-                                        <FileIcon className="w-6 h-6" />
-                                    </div>
-                                    <h3 class="font-bold text-slate-900 leading-tight mb-1 line-clamp-2">
-                                        {asset.name}
-                                    </h3>
-                                    <p class="text-xs text-slate-400 mb-4">
-                                        {new Date(
-                                            asset.created_at,
-                                        ).toLocaleDateString()}
-                                    </p>
-                                </div>
-
-                                <a
-                                    href={asset.file_url}
-                                    download
-                                    target="_blank"
-                                    class="w-full flex items-center justify-center gap-2 py-2 bg-slate-100 text-slate-700 font-bold text-sm rounded-lg hover:bg-slate-900 hover:text-white transition-all"
-                                >
-                                    <Download className="w-4 h-4" /> Download
-                                </a>
-                            </div>
-                        );
-                    })
-                )}
-            </div>
-        )
-    }
 </ClientPortalLayout>

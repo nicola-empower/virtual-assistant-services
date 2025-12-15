@@ -1,0 +1,76 @@
+import { e as createAstro, c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, d as addAttribute } from '../../chunks/astro/server_D4wsHHS1.mjs';
+import 'piccolore';
+import { $ as $$ClientPortalLayout } from '../../chunks/ClientPortalLayout_BEmFBeLm.mjs';
+import { supabase } from '../../chunks/supabase_DWJzf1lo.mjs';
+import { Shield, Key, Copy } from 'lucide-react';
+export { renderers } from '../../renderers.mjs';
+
+const $$Astro = createAstro("https://empowervaservices.co.uk");
+const prerender = false;
+const $$Vault = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Vault;
+  const { cookies, redirect } = Astro2;
+  const accessToken = cookies.get("sb-access-token");
+  const refreshToken = cookies.get("sb-refresh-token");
+  if (!accessToken || !refreshToken) {
+    return redirect("/client-login");
+  }
+  let session;
+  try {
+    const { data, error } = await supabase.auth.setSession({
+      access_token: accessToken.value,
+      refresh_token: refreshToken.value
+    });
+    if (error) throw error;
+    session = data.session;
+  } catch (error) {
+    return redirect("/client-login");
+  }
+  const user = session?.user;
+  const { data: client } = await supabase.from("clients").select("id, name").eq("linked_user_id", user?.id).single();
+  let vaultItems = [];
+  if (client) {
+    const { data } = await supabase.from("vault_items").select("*").eq("client_id", client.id).order("created_at", { ascending: false });
+    vaultItems = data || [];
+  }
+  return renderTemplate`${renderComponent($$result, "ClientPortalLayout", $$ClientPortalLayout, { "title": "My Vault | Secure Credentials" }, { "default": async ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="mb-8"> <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3"> ${renderComponent($$result2, "Shield", Shield, { "className": "w-8 h-8 text-teal-600" })}
+Secure Vault
+</h1> <p class="text-slate-500 mt-2">
+Shared credentials and sensitive notes. End-to-end encrypted
+            storage.
+</p> </div> ${!client ? renderTemplate`<div class="p-4 bg-red-50 text-red-600 rounded-lg">
+Profile not linked. Contact Admin.
+</div>` : renderTemplate`<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> ${vaultItems.length === 0 ? renderTemplate`<div class="col-span-full py-12 text-center bg-white/50 rounded-2xl border border-dashed border-slate-300"> <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"> ${renderComponent($$result2, "Key", Key, { "className": "w-8 h-8 text-slate-300" })} </div> <h3 class="text-slate-900 font-bold mb-1">
+Vault is Empty
+</h3> <p class="text-slate-500 text-sm">
+No credentials have been shared with you yet.
+</p> </div>` : vaultItems.map((item) => renderTemplate`<div class="glass-card p-6 rounded-xl border border-white/60 relative group hover:-translate-y-1 transition-transform duration-300"> <div class="flex items-start justify-between mb-4"> <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-600"> ${renderComponent($$result2, "Key", Key, { "className": "w-5 h-5" })} </div> <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-1 rounded">
+CREDENTIAL
+</span> </div> <h3 class="font-bold text-slate-900 text-lg mb-1"> ${item.title} </h3> ${item.url && renderTemplate`<a${addAttribute(item.url, "href")} target="_blank" class="text-xs text-brand-lilac hover:underline truncate block mb-4"> ${item.url} </a>`} <div class="space-y-3 bg-slate-50/50 p-3 rounded-lg border border-slate-100/50"> <div> <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+Username
+</label> <div class="font-mono text-sm text-slate-700 select-all"> ${item.username || "---"} </div> </div> <div> <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+Password
+</label> <div class="flex items-center gap-2"> <div class="font-mono text-sm text-slate-700 bg-white px-2 py-1 rounded border border-slate-200 cursor-pointer hover:border-brand-lilac transition-colors group/pass relative"> <span class="blur-sm hover:blur-none transition-all duration-300"> ${item.password} </span> <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/pass:opacity-100 pointer-events-none whitespace-nowrap">
+Hover to Reveal
+</div> </div> <button${addAttribute(`navigator.clipboard.writeText('${item.password}')`, "onclick")} class="text-slate-400 hover:text-teal-600 transition-colors" title="Copy Password"> ${renderComponent($$result2, "Copy", Copy, { "className": "w-4 h-4" })} </button> </div> </div> </div> ${item.notes && renderTemplate`<div class="mt-4 pt-4 border-t border-slate-100"> <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
+Notes
+</label> <p class="text-xs text-slate-600 italic">
+"${item.notes}"
+</p> </div>`} </div>`)} </div>`}` })}`;
+}, "C:/Users/nicol/OneDrive/Desktop/the websites/virtual assistant services/empower-va/src/pages/portal/vault.astro", void 0);
+
+const $$file = "C:/Users/nicol/OneDrive/Desktop/the websites/virtual assistant services/empower-va/src/pages/portal/vault.astro";
+const $$url = "/portal/vault";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    default: $$Vault,
+    file: $$file,
+    prerender,
+    url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -1,5 +1,8 @@
 # Empower Virtual Assistant Services
 
+> [!IMPORTANT]
+> The Client Portal is currently in maintenance mode for security updates. Static pages are temporarily serving maintenance messages.
+
 > **Operational Architecture for the Modern VA.**
 > A full-stack "Virtual Assistant Operating System" built with Astro, React, Supabase, and Tailwind CSS.
 

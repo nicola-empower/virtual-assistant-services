@@ -13,8 +13,8 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://empowervaservices.co.uk',
-  output: 'static',
-  adapter: vercel(),
+  // output: 'static',
+  // adapter: vercel(),
   vite: {
     plugins: [tailwindcss()]
   },
