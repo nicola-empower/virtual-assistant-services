@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 
 import mdx from '@astrojs/mdx';
 
+import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
 import vercel from '@astrojs/vercel';
@@ -19,6 +20,10 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), mdx(), sitemap()]
+  integrations: [react(), mdx(), sitemap(), partytown({
+    config: {
+      forward: ["dataLayer.push"],
+    },
+  })]
 });
 // Trigger rebuild
