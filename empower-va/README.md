@@ -63,11 +63,12 @@ A suite of detailed case studies demonstrating technical problem solving:
 *   **📧 Inbox Zero:** Documenting a custom automation solution for email management.
 *   **🤖 Intelligent Lead Gen:** Showcasing a Ruby on Rails scraping engine.
 *   **📄 Document Automation:** Demonstrating Google Apps Script workflow improvements.
-*   **🔨 Trade Systems:** Operational architecture for trade businesses.
+*   **🔨 Trade Systems:** Business system architecture for trade businesses (`business-system-build-trades`).
 
 #### 5. Performance & Technical
 *   **Static + Dynamic:** Hybrid architecture using Astro for static pages and React/Supabase for dynamic app features.
 *   **Database:** **Supabase (PostgreSQL)** for persisting clients, tasks, time entries, and schedule data.
+*   **Analytics:** **Partytown** configured for off-main-thread analytics processing.
 *   **SEO Optimized:** Full metadata control, automatic sitemap generation, and configured `robots.txt`.
 *   **Responsive:** Mobile-first design that looks premium on all devices.
 
@@ -77,6 +78,7 @@ A suite of detailed case studies demonstrating technical problem solving:
 *   **Frontend:** [React](https://reactjs.org/)
 *   **Database:** [Supabase](https://supabase.com/) (PostgreSQL + RLS)
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Analytics:** [Partytown](https://partytown.builder.io/)
 *   **Animations:** [Framer Motion](https://www.framer.com/motion/)
 *   **PDF Generation:** [@react-pdf/renderer](https://react-pdf.org/)
 *   **Icons:** [Lucide React](https://lucide.dev/)
@@ -91,8 +93,8 @@ A suite of detailed case studies demonstrating technical problem solving:
 │   │   ├── AdminSuite.jsx       # 🎛️ Main Command Center Interface
 │   │   ├── crm/                 # 👥 Client Relationship Management
 │   │   │   ├── ClientManager.jsx
-│   │   │   ├── ClientDetail.jsx
-│   │   │   └── AddClientModal.jsx
+│   │   │   ├── AddClientModal.jsx
+│   │   │   └── AddEventModal.jsx
 │   │   ├── TaskTriage.jsx       # 🧠 Eisenhower Matrix Component
 │   │   ├── Timekeeper.jsx       # ⏱️ Stopwatch & Logger
 │   │   ├── OnboardingEngine.jsx # 📋 Client Intake Wizard
@@ -107,6 +109,8 @@ A suite of detailed case studies demonstrating technical problem solving:
 │   └── pages/
 │       ├── index.astro          # Homepage
 │       ├── edge/                # Blog
+│       ├── portfolio/           # Case Studies
+│       ├── services/            # Service Pages
 │       └── tools/
 │           └── admin-suite.astro # Command Center Page
 └── package.json
