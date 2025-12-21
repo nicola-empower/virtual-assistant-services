@@ -15,7 +15,8 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://empowervaservices.co.uk',
   output: 'static',
-  adapter: vercel(),
+  outDir: './dist',
+  // adapter: vercel(),
   vite: {
     plugins: [tailwindcss()]
   },

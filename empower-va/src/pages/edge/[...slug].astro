@@ -6,6 +6,10 @@ import { ArrowLeft } from "lucide-react";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
+    console.log(
+        "DEBUG: Generated Blog Slugs:",
+        posts.map((p) => p.slug),
+    );
     return posts.map((post) => ({
         params: { slug: post.slug },
         props: post,

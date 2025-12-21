@@ -1,422 +1,82 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="/logo.png">
-    <meta name="generator" content="Astro v5.16.3">
-    <link rel="canonical" href="https://empowervaservices.co.uk/portfolio/global-logistics-planner/">
-    <title>Global Logistics Planner | Empower VA Tools</title>
-    <meta name="title" content="Global Logistics Planner | Empower VA Tools">
-    <meta name="description"
-        content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://empowervaservices.co.uk/portfolio/global-logistics-planner/">
-    <meta property="og:title" content="Global Logistics Planner | Empower VA Tools">
-    <meta property="og:description"
-        content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place.">
-    <meta property="og:image" content="https://empowervaservices.co.uk/default-og.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://empowervaservices.co.uk/portfolio/global-logistics-planner/">
-    <meta property="twitter:title" content="Global Logistics Planner | Empower VA Tools">
-    <meta property="twitter:description"
-        content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place.">
-    <meta property="twitter:image" content="https://empowervaservices.co.uk/default-og.png">
-    <link rel="sitemap" href="/sitemap-index.xml">
-    <meta name="astro-view-transitions-enabled" content="true">
-    <meta name="astro-view-transitions-fallback" content="animate">
-    <script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script>
-    <link rel="stylesheet" href="/_astro/about.CcmneLAj.css">
-    <link rel="stylesheet" href="/_astro/assets.B-a8wUN0.css">
-</head>
-
-<body
-    class="font-sans text-slate-900 bg-slate-50 dark:bg-slate-900 dark:text-white antialiased selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100">
-    <nav
-        class="fixed w-full z-50 top-0 start-0 border-b border-slate-200 bg-white/80 dark:bg-slate-900/80 dark:border-slate-800 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6 py-4"> <a href="/"
-                class="flex items-center space-x-3 rtl:space-x-reverse"> <img src="/logo.png" class="h-10"
-                    alt="Empower VA Logo"> </a> <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 dark:text-slate-400 rounded-lg md:hidden hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700"
-                aria-controls="navbar-default" aria-expanded="false"> <span class="sr-only">Open main menu</span> <svg
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-menu w-5 h-5" aria-hidden="true">
-                    <path d="M4 5h16"></path>
-                    <path d="M4 12h16"></path>
-                    <path d="M4 19h16"></path>
-                </svg> </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 dark:border-slate-800 rounded-lg bg-slate-50 dark:bg-slate-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:md:bg-transparent">
-                    <li> <a href="/"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Home</a>
-                    </li>
-                    <li> <a href="/about"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">About</a>
-                    </li>
-                    <li> <a href="/services"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Services</a>
-                    </li>
-                    <li> <a href="/portfolio"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Portfolio</a>
-                    </li>
-                    <li> <a href="/#process"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Process</a>
-                    </li>
-                    <li> <a href="/#pricing"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Pricing</a>
-                    </li>
-                    <li> <a href="/edge"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">The
-                            Edge</a> </li>
-                    <li> <a href="/contact"
-                            class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <script
-        type="module">const e = document.querySelector('[data-collapse-toggle="navbar-default"]'), t = document.getElementById("navbar-default"); e && t && e.addEventListener("click", () => { t.classList.toggle("hidden") });</script>
-    <main class="relative min-h-screen pt-24 bg-slate-50"> <!-- STORY / CONTEXT SECTION -->
-        <section class="max-w-4xl mx-auto px-6 py-12">
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/50 border border-blue-200 text-xs font-bold text-blue-800 uppercase tracking-wide mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-plane w-4 h-4" aria-hidden="true">
-                    <path
-                        d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z">
-                    </path>
-                </svg>
-                Live Tool Demo
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                Global Logistics Planner
-            </h1>
-            <div class="prose prose-lg text-slate-600 mb-12">
-                <p class="lead text-xl font-medium text-slate-800">
-                    They say necessity is the mother of invention. This tool
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/logo.png"><meta name="generator" content="Astro v5.16.3"><link rel="canonical" href="https://empowervaservices.co.uk/portfolio/global-logistics-planner/"><title>Global Logistics Planner | Empower VA Tools</title><meta name="title" content="Global Logistics Planner | Empower VA Tools"><meta name="description" content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place."><meta property="og:type" content="website"><meta property="og:url" content="https://empowervaservices.co.uk/portfolio/global-logistics-planner/"><meta property="og:title" content="Global Logistics Planner | Empower VA Tools"><meta property="og:description" content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place."><meta property="og:image" content="https://empowervaservices.co.uk/default-og.png"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://empowervaservices.co.uk/portfolio/global-logistics-planner/"><meta property="twitter:title" content="Global Logistics Planner | Empower VA Tools"><meta property="twitter:description" content="A custom-built logistics dashboard designed to manage complex travel itineraries, expenses, and family handovers in one place."><meta property="twitter:image" content="https://empowervaservices.co.uk/default-og.png"><link rel="sitemap" href="/sitemap-index.xml"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><style>@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-cyrillic-ext-400-normal.BQZuk6qB.woff2) format("woff2"),url(/_astro/inter-cyrillic-ext-400-normal.DQukG94-.woff) format("woff");unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-cyrillic-400-normal.obahsSVq.woff2) format("woff2"),url(/_astro/inter-cyrillic-400-normal.HOLc17fK.woff) format("woff");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-greek-ext-400-normal.DGGRlc-M.woff2) format("woff2"),url(/_astro/inter-greek-ext-400-normal.KugGGMne.woff) format("woff");unicode-range:U+1F00-1FFF}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-greek-400-normal.B4URO6DV.woff2) format("woff2"),url(/_astro/inter-greek-400-normal.q2sYcFCs.woff) format("woff");unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-vietnamese-400-normal.DMkecbls.woff2) format("woff2"),url(/_astro/inter-vietnamese-400-normal.Bbgyi5SW.woff) format("woff");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-latin-ext-400-normal.C1nco2VV.woff2) format("woff2"),url(/_astro/inter-latin-ext-400-normal.77YHD8bZ.woff) format("woff");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Inter;font-style:normal;font-display:swap;font-weight:400;src:url(/_astro/inter-latin-400-normal.C38fXH4l.woff2) format("woff2"),url(/_astro/inter-latin-400-normal.CyCys3Eg.woff) format("woff");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<link rel="stylesheet" href="/_astro/about.BgRQncpE.css">
+<link rel="stylesheet" href="/_astro/assets.DJerX_ok.css">
+<style>.astro-route-announcer{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}
+</style><script>!(function(w,p,f,c){if(!window.crossOriginIsolated && !navigator.serviceWorker) return;c=w[p]=Object.assign(w[p]||{},{"lib":"/~partytown/","debug":false});c[f]=(c[f]||[]).concat(["dataLayer.push"])})(window,'partytown','forward');/* Partytown 0.11.2 - MIT QwikDev */
+const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=t]=e;return[n,{...t,...r}]},n=Object.freeze((t=>{const e=new Set;let n=[];do{Object.getOwnPropertyNames(n).forEach((t=>{"function"==typeof n[t]&&e.add(t)}))}while((n=Object.getPrototypeOf(n))!==Object.prototype);return Array.from(e)})());!function(t,r,o,i,a,s,c,l,d,p,u=t,f){function h(){f||(f=1,"/"==(c=(s.lib||"/~partytown/")+(s.debug?"debug/":""))[0]&&(d=r.querySelectorAll('script[type="text/partytown"]'),i!=t?i.dispatchEvent(new CustomEvent("pt1",{detail:t})):(l=setTimeout(v,(null==s?void 0:s.fallbackTimeout)||1e4),r.addEventListener("pt0",w),a?y(1):o.serviceWorker?o.serviceWorker.register(c+(s.swPath||"partytown-sw.js"),{scope:c}).then((function(t){t.active?y():t.installing&&t.installing.addEventListener("statechange",(function(t){"activated"==t.target.state&&y()}))}),console.error):v())))}function y(e){p=r.createElement(e?"script":"iframe"),t._pttab=Date.now(),e||(p.style.display="block",p.style.width="0",p.style.height="0",p.style.border="0",p.style.visibility="hidden",p.setAttribute("aria-hidden",!0)),p.src=c+"partytown-"+(e?"atomics.js?v=0.11.2":"sandbox-sw.html?"+t._pttab),r.querySelector(s.sandboxParent||"body").appendChild(p)}function v(n,o){for(w(),i==t&&(s.forward||[]).map((function(n){const[r]=e(n);delete t[r.split(".")[0]]})),n=0;n<d.length;n++)(o=r.createElement("script")).innerHTML=d[n].innerHTML,o.nonce=s.nonce,r.head.appendChild(o);p&&p.parentNode.removeChild(p)}function w(){clearTimeout(l)}s=t.partytown||{},i==t&&(s.forward||[]).map((function(r){const[o,{preserveBehavior:i}]=e(r);u=t,o.split(".").map((function(e,r,o){var a;u=u[o[r]]=r+1<o.length?u[o[r]]||(a=o[r+1],n.includes(a)?[]:{}):(()=>{let e=null;if(i){const{methodOrProperty:n,thisObject:r}=((t,e)=>{let n=t;for(let t=0;t<e.length-1;t+=1)n=n[e[t]];return{thisObject:n,methodOrProperty:e.length>0?n[e[e.length-1]]:void 0}})(t,o);"function"==typeof n&&(e=(...t)=>n.apply(r,...t))}return function(){let n;return e&&(n=e(arguments)),(t._ptf=t._ptf||[]).push(o,arguments),n}})()}))})),"complete"==r.readyState?h():(t.addEventListener("DOMContentLoaded",h),t.addEventListener("load",h))}(window,document,navigator,top,window.crossOriginIsolated);;(e=>{e.addEventListener("astro:before-swap",e=>{let r=document.body.querySelector("iframe[src*='/~partytown/']");if(r)e.newDocument.body.append(r)})})(document);</script></head> <body class="font-sans text-slate-900 bg-slate-50 dark:bg-slate-900 dark:text-white antialiased selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100"> <nav class="fixed w-full z-50 top-0 start-0 border-b border-slate-200 bg-white/80 dark:bg-slate-900/80 dark:border-slate-800 backdrop-blur-md"> <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6 py-4"> <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse"> <img src="/logo.png" class="h-10" alt="Empower VA Logo"> </a> <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 dark:text-slate-400 rounded-lg md:hidden hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700" aria-controls="navbar-default" aria-expanded="false"> <span class="sr-only">Open main menu</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu w-5 h-5" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg> </button> <div class="hidden w-full md:block md:w-auto" id="navbar-default"> <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 dark:border-slate-800 rounded-lg bg-slate-50 dark:bg-slate-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:md:bg-transparent"> <li> <a href="/" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Home</a> </li> <li> <a href="/about" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">About</a> </li> <li> <a href="/services" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Services</a> </li> <li> <a href="/portfolio" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Portfolio</a> </li> <li> <a href="/#process" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Process</a> </li> <li> <a href="/#pricing" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Pricing</a> </li> <li> <a href="/edge" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">The Edge</a> </li> <li> <a href="/contact" class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0">Contact</a> </li> </ul> </div> </div> </nav> <script type="module">const e=document.querySelector('[data-collapse-toggle="navbar-default"]'),t=document.getElementById("navbar-default");e&&t&&e.addEventListener("click",()=>{t.classList.toggle("hidden")});</script>  <main class="relative min-h-screen pt-24 bg-slate-50"> <!-- STORY / CONTEXT SECTION --> <section class="max-w-4xl mx-auto px-6 py-12"> <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/50 border border-blue-200 text-xs font-bold text-blue-800 uppercase tracking-wide mb-6"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plane w-4 h-4" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+Live Tool Demo
+</div> <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+Global Logistics Planner
+</h1> <div class="prose prose-lg text-slate-600 mb-12"> <p class="lead text-xl font-medium text-slate-800">
+They say necessity is the mother of invention. This tool
                     wasn't built for a client initially; it was built for <em>survival</em>.
-                </p>
-                <p>
-                    Managing a business is hard enough. Add in perimenopausal
+</p> <p>
+Managing a business is hard enough. Add in perimenopausal
                     brain fog, ADHD, and the chaos of "20 plates spinning" at
                     once, and a simple business trip can become a logistical
                     nightmare.
-                </p>
-                <p>
-                    Standard calendars didn't cut it. I didn't want 10 different
+</p> <p>
+Standard calendars didn't cut it. I didn't want 10 different
                     notebooks. I needed <strong>one single source of truth</strong> that could handle:
-                </p>
-                <ul class="grid md:grid-cols-2 gap-4 list-none pl-0 my-8">
-                    <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-map w-5 h-5 text-blue-500 shrink-0 mt-1" aria-hidden="true">
-                            <path
-                                d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z">
-                            </path>
-                            <path d="M15 5.764v15"></path>
-                            <path d="M9 3.236v15"></path>
-                        </svg> <span><strong>Complex Itineraries:</strong> multi-leg flights,
-                            hotels, and meetings.</span> </li>
-                    <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-circle-alert w-5 h-5 text-red-500 shrink-0 mt-1" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" x2="12" y1="8" y2="12"></line>
-                            <line x1="12" x2="12.01" y1="16" y2="16"></line>
-                        </svg> <span><strong>Home Handovers:</strong> Where are the kids?
-                            What do they need? (Don't call mum, she's flying!)</span> </li>
-                    <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-coffee w-5 h-5 text-amber-600 shrink-0 mt-1" aria-hidden="true">
-                            <path d="M10 2v2"></path>
-                            <path d="M14 2v2"></path>
-                            <path
-                                d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1">
-                            </path>
-                            <path d="M6 2v2"></path>
-                        </svg> <span><strong>Mental Load:</strong> Packing lists, expense
-                            tracking, and medication reminders.</span> </li>
-                </ul>
-                <p>
-                    The version below was my own planner, reused for business
+</p> <ul class="grid md:grid-cols-2 gap-4 list-none pl-0 my-8"> <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map w-5 h-5 text-blue-500 shrink-0 mt-1" aria-hidden="true"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg> <span><strong>Complex Itineraries:</strong> multi-leg flights,
+                            hotels, and meetings.</span> </li> <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert w-5 h-5 text-red-500 shrink-0 mt-1" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg> <span><strong>Home Handovers:</strong> Where are the kids?
+                            What do they need? (Don't call mum, she's flying!)</span> </li> <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-coffee w-5 h-5 text-amber-600 shrink-0 mt-1" aria-hidden="true"><path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"></path><path d="M6 2v2"></path></svg> <span><strong>Mental Load:</strong> Packing lists, expense
+                            tracking, and medication reminders.</span> </li> </ul> <p>
+The version below was my own planner, reused for business
                     use and anonymised for confidentiality reasons, but the core
-                    logic remains: <strong>Total Control in One View.</strong> </p>
-            </div>
-        </section> <!-- THE TOOL (Ported HTML/CSS) -->
-        <section class="border-t border-slate-200 bg-slate-200/50 py-12 px-2 md:px-6">
-            <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden border border-slate-300">
-                <!-- Tool Header -->
-                <div class="bg-[#004d99] text-white p-6 text-center shadow-lg">
-                    <h2 class="text-2xl md:text-3xl font-bold font-sans m-0">
-                        Project Dashboard Example
-                    </h2>
-                    <p class="opacity-80 text-sm mt-1">
-                        Interactive Demo - Feel free to add expenses or modify
+                    logic remains: <strong>Total Control in One View.</strong> </p> </div> </section> <!-- THE TOOL (Ported HTML/CSS) --> <section class="border-t border-slate-200 bg-slate-200/50 py-12 px-2 md:px-6"> <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden border border-slate-300"> <!-- Tool Header --> <div class="bg-[#004d99] text-white p-6 text-center shadow-lg"> <h2 class="text-2xl md:text-3xl font-bold font-sans m-0">
+Project Dashboard Example
+</h2> <p class="opacity-80 text-sm mt-1">
+Interactive Demo - Feel free to add expenses or modify
                         the packing list! (Any inputs will not be saved.)
-                    </p>
-                </div> <!-- Tool Navigation -->
-                <div class="bg-slate-800 p-2 flex flex-wrap justify-center gap-2"> <a href="#itinerary"
-                        class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Itinerary</a>
-                    <a href="#packing"
-                        class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Kit
-                        List</a> <a href="#budget"
-                        class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Budget</a>
-                    <a href="#notes"
-                        class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Delegated
-                        Tasks</a> <a href="#documents"
-                        class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Security
-                        & Docs</a> </div> <!-- Tool Content Container -->
-                <div class="p-4 md:p-8 bg-[#f8f9fa] font-sans text-slate-800 tool-container"> <!-- Dashboard -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8">
-                        <h3 class="text-[#004d99] text-xl font-bold border-b-2 border-[#004d99] pb-2 mb-4">
-                            Project Dashboard
-                        </h3>
-                        <div id="nextEvent" class="text-lg font-bold text-[#f94144] mb-4">
-                            Loading next event...
-                        </div>
-                        <h4 class="text-md font-bold text-slate-700 mb-2">
-                            Action Items (from Kit List):
-                        </h4>
-                        <ul id="actionItemsList" class="space-y-2 pl-0 list-none"> <!-- Populated by JS --> </ul>
-                    </div> <!-- Add Event -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8">
-                        <h3 class="text-[#004d99] text-xl font-bold border-b-2 border-[#004d99] pb-2 mb-4">
-                            Add New Itinerary Event
-                        </h3>
-                        <form id="addEventForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Date:</label> <input
-                                    type="date" id="eventDate" required class="p-2 border border-slate-300 rounded">
-                            </div>
-                            <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Title:</label> <input
-                                    type="text" id="eventTitle" placeholder="e.g., Meeting with CEO" required
-                                    class="p-2 border border-slate-300 rounded"> </div>
-                            <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Time (24h):</label> <input
-                                    type="time" id="eventTime" required class="p-2 border border-slate-300 rounded">
-                            </div>
-                            <div class="flex flex-col md:col-span-2"> <label
-                                    class="font-bold text-sm mb-1">Description:</label> <input type="text"
-                                    id="eventDescription" placeholder="e.g., Arrive at Louvre, Security Check..."
-                                    required class="p-2 border border-slate-300 rounded"> </div> <button type="submit"
-                                class="md:col-span-2 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add
-                                Event to Itinerary</button>
-                        </form>
-                    </div> <!-- Itinerary -->
-                    <section id="itinerary" class="mb-12">
-                        <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
-                            Itinerary: Glasgow to Istanbul
-                        </h3>
-                        <div id="itinerary-list" class="space-y-4"> <!-- Populated by JS --> </div>
-                    </section> <!-- Packing -->
-                    <section id="packing" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
-                            Essential Kit List (Assets & Tech)
-                        </h3>
-                        <form id="addPackingItemForm" class="flex gap-4 mb-6"> <input type="text" id="newPackingItem"
-                                placeholder="e.g., Presentation Clicker" required
-                                class="flex-1 p-2 border border-slate-300 rounded"> <button type="submit"
-                                class="bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add</button>
-                        </form>
-                        <div id="packing-checklist" class="space-y-3"> <!-- Populated by JS --> </div>
-                        <p class="mt-4 text-[#f94144] font-bold text-sm">
-                            *Remember to check power adapter requirements!
-                        </p>
-                    </section> <!-- Budget -->
-                    <section id="budget" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
-                            Project Budget Tracker
-                        </h3>
-                        <div class="mb-6 p-4 bg-slate-100 rounded-lg">
-                            <p class="mb-2"> <strong>Total Fixed Costs:</strong> <span id="totalFixedCost">£0.00</span>
-                            </p>
-                            <p> <strong>Total Variable (Per Diem):</strong> <span
-                                    id="totalVariableSpending">£0.00</span> </p>
-                        </div>
-                        <h4 class="font-bold mb-4">Add New Expense:</h4>
-                        <form id="addExpenseForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"> <input type="text"
-                                id="expenseDescription" placeholder="Description" required
-                                class="p-2 border border-slate-300 rounded"> <input type="number" id="expenseAmount"
-                                step="0.01" min="0" placeholder="Amount (£)" required
-                                class="p-2 border border-slate-300 rounded"> <select id="expenseCategory" required
-                                class="p-2 border border-slate-300 rounded">
-                                <option value="">Select Category</option>
-                                <option value="fixed">Fixed Cost</option>
-                                <option value="meals">Meals & Drinks</option>
-                                <option value="shopping">Supplies / Gifts</option>
-                                <option value="transport">Transport</option>
-                            </select> <button type="submit"
-                                class="md:col-span-3 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add
-                                Expense</button> </form>
-                        <div id="expense-list" class="space-y-2"> <!-- Populated by JS --> </div>
-                    </section> <!-- Notes / Delegated -->
-                    <section id="notes" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
-                            Delegated Tasks & Handoff
-                        </h3>
-                        <div class="mb-8"> <label class="block font-bold mb-2">Office/Internal Notes:</label> <textarea
-                                id="generalNotes"
-                                class="w-full p-3 border border-slate-300 rounded h-24 mb-2"></textarea> <button
-                                id="saveNotes"
-                                class="bg-[#004d99] text-white py-1 px-3 rounded text-sm hover:bg-[#00a896] transition-colors">Save
-                                Notes</button> </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold mb-4 text-lg">
-                                    Office Contact Handoff
-                                </h4>
-                                <div class="space-y-4">
-                                    <div> <label class="block text-sm font-bold mb-1">Emergency Contract:</label> <input
-                                            type="text" id="carerContact"
-                                            class="w-full p-2 border border-slate-300 rounded"> </div>
-                                    <div> <label class="block text-sm font-bold mb-1">Key Login/Access:</label>
-                                        <textarea id="kidsAllergies"
-                                            class="w-full p-2 border border-slate-300 rounded h-20"></textarea> </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold mb-4 text-lg">
-                                    Backup Procedures
-                                </h4>
-                                <div class="space-y-4">
-                                    <div> <label class="block text-sm font-bold mb-1">Server Failure:</label> <input
-                                            type="text" id="mealFriday"
-                                            class="w-full p-2 border border-slate-300 rounded"> </div>
-                                    <div> <label class="block text-sm font-bold mb-1">Comms Failure:</label> <input
-                                            type="text" id="mealSaturday"
-                                            class="w-full p-2 border border-slate-300 rounded"> </div>
-                                </div>
-                            </div>
-                        </div> <button id="saveKiddoInfo"
-                            class="mt-6 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors w-full md:w-auto">Save
-                            Handoff Details</button>
-                    </section> <!-- Documents -->
-                    <section id="documents" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
-                            Security & Documents
-                        </h3>
-                        <div class="grid md:grid-cols-2 gap-4 mb-4">
-                            <div> <label class="block text-sm font-bold mb-1">Passport/Visa:</label> <input type="text"
-                                    id="passportNumber" class="w-full p-2 border border-slate-300 rounded"> </div>
-                            <div> <label class="block text-sm font-bold mb-1">Expiry:</label> <input type="date"
-                                    id="passportExpiry" class="w-full p-2 border border-slate-300 rounded"> </div>
-                            <div class="md:col-span-2"> <label class="block text-sm font-bold mb-1">Travel
-                                    Insurance:</label> <textarea id="travelInsurance"
-                                    class="w-full p-2 border border-slate-300 rounded h-16"></textarea> </div>
-                        </div> <button id="saveDocuments"
-                            class="bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Save
-                            Documents</button>
-                    </section>
-                    <div class="text-center mt-12 text-slate-400 text-sm">
-                        <p>
-                            © 2025 Global Logistics Planner Demo. Built by
+</p> </div> <!-- Tool Navigation --> <div class="bg-slate-800 p-2 flex flex-wrap justify-center gap-2"> <a href="#itinerary" class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Itinerary</a> <a href="#packing" class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Kit List</a> <a href="#budget" class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Budget</a> <a href="#notes" class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Delegated Tasks</a> <a href="#documents" class="text-white hover:bg-[#00a896] px-4 py-2 rounded-md text-sm font-bold transition-colors no-underline">Security & Docs</a> </div> <!-- Tool Content Container --> <div class="p-4 md:p-8 bg-[#f8f9fa] font-sans text-slate-800 tool-container"> <!-- Dashboard --> <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8"> <h3 class="text-[#004d99] text-xl font-bold border-b-2 border-[#004d99] pb-2 mb-4">
+Project Dashboard
+</h3> <div id="nextEvent" class="text-lg font-bold text-[#f94144] mb-4">
+Loading next event...
+</div> <h4 class="text-md font-bold text-slate-700 mb-2">
+Action Items (from Kit List):
+</h4> <ul id="actionItemsList" class="space-y-2 pl-0 list-none"> <!-- Populated by JS --> </ul> </div> <!-- Add Event --> <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-8"> <h3 class="text-[#004d99] text-xl font-bold border-b-2 border-[#004d99] pb-2 mb-4">
+Add New Itinerary Event
+</h3> <form id="addEventForm" class="grid grid-cols-1 md:grid-cols-2 gap-4"> <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Date:</label> <input type="date" id="eventDate" required class="p-2 border border-slate-300 rounded"> </div> <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Title:</label> <input type="text" id="eventTitle" placeholder="e.g., Meeting with CEO" required class="p-2 border border-slate-300 rounded"> </div> <div class="flex flex-col"> <label class="font-bold text-sm mb-1">Time (24h):</label> <input type="time" id="eventTime" required class="p-2 border border-slate-300 rounded"> </div> <div class="flex flex-col md:col-span-2"> <label class="font-bold text-sm mb-1">Description:</label> <input type="text" id="eventDescription" placeholder="e.g., Arrive at Louvre, Security Check..." required class="p-2 border border-slate-300 rounded"> </div> <button type="submit" class="md:col-span-2 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add Event to Itinerary</button> </form> </div> <!-- Itinerary --> <section id="itinerary" class="mb-12"> <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
+Itinerary: Glasgow to Istanbul
+</h3> <div id="itinerary-list" class="space-y-4"> <!-- Populated by JS --> </div> </section> <!-- Packing --> <section id="packing" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm"> <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
+Essential Kit List (Assets & Tech)
+</h3> <form id="addPackingItemForm" class="flex gap-4 mb-6"> <input type="text" id="newPackingItem" placeholder="e.g., Presentation Clicker" required class="flex-1 p-2 border border-slate-300 rounded"> <button type="submit" class="bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add</button> </form> <div id="packing-checklist" class="space-y-3"> <!-- Populated by JS --> </div> <p class="mt-4 text-[#f94144] font-bold text-sm">
+*Remember to check power adapter requirements!
+</p> </section> <!-- Budget --> <section id="budget" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm"> <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
+Project Budget Tracker
+</h3> <div class="mb-6 p-4 bg-slate-100 rounded-lg"> <p class="mb-2"> <strong>Total Fixed Costs:</strong> <span id="totalFixedCost">£0.00</span> </p> <p> <strong>Total Variable (Per Diem):</strong> <span id="totalVariableSpending">£0.00</span> </p> </div> <h4 class="font-bold mb-4">Add New Expense:</h4> <form id="addExpenseForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"> <input type="text" id="expenseDescription" placeholder="Description" required class="p-2 border border-slate-300 rounded"> <input type="number" id="expenseAmount" step="0.01" min="0" placeholder="Amount (£)" required class="p-2 border border-slate-300 rounded"> <select id="expenseCategory" required class="p-2 border border-slate-300 rounded"> <option value="">Select Category</option> <option value="fixed">Fixed Cost</option> <option value="meals">Meals & Drinks</option> <option value="shopping">Supplies / Gifts</option> <option value="transport">Transport</option> </select> <button type="submit" class="md:col-span-3 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Add Expense</button> </form> <div id="expense-list" class="space-y-2"> <!-- Populated by JS --> </div> </section> <!-- Notes / Delegated --> <section id="notes" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm"> <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
+Delegated Tasks & Handoff
+</h3> <div class="mb-8"> <label class="block font-bold mb-2">Office/Internal Notes:</label> <textarea id="generalNotes" class="w-full p-3 border border-slate-300 rounded h-24 mb-2"></textarea> <button id="saveNotes" class="bg-[#004d99] text-white py-1 px-3 rounded text-sm hover:bg-[#00a896] transition-colors">Save Notes</button> </div> <div class="grid md:grid-cols-2 gap-8"> <div> <h4 class="font-bold mb-4 text-lg">
+Office Contact Handoff
+</h4> <div class="space-y-4"> <div> <label class="block text-sm font-bold mb-1">Emergency Contract:</label> <input type="text" id="carerContact" class="w-full p-2 border border-slate-300 rounded"> </div> <div> <label class="block text-sm font-bold mb-1">Key Login/Access:</label> <textarea id="kidsAllergies" class="w-full p-2 border border-slate-300 rounded h-20"></textarea> </div> </div> </div> <div> <h4 class="font-bold mb-4 text-lg">
+Backup Procedures
+</h4> <div class="space-y-4"> <div> <label class="block text-sm font-bold mb-1">Server Failure:</label> <input type="text" id="mealFriday" class="w-full p-2 border border-slate-300 rounded"> </div> <div> <label class="block text-sm font-bold mb-1">Comms Failure:</label> <input type="text" id="mealSaturday" class="w-full p-2 border border-slate-300 rounded"> </div> </div> </div> </div> <button id="saveKiddoInfo" class="mt-6 bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors w-full md:w-auto">Save Handoff Details</button> </section> <!-- Documents --> <section id="documents" class="mb-12 bg-white p-6 rounded-xl border border-slate-200 shadow-sm"> <h3 class="text-[#004d99] text-2xl font-bold border-b-2 border-[#004d99] pb-2 mb-6">
+Security & Documents
+</h3> <div class="grid md:grid-cols-2 gap-4 mb-4"> <div> <label class="block text-sm font-bold mb-1">Passport/Visa:</label> <input type="text" id="passportNumber" class="w-full p-2 border border-slate-300 rounded"> </div> <div> <label class="block text-sm font-bold mb-1">Expiry:</label> <input type="date" id="passportExpiry" class="w-full p-2 border border-slate-300 rounded"> </div> <div class="md:col-span-2"> <label class="block text-sm font-bold mb-1">Travel Insurance:</label> <textarea id="travelInsurance" class="w-full p-2 border border-slate-300 rounded h-16"></textarea> </div> </div> <button id="saveDocuments" class="bg-[#004d99] text-white py-2 px-4 rounded font-bold hover:bg-[#00a896] transition-colors">Save Documents</button> </section> <div class="text-center mt-12 text-slate-400 text-sm"> <p>
+© 2025 Global Logistics Planner Demo. Built by
                             Empower Digital Solutions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section> <!-- CALL TO ACTION -->
-        <section class="py-20 bg-white text-center">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl font-bold text-slate-900 mb-6">
-                    Need this kind of organisation?
-                </h2>
-                <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                    Whether it's a multi-city roadshow or just keeping your
+</p> </div> </div> </div> </section> <!-- CALL TO ACTION --> <section class="py-20 bg-white text-center"> <div class="max-w-4xl mx-auto px-6"> <h2 class="text-3xl font-bold text-slate-900 mb-6">
+Need this kind of organisation?
+</h2> <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+Whether it's a multi-city roadshow or just keeping your
                     sanity intact, I build systems that work for <em>your</em> brain.
-                </p> <a href="/contact"
-                    class="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 transition-colors">
-                    Let's Get Organised <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5" aria-hidden="true">
-                        <path d="M5 12h14"></path>
-                        <path d="m12 5 7 7-7 7"></path>
-                    </svg> </a>
-            </div>
-        </section>
-    </main>
-    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-        <div class="w-full max-w-7xl mx-auto p-4 md:py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div class="space-y-4"> <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse"> <img
-                            src="/logo.png" class="h-10" alt="Empower VA Logo"> </a>
-                    <div class="text-slate-500 dark:text-slate-400 text-sm space-y-2">
-                        <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac">
-                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            Falkirk, Scotland
-                        </p>
-                        <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac">
-                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                            </svg> <a href="mailto:nicola@empowervaservices.co.uk"
-                                class="hover:text-brand-lilac transition-colors">nicola@empowervaservices.co.uk</a> </p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-800 dark:text-white mb-4">
-                        Quick Links
-                    </h3>
-                    <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
-                        <li> <a href="/about" class="hover:text-brand-lilac transition-colors">About Me</a> </li>
-                        <li> <a href="/portfolio" class="hover:text-brand-lilac transition-colors">Portfolio</a> </li>
-                        <li> <a href="/tools/admin-suite" class="hover:text-brand-lilac transition-colors">Admin
-                                Login</a> </li>
-                        <li> <a href="/client-login" class="hover:text-brand-lilac transition-colors">Client Portal</a>
-                        </li>
-                        <li> <a href="/contact" class="hover:text-brand-lilac transition-colors">Contact</a> </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-800 dark:text-white mb-4">
-                        Opening Hours
-                    </h3>
-                    <div class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
-                        <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            Monday - Friday
-                        </p>
-                        <p class="ml-6 font-medium text-slate-700 dark:text-slate-300">
-                            10:00 AM - 6:00 PM
-                        </p>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-4 text-xs text-slate-400"> <a href="/privacy-policy"
-                            class="hover:underline">Privacy Policy</a> <a href="/terms-conditions"
-                            class="hover:underline">Terms & Conditions</a> </div>
-                </div>
-            </div>
-            <hr class="my-6 border-slate-200 dark:border-slate-800">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <div class="text-sm text-slate-500 dark:text-slate-400">
-                    &copy; 2025 Empower VA Services.
-                    <span class="block sm:inline sm:ml-2 mt-1 sm:mt-0 text-xs text-slate-400">
-                        Powered by <a href="https://empowerdigitalsolutions.co.uk/" target="_blank"
-                            class="hover:text-purple-600 transition-colors">Empower Digital Solutions</a> </span>
-                </div>
-                <div class="mt-4 sm:mt-0"> <img src="/insurance-logo.webp" alt="Insured by PolicyBee"
-                        class="h-10 opacity-70 grayscale hover:grayscale-0 transition-all"> </div>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
-<script>
+</p> <a href="/contact" class="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 transition-colors">
+Let's Get Organised <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-5 h-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg> </a> </div> </section> </main>  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"> <div class="w-full max-w-7xl mx-auto p-4 md:py-12"> <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">  <div class="space-y-4"> <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse"> <img src="/logo.png" class="h-10" alt="Empower VA Logo"> </a> <div class="text-slate-500 dark:text-slate-400 text-sm space-y-2"> <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+Falkirk, Scotland
+</p> <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg> <a href="mailto:nicola@empowervaservices.co.uk" class="hover:text-brand-lilac transition-colors">nicola@empowervaservices.co.uk</a> </p> </div> </div>  <div> <h3 class="font-bold text-slate-800 dark:text-white mb-4">
+Quick Links
+</h3> <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400"> <li> <a href="/about" class="hover:text-brand-lilac transition-colors">About Me</a> </li> <li> <a href="/portfolio" class="hover:text-brand-lilac transition-colors">Portfolio</a> </li> <li> <a href="/tools/admin-suite" class="hover:text-brand-lilac transition-colors">Admin Login</a> </li> <li> <a href="/client-login" class="hover:text-brand-lilac transition-colors">Client Portal</a> </li> <li> <a href="/contact" class="hover:text-brand-lilac transition-colors">Contact</a> </li> </ul> </div>  <div> <h3 class="font-bold text-slate-800 dark:text-white mb-4">
+Opening Hours
+</h3> <div class="space-y-2 text-sm text-slate-500 dark:text-slate-400"> <p class="flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-lilac"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+Monday - Friday
+</p> <p class="ml-6 font-medium text-slate-700 dark:text-slate-300">
+10:00 AM - 6:00 PM
+</p> </div> <div class="mt-6 flex flex-wrap gap-4 text-xs text-slate-400"> <a href="/privacy-policy" class="hover:underline">Privacy Policy</a> <a href="/terms-conditions" class="hover:underline">Terms & Conditions</a> </div> </div> </div> <hr class="my-6 border-slate-200 dark:border-slate-800"> <div class="sm:flex sm:items-center sm:justify-between"> <div class="text-sm text-slate-500 dark:text-slate-400">
+&copy; 2025 Empower VA Services.
+<span class="block sm:inline sm:ml-2 mt-1 sm:mt-0 text-xs text-slate-400">
+Powered by <a href="https://empowerdigitalsolutions.co.uk/" target="_blank" class="hover:text-purple-600 transition-colors">Empower Digital Solutions</a> </span> </div> <div class="mt-4 sm:mt-0"> <img src="/insurance-logo.webp" alt="Insured by PolicyBee" class="h-10 opacity-70 grayscale hover:grayscale-0 transition-all"> </div> </div> </div> </footer> </body></html> <script>
     // --- Global Data Object ---
     let travelData = {};
 
