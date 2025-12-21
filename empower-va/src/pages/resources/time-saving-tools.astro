@@ -1,0 +1,133 @@
+---
+import ResourceLayout from "../../layouts/ResourceLayout.astro";
+import { Wrench } from "lucide-react";
+
+export const prerender = true;
+
+const tools = [
+    {
+        category: "Project Management",
+        items: [
+            {
+                name: "Asana",
+                desc: "Great for tracking tasks, deadlines, and delegating work to a team.",
+                link: "https://asana.com",
+            },
+            {
+                name: "Trello",
+                desc: "Digital Kanban board, perfect for visual thinkers who want to move tasks from 'To Do' to 'Done'.",
+                link: "https://trello.com",
+            },
+            {
+                name: "Notion",
+                desc: "All-in-one workspace for notes, documentation, and project databases.",
+                link: "https://notion.so",
+            },
+        ],
+    },
+    {
+        category: "Communication & Meetings",
+        items: [
+            {
+                name: "Slack",
+                desc: "Replaces internal email with organized channels for faster team communication.",
+                link: "https://slack.com",
+            },
+            {
+                name: "Zoom",
+                desc: "Reliable video conferencing for client meetings and webinars.",
+                link: "https://zoom.us",
+            },
+            {
+                name: "Loom",
+                desc: "Record screen-share videos to explain tasks instead of writing long emails.",
+                link: "https://loom.com",
+            },
+        ],
+    },
+    {
+        category: "Password & Security",
+        items: [
+            {
+                name: "LastPass",
+                desc: "Securely share passwords with your VA without revealing the actual password.",
+                link: "https://lastpass.com",
+            },
+            {
+                name: "1Password",
+                desc: "Another excellent option for secure team password management.",
+                link: "https://1password.com",
+            },
+        ],
+    },
+    {
+        category: "Scheduling",
+        items: [
+            {
+                name: "Calendly",
+                desc: "Eliminate the 'when are you free?' email ping-pong by letting clients book directly.",
+                link: "https://calendly.com",
+            },
+        ],
+    },
+];
+---
+
+<ResourceLayout
+    title="Time-Saving Tools | Empower VA"
+    description="Curated list of time-saving tools for small businesses, recommended by Virtual Assistants."
+>
+    <div class="mb-10 text-center print:text-left">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wide mb-4 print:hidden"
+        >
+            <Wrench className="w-4 h-4" /> Curated Toolkit
+        </div>
+        <h1
+            class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
+        >
+            Time-Saving Tools
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto print:mx-0">
+            The right tech stack can save you hours every week. Here are the
+            battle-tested tools we recommend to our clients.
+        </p>
+    </div>
+
+    <div class="space-y-12 print:space-y-8">
+        {
+            tools.map((section) => (
+                <div class="print:break-inside-avoid">
+                    <h2 class="text-2xl font-bold text-teal-400 mb-6 border-b border-white/10 pb-2 print:text-teal-700 print:border-slate-200">
+                        {section.category}
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-6 print:block print:space-y-4">
+                        {section.items.map((tool) => (
+                            <div class="bg-slate-800/50 p-6 rounded-xl border border-white/5 hover:border-teal-500/30 transition-all group print:bg-white print:border-none print:p-0 print:border-b print:border-slate-100 print:rounded-none print-card">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-xl font-bold text-white group-hover:text-teal-300 transition-colors print:text-slate-900">
+                                        {tool.name}
+                                    </h3>
+                                    <a
+                                        href={tool.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="text-xs font-mono text-slate-500 hover:text-white print:hidden"
+                                    >
+                                        VISIT SITE ↗
+                                    </a>
+                                </div>
+                                <p class="text-slate-400 leading-relaxed print:text-slate-700">
+                                    {tool.desc}
+                                </p>
+                                <div class="hidden print:block mt-1 text-xs text-slate-400 font-mono">
+                                    {tool.link}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</ResourceLayout>

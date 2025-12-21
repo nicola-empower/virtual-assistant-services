@@ -270,7 +270,7 @@ export default function OnboardingEngine() {
                         </div>
                         <h4 className="font-bold text-slate-800 text-xl mb-2">Smart CRM Entry</h4>
                         <p className="text-sm text-slate-500 mb-8 leading-relaxed">
-                            Once approved, this will create a permanent Record in Supabase and generate a stylized PDF dossier.
+                            Once approved, this will create a permanent Record in Supabase and generate a stylised PDF dossier.
                         </p>
 
                         {isClient && step === 3 ? (

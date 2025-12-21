@@ -151,7 +151,7 @@ export const ContractDocument = ({ data, logoUrl }) => (
                     <Text style={styles.label}>FOR THE CLIENT:</Text>
                     <View style={{ height: 40, borderBottom: '1px solid #000', marginBottom: 5 }} />
                     <Text style={styles.bodyText}>{data.clientName || "[Client Name]"}</Text>
-                    <Text style={styles.subtitle}>Authorized Signatory</Text>
+                    <Text style={styles.subtitle}>Authorised Signatory</Text>
                 </View>
             </View>
 

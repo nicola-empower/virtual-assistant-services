@@ -1,0 +1,154 @@
+---
+import "@fontsource/inter";
+import "../styles/global.css";
+import { MoveLeft, Printer } from "lucide-react";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description = "Resource from Empower VA Services" } =
+    Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+    </head>
+    <body
+        class="bg-slate-900 text-slate-300 antialiased font-sans min-h-screen flex flex-col"
+    >
+        <!-- Screen Navigation -->
+        <nav
+            class="print:hidden sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10"
+        >
+            <div
+                class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between"
+            >
+                <a
+                    href="/"
+                    class="flex items-center gap-2 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
+                >
+                    <MoveLeft className="w-4 h-4" /> Back to Site
+                </a>
+                <div class="flex items-center gap-4">
+                    <!-- Logo for Screen -->
+                    <span
+                        class="font-bold text-white tracking-tight hidden sm:block"
+                        >Empower VA</span
+                    >
+                    <button
+                        onclick="window.print()"
+                        class="flex items-center gap-2 bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-lg hover:shadow-teal-500/20 cursor-pointer"
+                    >
+                        <Printer className="w-4 h-4" /> Print / Save PDF
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Print Header (Hidden on Screen) -->
+        <div
+            class="hidden print:flex print:items-center print:justify-between print:mb-8 print:pb-4 print:border-b print:border-gray-200"
+        >
+            <div class="flex items-center gap-3">
+                <img
+                    src="/logo.png"
+                    alt="Empower VA Services"
+                    class="h-12 w-auto"
+                />
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold text-slate-900"
+                        >Empower VA Services</span
+                    >
+                    <span class="text-sm text-slate-500"
+                        >Virtual Assistant Services for Small Business</span
+                    >
+                </div>
+            </div>
+            <div class="text-right">
+                <span class="text-sm text-slate-500 font-mono"
+                    >https://empowervaservices.co.uk</span
+                >
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main
+            class="flex-grow w-full max-w-4xl mx-auto px-6 py-12 print:p-0 print:max-w-none"
+        >
+            <slot />
+        </main>
+
+        <!-- Print Footer (Hidden on Screen) -->
+        <div
+            class="hidden print:block mt-auto pt-8 border-t border-gray-200 text-center text-sm text-slate-400"
+        >
+            <p>
+                &copy; {currentYear} Empower VA Services. All rights reserved.
+            </p>
+        </div>
+    </body>
+</html>
+
+<style is:global>
+    @media print {
+        /* Reset Body */
+        body {
+            background-color: white !important;
+            color: black !important;
+            font-family: "Inter", sans-serif !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* Hide Screen Elements */
+        .no-print {
+            display: none !important;
+        }
+
+        /* Typography Overrides */
+        h1 {
+            color: #0f172a !important; /* Slate 900 */
+            font-size: 24pt !important;
+            margin-bottom: 0.5cm !important;
+        }
+        h2 {
+            color: #0d9488 !important; /* Teal 600 */
+            font-size: 16pt !important;
+            margin-top: 0.5cm !important;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.1cm;
+        }
+        p,
+        li {
+            font-size: 11pt !important;
+            line-height: 1.5 !important;
+            color: #334155 !important; /* Slate 700 */
+        }
+
+        /* Container Reset */
+        main {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Remove Backgrounds/Shadows from cards if any */
+        .print-card {
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: none !important;
+            background: white !important;
+            color: black !important;
+            break-inside: avoid;
+        }
+    }
+</style>

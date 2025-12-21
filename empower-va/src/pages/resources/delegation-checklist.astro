@@ -1,0 +1,93 @@
+---
+import ResourceLayout from "../../layouts/ResourceLayout.astro";
+import { CheckSquare } from "lucide-react";
+
+export const prerender = true;
+
+const tasks = {
+    "Administrative & Operations": [
+        "Managing email inbox & filtering spam",
+        "Scheduling meetings & calendar management",
+        "Data entry & CRM updates",
+        "Travel research & booking",
+        "Invoicing & chasing payments",
+        "File organisation (Google Drive/Dropbox)",
+    ],
+    "Marketing & Social Media": [
+        "Scheduling social media posts",
+        "Replying to comments & DMs",
+        "Basic graphic design (Canva)",
+        "Formatting & scheduling blog posts",
+        "Researching hashtags & competitors",
+    ],
+    "Customer Service": [
+        "Responding to FAQs",
+        "Sending welcome packets to new clients",
+        "Collecting testimonials/reviews",
+        "Live chat support",
+    ],
+};
+---
+
+<ResourceLayout
+    title="Delegation Checklist | Empower VA"
+    description="A checklist of tasks you can outsource to a Virtual Assistant."
+>
+    <div class="mb-10 text-center print:text-left">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-wide mb-4 print:hidden"
+        >
+            <CheckSquare className="w-4 h-4" /> Free Resource
+        </div>
+        <h1
+            class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
+        >
+            Delegation Checklist
+        </h1>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto print:mx-0">
+            Are you doing tasks that don't need your specific expertise? Use
+            this checklist to identify what to offload so you can focus on
+            growth.
+        </p>
+    </div>
+
+    <div class="grid gap-8 print:block">
+        {
+            Object.entries(tasks).map(([category, items]) => (
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-white/5 print:bg-white print:border-none print:p-0 print:mb-8 print-card">
+                    <h2 class="text-2xl font-bold text-teal-400 mb-6 flex items-center gap-3 print:text-teal-700">
+                        {category}
+                    </h2>
+                    <ul class="space-y-4">
+                        {items.map((item) => (
+                            <li class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors group print:hover:bg-transparent print:p-0">
+                                <div class="mt-1 relative flex items-center justify-center shrink-0">
+                                    <input
+                                        type="checkbox"
+                                        class="peer appearance-none w-5 h-5 border-2 border-slate-500 rounded text-teal-600 focus:ring-teal-500 bg-transparent checked:bg-teal-500 checked:border-teal-500 cursor-pointer print:border-slate-800 print:bg-white"
+                                    />
+                                    <svg
+                                        class="absolute w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="3"
+                                            d="M5 13l4 4L19 7"
+                                        />
+                                    </svg>
+                                </div>
+                                <span class="text-lg text-slate-300 group-hover:text-white transition-colors print:text-slate-800">
+                                    {item}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+</ResourceLayout>

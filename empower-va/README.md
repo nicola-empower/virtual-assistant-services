@@ -132,7 +132,7 @@ All commands are run from the root of the project:
 
 ## 🇬🇧 Localization
 
-The site is localized for the UK market, using **British English** spelling (e.g., "Optimise", "Organise") and **GBP (£)** currency formatting.
+The site is localised for the UK market, using **British English** spelling (e.g., "Optimise", "Organise") and **GBP (£)** currency formatting.
 
 
 Nicola Berry | Empower Digital Solutions 
