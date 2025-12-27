@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 0h40v40H0V0zm1 1h38v38H1V1z" fill="none" stroke="#334155" stroke-opacity="0.3" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  
+  <circle cx="600" cy="315" r="250" fill="#7e22ce" filter="blur(140px)" opacity="0.4" />
+  
+  <text x="600" y="280" font-family="Arial, sans-serif" font-weight="bold" font-size="72" fill="#ffffff" text-anchor="middle">Empower VA</text>
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="36" fill="#cbd5e1" text-anchor="middle">Reclaim Your Time & Scale Your Business</text>
+  
+  <rect x="500" y="420" width="200" height="4" rx="2" fill="#2dd4bf" />
+</svg>

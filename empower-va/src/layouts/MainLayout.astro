@@ -4,6 +4,7 @@ import "@fontsource/lato";
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
 
 import { ClientRouter } from "astro:transitions";
 
@@ -17,7 +18,7 @@ interface Props {
 const {
 	title,
 	description = "Empower Virtual Assistant Services - Reclaim Your Time. Professional VA services for small businesses in Stirlingshire and beyond.",
-	image = "/default-og.png",
+	image = "/default-og.svg",
 	type = "website",
 } = Astro.props;
 
@@ -31,6 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/logo.png" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="manifest" href="/manifest.json" />
 
 		{/* Canonical URL */}
 		<link rel="canonical" href={canonicalURL} />
@@ -58,6 +60,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<ClientRouter />
 
+		{/* Partytown Loader (Manual injection to avoid validation errors) */}
+		<script is:inline>
+			!(function (w, p, f, c) {
+				if (!window.crossOriginIsolated && !navigator.serviceWorker)
+					return;
+				c = w[p] = Object.assign(w[p] || {}, {
+					lib: "/~partytown/",
+					debug: false,
+				});
+				c[f] = (c[f] || []).concat(["dataLayer.push"]);
+			})(window, "partytown", "forward");
+		</script>
+
 		{/* Google Analytics */}
 		<script
 			type="text/partytown"
@@ -71,13 +86,48 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			gtag("js", new Date());
 			gtag("config", "G-KBHVHTKDH0");
 		</script>
+		<JsonLd
+			schema={{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				name: "Empower Virtual Assistant Services",
+				url: "https://empowervaservices.co.uk",
+				logo: "https://empowervaservices.co.uk/logo.png",
+				sameAs: [
+					"https://www.linkedin.com/in/nicola-berry-virtual-assistant/",
+					"https://www.facebook.com/empowervaservices",
+				],
+				contactPoint: {
+					"@type": "ContactPoint",
+					email: "nicola@empowervaservices.co.uk",
+					contactType: "customer support",
+					areaServed: "GB",
+				},
+			}}
+		/>
 	</head>
+
 	<body
 		class="font-sans text-slate-900 bg-slate-50 dark:bg-slate-900 dark:text-white antialiased selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100"
 	>
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:start-0 focus:z-50 focus:p-4 focus:bg-white focus:text-purple-700 focus:font-bold transition-all"
+		>
+			Skip to content
+		</a>
 		<Navbar />
-		<slot />
+		<div id="main-content">
+			<slot />
+		</div>
 		<Footer />
 		<!-- Build Version: 2025-12-21 v2 (Static Dist) -->
+		<script is:inline>
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", () => {
+					navigator.serviceWorker.register("/sw.js");
+				});
+			}
+		</script>
 	</body>
 </html>

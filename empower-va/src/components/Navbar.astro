@@ -1,5 +1,6 @@
 ---
 import { Menu } from "lucide-react";
+import SiteSearch from "./SiteSearch";
 ---
 
 <nav
@@ -80,6 +81,9 @@ import { Menu } from "lucide-react";
             class="block py-2 px-3 text-slate-900 dark:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700 md:hover:bg-transparent md:border-0 md:hover:text-purple-700 dark:md:hover:text-purple-400 md:p-0"
             >Contact</a
           >
+        </li>
+        <li class="md:ml-4">
+          <SiteSearch client:idle />
         </li>
       </ul>
     </div>

@@ -1,0 +1,21 @@
+{
+    "name": "Empower Virtual Assistant Services",
+    "short_name": "Empower VA",
+    "description": "Professional VA services for small businesses in Stirlingshire and beyond.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f8fafc",
+    "theme_color": "#0f172a",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

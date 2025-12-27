@@ -1,0 +1,28 @@
+# Empower Virtual Assistant Services
+
+> Professional Virtual Assistant (VA) services for small businesses in Stirlingshire, Scotland, UK.
+
+## Services
+- **Admin Assistance**: Calendar scheduling, document management, data entry.
+- **Email Management**: Inbox zero strategies, email organization, email management, templates.
+- **Lead Generation**: GDPR compliant web scraping. 
+- **Data Entry**: Data entry, data analysis, data visualization.
+- **Content Creation**: Blog posts, email campaigns.
+- **SEO**: Search engine optimization, keyword research, on-page optimization.
+
+## Technical Capabilities & Automation
+Nicola Berry is not just an admin VA, but a skilled technical partner offering:
+- **Process Automation**: Custom workflows to replace repetitive manual tasks.
+- **Web Design & Development**: Designing and building custom websites.
+- **Custom Software Solutions**: Building bespoke software to solve specific business problems.
+> *Note: I utilise my own custom software builds to enhance the efficiency of my VA services.*
+
+## Contact
+- Email: nicola@empowervaservices.co.uk
+- Website: https://empowervaservices.co.uk
+
+## Navigation
+- [Home](https://empowervaservices.co.uk/)
+- [Services](https://empowervaservices.co.uk/services)
+- [About](https://empowervaservices.co.uk/about)
+- [Blog](https://empowervaservices.co.uk/edge)

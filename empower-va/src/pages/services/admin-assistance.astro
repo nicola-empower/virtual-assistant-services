@@ -8,9 +8,55 @@ import {
     ArrowRight,
     CheckCircle2,
 } from "lucide-react";
+import JsonLd from "../../components/JsonLd.astro";
 
 export const prerender = true;
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Expert Admin Assistance",
+    provider: {
+        "@type": "Organization",
+        name: "Empower Virtual Assistant Services",
+    },
+    description:
+        "Professional admin assistance including calendar scheduling, document management, and data entry.",
+    areaServed: {
+        "@type": "Country",
+        name: "United Kingdom",
+    },
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Admin Services",
+        itemListElement: [
+            {
+                "@type": "Offer",
+                itemOffered: {
+                    "@type": "Service",
+                    name: "Calendar & Scheduling Management",
+                },
+            },
+            {
+                "@type": "Offer",
+                itemOffered: {
+                    "@type": "Service",
+                    name: "Document Preparation & Management",
+                },
+            },
+            {
+                "@type": "Offer",
+                itemOffered: {
+                    "@type": "Service",
+                    name: "Data Entry & Database Management",
+                },
+            },
+        ],
+    },
+};
 ---
+
+<JsonLd schema={serviceSchema} />
 
 <MainLayout title="Expert Admin Assistance | Empower VA">
     <main>
