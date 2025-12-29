@@ -1,5 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
 ---
 
 <footer
@@ -13,7 +15,11 @@ const currentYear = new Date().getFullYear();
                     href="/"
                     class="flex items-center space-x-3 rtl:space-x-reverse"
                 >
-                    <img src="/logo.png" class="h-10" alt="Empower VA Logo" />
+                    <Image
+                        src={logoImage}
+                        class="h-10 w-auto"
+                        alt="Empower VA Logo"
+                    />
                 </a>
                 <div
                     class="text-slate-500 dark:text-slate-400 text-sm space-y-2"

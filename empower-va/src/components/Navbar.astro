@@ -1,6 +1,8 @@
 ---
 import { Menu } from "lucide-react";
 import SiteSearch from "./SiteSearch";
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
 ---
 
 <nav
@@ -10,7 +12,14 @@ import SiteSearch from "./SiteSearch";
     class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6 py-4"
   >
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="/logo.png" class="h-10" alt="Empower VA Logo" />
+      <Image
+        src={logoImage}
+        alt="Empower VA Logo"
+        class="h-10 w-auto"
+        loading="eager"
+        width={160}
+        height={40}
+      />
     </a>
     <button
       data-collapse-toggle="navbar-default"
