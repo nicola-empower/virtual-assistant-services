@@ -60,25 +60,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<ClientRouter />
 
-		{/* Partytown Loader (Manual injection to avoid validation errors) */}
-		<script is:inline>
-			!(function (w, p, f, c) {
-				if (!window.crossOriginIsolated && !navigator.serviceWorker)
-					return;
-				c = w[p] = Object.assign(w[p] || {}, {
-					lib: "/~partytown/",
-					debug: false,
-				});
-				c[f] = (c[f] || []).concat(["dataLayer.push"]);
-			})(window, "partytown", "forward");
-		</script>
-
 		{/* Google Analytics */}
 		<script
-			type="text/partytown"
+			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-KBHVHTKDH0"
-		></script>
-		<script type="text/partytown">
+			is:inline></script>
+		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
